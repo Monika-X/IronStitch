@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IronSmith Cobblers — Alternative Home | Heritage Shoe Atelier</title>
+  <meta name="description" content="Discover IronSmith Cobblers' alternative homepage — showcasing our premium gallery, pricing guide, craftsmanship process and drop-off timings." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👞</text></svg>" />
+  <style>
+    /* Home 2 specific */
+    .split-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100svh;
+    }
+    .split-hero__left {
+      background: var(--espresso);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 3rem) 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .split-hero__right {
+      position: relative;
+      overflow: hidden;
+    }
+    .split-hero__right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .split-hero__right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(43,33,29,0.3), transparent);
+    }
+    .tab-btn {
+      padding: 0.65rem 1.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: var(--r-full);
+      color: var(--text-muted);
+      cursor: pointer;
+      background: transparent;
+      transition: all var(--dur-fast);
+    }
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--brass);
+      border-color: var(--brass);
+      color: var(--ivory);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    @media (max-width:900px) {
+      .split-hero { grid-template-columns: 1fr; }
+      .split-hero__right { min-height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Navbar -->
+<nav class="navbar transparent" data-transparent="true" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="index.html" aria-label="IronSmith Cobblers — Home">
+      <div class="navbar__logo-icon">IS</div>
+      <div class="navbar__logo-text">
+        <span class="navbar__logo-name">IronSmith</span>
+        <span class="navbar__logo-tagline">Cobblers &amp; Atelier</span>
+      </div>
+    </a>
+    <ul class="navbar__nav" role="list">
+      <li><a href="index.html">Home I</a></li>
+      <li><a href="home2.html" class="active">Home II</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="icon-btn" data-action="toggle-rtl" style="font-size:0.68rem;font-weight:700;">RTL</button>
+      <a href="contact.html" class="navbar__cta">Book Repair</a>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home I</a><a href="home2.html">Home II</a><a href="about.html">About</a>
+  <a href="services.html">Services</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a>
+</div>
+<div class="mobile-menu-overlay"></div>
+
+<main id="main-content">
+
+<!-- ── SPLIT HERO ── -->
+<section class="split-hero" aria-label="Hero banner">
+  <div class="split-hero__left">
+    <div style="position:absolute;top:-30%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(176,141,87,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="max-width:480px;">
+      <p class="overline" style="color:var(--brass);">London's Finest Since 1947</p>
+      <h1 class="display-2" style="color:var(--ivory);margin-bottom:1.25rem;">
+        Shoes <em style="color:var(--brass);">Deserve</em><br/>a Second Life
+      </h1>
+      <p style="color:rgba(216,199,174,0.75);font-size:1.05rem;line-height:1.8;margin-bottom:2rem;">
+        Bring your beloved footwear back to life at London's most celebrated cobbler atelier. Expert repair, museum-quality finishing, and a lifetime guarantee on all workmanship.
+      </p>
+      <div style="display:flex;gap:0.75rem;margin-bottom:3rem;flex-wrap:wrap;">
+        <a href="services.html" class="btn btn-primary">Our Services</a>
+        <a href="contact.html" class="btn btn-outline" style="color:rgba(216,199,174,0.9);border-color:rgba(176,141,87,0.5);">Get a Quote</a>
+      </div>
+      <div style="display:flex;gap:2.5rem;">
+        <div>
+          <div style="font-family:var(--font-serif);font-size:2rem;color:var(--brass);font-weight:600;" data-counter="75" data-suffix="+">75+</div>
+          <div style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(216,199,174,0.5);">Years of Heritage</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-serif);font-size:2rem;color:var(--brass);font-weight:600;" data-counter="18500">18500</div>
+          <div style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(216,199,174,0.5);">Pairs Restored</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-serif);font-size:2rem;color:var(--brass);font-weight:600;" data-counter="4.9" data-suffix="★">4.9★</div>
+          <div style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(216,199,174,0.5);">Client Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="split-hero__right">
+    <img
+      src="https://images.unsplash.com/photo-1627384113972-de77c86edc29?w=1000&q=85&fit=crop"
+      alt="Artisan cobbler hand-stitching premium leather upper on a traditional last"
+      loading="eager"
+    />
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrapper" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot"></span>Goodyear Welt Construction</span>
+    <span class="marquee-item"><span class="dot"></span>Dainite Rubber Soles</span>
+    <span class="marquee-item"><span class="dot"></span>Saphir Polish</span>
+    <span class="marquee-item"><span class="dot"></span>Blake Stitch Repair</span>
+    <span class="marquee-item"><span class="dot"></span>Leather Conditioning</span>
+    <span class="marquee-item"><span class="dot"></span>Colour Restoration</span>
+    <span class="marquee-item"><span class="dot"></span>Bespoke Insoles</span>
+    <span class="marquee-item"><span class="dot"></span>Designer Specialists</span>
+    <span class="marquee-item"><span class="dot"></span>48h Express Service</span>
+    <span class="marquee-item"><span class="dot"></span>London Concierge</span>
+  </div>
+</div>
+
+<!-- ── TABBED SERVICES ── -->
+<section class="section" aria-labelledby="tabbed-heading">
+  <div class="container">
+    <header class="section-header centered reveal">
+      <p class="overline">Explore by Category</p>
+      <h2 id="tabbed-heading" class="display-3">Our <em>Specialisms</em></h2>
+      <span class="divider centered"></span>
+    </header>
+
+    <div class="tabs" style="margin-bottom:3rem;">
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;" role="tablist">
+        <button class="tab-btn active" role="tab" aria-selected="true">Repairs</button>
+        <button class="tab-btn" role="tab" aria-selected="false">Restoration</button>
+        <button class="tab-btn" role="tab" aria-selected="false">Care &amp; Protection</button>
+        <button class="tab-btn" role="tab" aria-selected="false">Fitting</button>
+      </div>
+
+      <div class="tab-panel active" role="tabpanel">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=85&fit=crop" alt="Sole replacement with Goodyear welt" loading="lazy"/>
+              <span class="service-card__badge">Popular</span>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">01</div>
+              <h3 class="service-card__title">Sole Replacement</h3>
+              <p class="service-card__text">Full sole reconstruction matching your shoe's original Goodyear welt, Blake or cemented construction.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £85</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1582845512747-e42001c95638?w=600&q=85&fit=crop" alt="Heel repair and reconstruction" loading="lazy"/>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">02</div>
+              <h3 class="service-card__title">Heel Repair</h3>
+              <p class="service-card__text">Full rebuilds, stiletto tip replacements, and rubber top-piece fitting with precision height matching.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £12</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=600&q=85&fit=crop" alt="Stitching repair on leather upper" loading="lazy"/>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">03</div>
+              <h3 class="service-card__title">Stitching Repair</h3>
+              <p class="service-card__text">Hand-sewn waxed linen and nylon thread repairs, colour-matched to original stitching patterns.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £35</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=85&fit=crop" alt="Leather colour restoration on wingtip brogue" loading="lazy"/>
+              <span class="service-card__badge">Premium</span>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">04</div>
+              <h3 class="service-card__title">Colour Restoration</h3>
+              <p class="service-card__text">Faded, scratched or stained leather brought back to original colour with professional dyes and pigments.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £65</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=600&q=85&fit=crop" alt="Deep leather conditioning treatment" loading="lazy"/>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">05</div>
+              <h3 class="service-card__title">Deep Conditioning</h3>
+              <p class="service-card__text">Collonil Nappa Leather Cream and Saphir Renovateur penetrate deep to nourish, repair cracking and restore suppleness.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £40</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1588099768531-a72d4a198538?w=600&q=85&fit=crop" alt="Mirror shine polish being applied" loading="lazy"/>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">06</div>
+              <h3 class="service-card__title">Mirror Polish</h3>
+              <p class="service-card__text">Military-grade toe caps and bespoke mirror finishes using Saphir Médaille d'Or Pâte de Luxe wax.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £55</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=600&q=85&fit=crop" alt="Waterproofing treatment being applied to boot" loading="lazy"/>
+              <span class="service-card__badge">Seasonal</span>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">07</div>
+              <h3 class="service-card__title">Waterproofing</h3>
+              <p class="service-card__text">Collonil Nano and Carbon Pro treatments create an invisible barrier against rain, salt, and moisture damage.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £25</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=600&q=85&fit=crop" alt="Suede cleaning and protection treatment" loading="lazy"/>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">08</div>
+              <h3 class="service-card__title">Suede Revitalising</h3>
+              <p class="service-card__text">Specialist suede cleaning, nap restoration and Collonil Suede Protector for year-round weather resistance.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £45</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&q=85&fit=crop" alt="Shoe stretching machine expanding leather" loading="lazy"/>
+              <span class="service-card__badge">Specialist</span>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">09</div>
+              <h3 class="service-card__title">Stretch Fitting</h3>
+              <p class="service-card__text">Mechanical and steam stretching to relieve pressure points, accommodate bunions, or widen narrow last construction.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £35</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=600&q=85&fit=crop" alt="Custom orthopaedic insole fitting" loading="lazy"/>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__number">10</div>
+              <h3 class="service-card__title">Custom Insoles</h3>
+              <p class="service-card__text">Bespoke cork, leather and memory foam insoles crafted to your foot's exact contours for unrivalled comfort.</p>
+              <div class="service-card__footer">
+                <span class="service-card__price">From £55</span>
+                <div class="service-card__arrow">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY GRID ── -->
+<section class="section bg-sand" aria-labelledby="gallery-heading">
+  <div class="container">
+    <header class="section-header centered reveal">
+      <p class="overline">Portfolio</p>
+      <h2 id="gallery-heading" class="display-3">Recent <em>Restorations</em></h2>
+      <span class="divider centered"></span>
+      <p class="lead">A curated selection of our most rewarding transformations — click any image to enlarge.</p>
+    </header>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal delay-1" data-lightbox="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200&q=90" tabindex="0" role="button" aria-label="View gallery image 1">
+        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=85&fit=crop" alt="Restored burgundy cap-toe Oxford" loading="lazy"/>
+      </div>
+      <div class="gallery-item reveal delay-2" data-lightbox="https://images.unsplash.com/photo-1611558709798-e009c8fd7706?w=1200&q=90" tabindex="0" role="button" aria-label="View gallery image 2">
+        <img src="https://images.unsplash.com/photo-1611558709798-e009c8fd7706?w=600&q=85&fit=crop" alt="Cobbler applying wax to leather brogue" loading="lazy"/>
+      </div>
+      <div class="gallery-item reveal delay-3" data-lightbox="https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=1200&q=90" tabindex="0" role="button" aria-label="View gallery image 3">
+        <img src="https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=600&q=85&fit=crop" alt="Vintage boots before restoration" loading="lazy"/>
+      </div>
+      <div class="gallery-item reveal delay-1" data-lightbox="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=1200&q=90" tabindex="0" role="button" aria-label="View gallery image 4">
+        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&q=85&fit=crop" alt="Luxury loafer sole being replaced" loading="lazy"/>
+      </div>
+      <div class="gallery-item reveal delay-2" data-lightbox="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=1200&q=90" tabindex="0" role="button" aria-label="View gallery image 5">
+        <img src="https://images.unsplash.com/photo-1588099768531-a72d4a198538?w=600&q=85&fit=crop" alt="Shoe polish collection on cobbler workbench" loading="lazy"/>
+      </div>
+      <div class="gallery-item reveal delay-3" data-lightbox="https://images.unsplash.com/photo-1549298916-f52d724204b4?w=1200&q=90" tabindex="0" role="button" aria-label="View gallery image 6">
+        <img src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=600&q=85&fit=crop" alt="Premium leather conditioner being rubbed in by hand" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DROP-OFF TIMINGS ── -->
+<section class="section" aria-labelledby="timings-heading">
+  <div class="container">
+    <div class="split-layout">
+      <div class="reveal-left">
+        <p class="overline">Visit Our Atelier</p>
+        <h2 id="timings-heading" class="display-3" style="margin-bottom:0.75rem;">Drop-Off <em>Timings</em></h2>
+        <span class="divider"></span>
+        <p class="lead" style="margin-bottom:2rem;">Walk in or book ahead. Our Jermyn Street atelier welcomes both personal visits and courier drop-offs.</p>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:1.5rem;">
+          <table style="width:100%;border-collapse:collapse;">
+            <thead>
+              <tr style="background:var(--espresso);">
+                <th style="padding:1rem 1.25rem;text-align:left;color:var(--brass);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Day</th>
+                <th style="padding:1rem 1.25rem;text-align:left;color:var(--brass);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Opening</th>
+                <th style="padding:1rem 1.25rem;text-align:left;color:var(--brass);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;">Last Drop-Off</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.875rem 1.25rem;font-weight:600;">Monday – Friday</td>
+                <td style="padding:0.875rem 1.25rem;color:var(--text-muted);">09:00 AM</td>
+                <td style="padding:0.875rem 1.25rem;color:var(--text-muted);">05:30 PM</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);background:var(--bg-alt);">
+                <td style="padding:0.875rem 1.25rem;font-weight:600;">Saturday</td>
+                <td style="padding:0.875rem 1.25rem;color:var(--text-muted);">10:00 AM</td>
+                <td style="padding:0.875rem 1.25rem;color:var(--text-muted);">03:30 PM</td>
+              </tr>
+              <tr>
+                <td style="padding:0.875rem 1.25rem;font-weight:600;">Sunday</td>
+                <td colspan="2" style="padding:0.875rem 1.25rem;color:var(--text-muted);">Closed — Courier Accepted</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:1.25rem;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">📍</div>
+            <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.25rem;">Address</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);">14 Jermyn Street<br/>St. James's, London SW1Y</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:1.25rem;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">🚇</div>
+            <div style="font-weight:700;font-size:0.85rem;margin-bottom:0.25rem;">Nearest Tube</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);">Green Park (3 min)<br/>Piccadilly Circus (5 min)</div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn btn-primary">Get Directions →</a>
+      </div>
+
+      <div class="reveal-right">
+        <div class="map-container">
+          <div class="map-placeholder">
+            <div class="map-icon">🗺️</div>
+            <p style="font-size:0.9rem;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">14 Jermyn Street, London</p>
+            <p style="font-size:0.8rem;">Interactive map — click to open in Google Maps</p>
+            <a href="https://maps.google.com/?q=14+Jermyn+Street+London" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-top:1rem;">Open in Maps</a>
+          </div>
+        </div>
+        <div style="background:var(--espresso);border-radius:var(--r-lg);padding:1.5rem;margin-top:1rem;display:flex;align-items:center;gap:1rem;">
+          <div style="font-size:2rem;">🚚</div>
+          <div>
+            <div style="color:var(--brass);font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.25rem;">London Concierge Service</div>
+            <div style="color:rgba(216,199,174,0.7);font-size:0.82rem;">Collection &amp; delivery across Central London. £15 return. Book via form or phone.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING GUIDE ── -->
+<section class="section bg-espresso" aria-labelledby="pricing-heading">
+  <div class="container">
+    <header class="section-header centered reveal">
+      <p class="overline" style="color:var(--brass);">Transparent Pricing</p>
+      <h2 id="pricing-heading" class="display-3" style="color:var(--ivory);">Our <em>Service</em> Packages</h2>
+      <span class="divider centered"></span>
+      <p class="lead" style="color:rgba(216,199,174,0.7);">No hidden fees. No surprises. A written quote before every job.</p>
+    </header>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal delay-1">
+        <div class="pricing-card__name">Essential</div>
+        <div class="pricing-card__price">
+          <span class="pricing-card__price-amount" data-price-monthly="£40" data-price-annual="£34">£40</span>
+          per service
+        </div>
+        <ul class="pricing-card__features">
+          <li>Heel tip replacement</li>
+          <li>Sole edge refinishing</li>
+          <li>Basic leather clean</li>
+          <li>Lace replacement</li>
+          <li>24–48h turnaround</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Book This</a>
+      </div>
+
+      <div class="pricing-card pricing-card--featured reveal delay-2">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-card__name" style="color:var(--brass);">Artisan</div>
+        <div class="pricing-card__price">
+          <span class="pricing-card__price-amount" style="color:var(--brass);" data-price-monthly="£120" data-price-annual="£102">£120</span>
+          per service
+        </div>
+        <ul class="pricing-card__features">
+          <li>Full sole replacement</li>
+          <li>Leather conditioning</li>
+          <li>Colour restoration</li>
+          <li>Re-welt stitching</li>
+          <li>Mirror polish finish</li>
+          <li>3–5 day turnaround</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Book This</a>
+      </div>
+
+      <div class="pricing-card reveal delay-3">
+        <div class="pricing-card__name">Heritage Restore</div>
+        <div class="pricing-card__price">
+          <span class="pricing-card__price-amount" data-price-monthly="£250" data-price-annual="£212">£250</span>
+          per service
+        </div>
+        <ul class="pricing-card__features">
+          <li>Full shoe reconstruction</li>
+          <li>Bespoke last modification</li>
+          <li>Custom sole sourcing</li>
+          <li>Deep colour overhaul</li>
+          <li>Lifetime guarantee</li>
+          <li>10–14 day turnaround</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Book This</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK ENQUIRY FORM ── -->
+<section class="section" aria-labelledby="enquiry-heading">
+  <div class="container">
+    <div style="max-width:680px;margin-inline:auto;">
+      <header class="section-header centered reveal">
+        <p class="overline">Quick Enquiry</p>
+        <h2 id="enquiry-heading" class="display-3">Tell Us About<br/> Your <em>Shoes</em></h2>
+        <span class="divider centered"></span>
+        <p class="lead">Drop us a message and we'll respond with a no-obligation quote within 4 business hours.</p>
+      </header>
+
+      <form class="validated-form reveal" novalidate style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2.5rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+          <div class="form-group">
+            <label class="form-label" for="h2-name">Full Name</label>
+            <input type="text" id="h2-name" class="form-control" placeholder="Your name" data-required aria-required="true"/>
+            <span class="form-error">Please enter your name.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="h2-email">Email</label>
+            <input type="email" id="h2-email" class="form-control" placeholder="your@email.com" data-required aria-required="true"/>
+            <span class="form-error">Please enter a valid email.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="h2-service">Service Needed</label>
+          <select id="h2-service" class="form-control" data-required aria-required="true">
+            <option value="">Select a service…</option>
+            <option>Sole Replacement</option>
+            <option>Heel Repair</option>
+            <option>Leather Polishing</option>
+            <option>Stitching Repair</option>
+            <option>Waterproofing</option>
+            <option>Stretch Fitting</option>
+            <option>Full Restoration</option>
+          </select>
+          <span class="form-error">Please select a service.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="h2-message">Describe Your Shoes</label>
+          <textarea id="h2-message" class="form-control" placeholder="Brand, style, condition, specific damage…" rows="4" data-required aria-required="true"></textarea>
+          <span class="form-error">Please describe your shoes.</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+          Send Enquiry →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">
+          <div class="footer__brand-icon">IS</div>
+          <span class="footer__brand-name">IronSmith</span>
+        </div>
+        <p class="footer__brand-desc">Heritage cobblery since 1947. Three generations of London's finest shoe restoration masters.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">👥</a>
+          <a href="#" aria-label="Twitter">✕</a>
+          <a href="#" aria-label="Pinterest">📌</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <nav class="footer__links">
+          <a href="services.html#sole">Sole Replacement</a>
+          <a href="services.html#heel">Heel Repair</a>
+          <a href="services.html#leather">Leather Polishing</a>
+          <a href="services.html#stitching">Stitching Repair</a>
+          <a href="services.html#waterproof">Waterproofing</a>
+        </nav>
+      </div>
+      <div class="footer__col">
+        <h4>Navigate</h4>
+        <nav class="footer__links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="blog.html">Journal</a>
+          <a href="contact.html">Contact</a>
+          <a href="sitemap.html">Sitemap</a>
+        </nav>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <address style="font-style:normal;">
+          <div class="footer__contact-item"><span>📍</span><div>14 Jermyn Street, London SW1Y 6LX</div></div>
+          <div class="footer__contact-item"><span>⏰</span><div>Mon–Fri 9–6 | Sat 10–4</div></div>
+          <div class="footer__contact-item"><span>📞</span><div><a href="tel:+442071234567" style="color:inherit;">+44 207 123 4567</a></div></div>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2024 IronSmith Cobblers Ltd. All rights reserved.</p>
+      <nav class="footer__bottom-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="sitemap.html">Sitemap</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox__close" aria-label="Close">✕</button>
+  <img class="lightbox__img" src="" alt="Gallery image enlarged" />
+</div>
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>

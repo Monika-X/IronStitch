@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maintenance — IronSmith Cobblers | Back Soon</title>
+  <meta name="description" content="IronSmith Cobblers is currently undergoing scheduled maintenance. We'll be back shortly. Please check back soon or contact us directly." />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👞</text></svg>" />
+  <style>
+    body {
+      background: linear-gradient(135deg, var(--espresso) 0%, var(--charcoal) 100%);
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+    .maintenance-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(176,141,87,0.08) 0%, transparent 70%);
+    }
+    .progress-bar-outer {
+      width: 280px;
+      height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 1.5rem auto;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      background: linear-gradient(to right, var(--brass), var(--brass-light));
+      border-radius: 4px;
+      animation: progressAnim 4s ease-in-out infinite;
+    }
+    @keyframes progressAnim {
+      0%   { width: 0%; }
+      50%  { width: 75%; }
+      100% { width: 100%; }
+    }
+    .tool-animation {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 2rem;
+    }
+    .tool-orbit {
+      position: absolute;
+      inset: 0;
+      animation: orbit 8s linear infinite;
+    }
+    .tool-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+    }
+    .tool-satellite {
+      position: absolute;
+      font-size: 1.2rem;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(-40px);
+    }
+    @keyframes orbit {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid rgba(176,141,87,0.1);
+      text-align: left;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--r-sm);
+      border: 1px solid rgba(176,141,87,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(216,199,174,0.6);
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all var(--dur-fast);
+    }
+    .social-link:hover {
+      background: var(--brass);
+      border-color: var(--brass);
+      color: var(--ivory);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background orbs -->
+<div class="maintenance-bg" aria-hidden="true">
+  <div class="bg-orb" style="width:600px;height:600px;top:-200px;right:-200px;"></div>
+  <div class="bg-orb" style="width:400px;height:400px;bottom:-150px;left:-100px;"></div>
+</div>
+
+<main style="flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;">
+  <div class="maintenance-inner" style="max-width:600px;width:100%;text-align:center;">
+
+    <!-- Logo -->
+    <div style="display:inline-flex;align-items:center;gap:0.75rem;margin-bottom:3rem;">
+      <div style="width:44px;height:44px;background:var(--brass);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--ivory);">IS</div>
+      <div>
+        <div style="font-family:var(--font-serif);font-size:1.3rem;font-weight:600;color:var(--ivory);">IronSmith</div>
+        <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);">Cobblers &amp; Atelier</div>
+      </div>
+    </div>
+
+    <!-- Animated Tool -->
+    <div class="tool-animation">
+      <div class="tool-center" aria-hidden="true">🔨</div>
+      <div class="tool-orbit" aria-hidden="true">
+        <span class="tool-satellite">⚙️</span>
+      </div>
+    </div>
+
+    <p style="color:var(--brass);font-size:0.75rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1rem;">Scheduled Maintenance</p>
+
+    <h1 style="font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);color:var(--ivory);font-weight:300;margin-bottom:1rem;line-height:1.2;">
+      We're Polishing<br/>the <em style="color:var(--brass);">Workshop</em>
+    </h1>
+
+    <p style="color:rgba(216,199,174,0.7);font-size:1rem;line-height:1.8;margin-bottom:2rem;max-width:480px;margin-inline:auto;">
+      IronSmith Cobblers is undergoing scheduled improvements to serve you even better. We'll be back in full swing very shortly. In the meantime, you can still reach us directly.
+    </p>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-outer" aria-label="Maintenance progress">
+      <div class="progress-bar-inner" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <p style="color:rgba(216,199,174,0.4);font-size:0.75rem;margin-bottom:2rem;">Almost ready — estimated completion shortly</p>
+
+    <!-- Countdown -->
+    <div class="countdown" data-countdown="2026-09-02T06:00:00Z" aria-label="Time until site returns">
+      <div class="countdown-unit" data-days>
+        <span class="countdown-unit__value">00</span>
+        <span class="countdown-unit__label">Days</span>
+      </div>
+      <div class="countdown-unit" data-hours>
+        <span class="countdown-unit__value">00</span>
+        <span class="countdown-unit__label">Hours</span>
+      </div>
+      <div class="countdown-unit" data-mins>
+        <span class="countdown-unit__value">00</span>
+        <span class="countdown-unit__label">Mins</span>
+      </div>
+      <div class="countdown-unit" data-secs>
+        <span class="countdown-unit__value">00</span>
+        <span class="countdown-unit__label">Secs</span>
+      </div>
+    </div>
+
+    <!-- Notify me -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.2);border-radius:var(--r-xl);padding:2rem;margin-bottom:2rem;">
+      <p style="color:rgba(216,199,174,0.8);font-size:0.9rem;margin-bottom:1rem;font-weight:600;">Notify me when you're back:</p>
+      <form class="validated-form" style="display:flex;gap:0.75rem;max-width:420px;margin-inline:auto;" novalidate>
+        <input type="email" class="newsletter__input" placeholder="your@email.com" data-required style="flex:1;" aria-label="Email address for notification"/>
+        <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Notify Me</button>
+        <span class="form-error" style="display:none;"></span>
+      </form>
+    </div>
+
+    <!-- Direct Contact -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+      <a href="tel:+442071234567" style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.15);border-radius:var(--r-lg);color:rgba(216,199,174,0.7);text-decoration:none;transition:all 0.15s;font-size:0.85rem;" onmouseover="this.style.borderColor='var(--brass)'" onmouseout="this.style.borderColor='rgba(176,141,87,0.15)'">
+        <span style="font-size:1.3rem;">📞</span>
+        <div style="text-align:left;">
+          <div style="font-size:0.7rem;color:var(--brass);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.1rem;">Call Us</div>
+          <div>+44 207 123 4567</div>
+        </div>
+      </a>
+      <a href="mailto:hello@ironsmithcobblers.com" style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.15);border-radius:var(--r-lg);color:rgba(216,199,174,0.7);text-decoration:none;transition:all 0.15s;font-size:0.85rem;" onmouseover="this.style.borderColor='var(--brass)'" onmouseout="this.style.borderColor='rgba(176,141,87,0.15)'">
+        <span style="font-size:1.3rem;">✉️</span>
+        <div style="text-align:left;">
+          <div style="font-size:0.7rem;color:var(--brass);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.1rem;">Email Us</div>
+          <div>hello@ironsmith...</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- What's new -->
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(176,141,87,0.12);border-radius:var(--r-xl);padding:1.75rem;margin-bottom:2rem;text-align:left;">
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);margin-bottom:1rem;">What We're Improving</p>
+      <div class="news-item">
+        <span style="color:var(--brass);font-size:1rem;flex-shrink:0;">⚡</span>
+        <div>
+          <div style="color:var(--ivory);font-size:0.875rem;font-weight:600;margin-bottom:0.15rem;">Faster booking system</div>
+          <div style="color:rgba(216,199,174,0.5);font-size:0.78rem;">New real-time repair tracking and instant quoting</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <span style="color:var(--brass);font-size:1rem;flex-shrink:0;">🔒</span>
+        <div>
+          <div style="color:var(--ivory);font-size:0.875rem;font-weight:600;margin-bottom:0.15rem;">Enhanced security</div>
+          <div style="color:rgba(216,199,174,0.5);font-size:0.78rem;">Upgraded SSL and payment processing infrastructure</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <span style="color:var(--brass);font-size:1rem;flex-shrink:0;">📱</span>
+        <div>
+          <div style="color:var(--ivory);font-size:0.875rem;font-weight:600;margin-bottom:0.15rem;">Mobile experience</div>
+          <div style="color:rgba(216,199,174,0.5);font-size:0.78rem;">Touch-optimised layouts and faster load times on all devices</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social -->
+    <p style="color:rgba(216,199,174,0.4);font-size:0.78rem;margin-bottom:0.75rem;">Follow us for updates:</p>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">📷</a>
+      <a href="#" class="social-link" aria-label="Facebook">👥</a>
+      <a href="#" class="social-link" aria-label="Twitter">✕</a>
+      <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+    </div>
+
+    <p style="color:rgba(216,199,174,0.2);font-size:0.72rem;margin-top:2rem;">© 2024 IronSmith Cobblers Ltd. 14 Jermyn Street, London SW1Y 6LX</p>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

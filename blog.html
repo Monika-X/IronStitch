@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cobbler's Journal — Shoe Care, Heritage &amp; Craft Tips | IronSmith</title>
+  <meta name="description" content="The IronSmith Journal — expert guides on leather care, shoe history, cobblery techniques, seasonal shoe care tips and behind-the-scenes atelier stories." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👞</text></svg>" />
+  <style>
+    .blog-featured {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .blog-featured__main {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: all var(--dur-base);
+    }
+    .blog-featured__main:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .blog-featured__main-img {
+      height: 380px;
+      overflow: hidden;
+    }
+    .blog-featured__main-img img {
+      width:100%;height:100%;object-fit:cover;
+      transition: transform var(--dur-slow);
+    }
+    .blog-featured__main:hover .blog-featured__main-img img { transform: scale(1.04); }
+    .blog-featured__main-body { padding: 2rem; }
+    .blog-featured__side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .blog-mini {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      transition: all var(--dur-base);
+    }
+    .blog-mini:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
+    .blog-mini__img { height: 100%; min-height: 90px; overflow: hidden; }
+    .blog-mini__img img { width:100%;height:100%;object-fit:cover; }
+    .blog-mini__body { padding: 1rem; }
+    .blog-mini__title { font-family:var(--font-serif);font-size:0.95rem;font-weight:600;line-height:1.35;margin-bottom:0.35rem;color:var(--text-primary); }
+    .blog-mini:hover .blog-mini__title { color: var(--brass); }
+    .blog-mini__date { font-size:0.72rem;color:var(--text-muted); }
+    .category-pill {
+      display: inline-block;
+      padding: 0.35rem 0.875rem;
+      border-radius: var(--r-full);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: transparent;
+      transition: all var(--dur-fast);
+    }
+    .category-pill:hover,
+    .category-pill.active {
+      background: var(--brass);
+      border-color: var(--brass);
+      color: var(--ivory);
+    }
+    @media (max-width:900px) {
+      .blog-featured { grid-template-columns: 1fr; }
+      .blog-featured__main-img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="navbar scrolled" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="index.html">
+      <div class="navbar__logo-icon">IS</div>
+      <div class="navbar__logo-text">
+        <span class="navbar__logo-name">IronSmith</span>
+        <span class="navbar__logo-tagline">Cobblers &amp; Atelier</span>
+      </div>
+    </a>
+    <ul class="navbar__nav" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html" class="active">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <button class="icon-btn" data-action="toggle-rtl" style="font-size:0.68rem;font-weight:700;">RTL</button>
+      <a href="contact.html" class="navbar__cta">Book Repair</a>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+  <a href="blog.html">Journal</a><a href="contact.html">Contact</a>
+</div>
+<div class="mobile-menu-overlay"></div>
+
+<main id="main-content">
+
+<div class="page-hero">
+  <div class="container">
+    <p class="page-hero__eyebrow">The Cobbler's Journal</p>
+    <h1 class="page-hero__title">Insights from the <em>Workshop</em></h1>
+    <p class="page-hero__desc">Expert guides, seasonal care tips, heritage stories and behind-the-scenes from three generations of master cobblers.</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">›</span><span aria-current="page">Journal</span>
+    </nav>
+  </div>
+</div>
+
+<!-- ── CATEGORY FILTER ── -->
+<section style="padding:2rem 0;border-bottom:1px solid var(--border);background:var(--surface-2);" aria-label="Category filter">
+  <div class="container">
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;justify-content:center;">
+      <button class="category-pill active">All Posts</button>
+      <button class="category-pill">Leather Care</button>
+      <button class="category-pill">Restoration</button>
+      <button class="category-pill">Heritage</button>
+      <button class="category-pill">Seasonal Tips</button>
+      <button class="category-pill">Craft &amp; Technique</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED POSTS ── -->
+<section class="section" aria-labelledby="featured-posts-heading">
+  <div class="container">
+    <h2 id="featured-posts-heading" class="visually-hidden">Featured Posts</h2>
+
+    <div class="blog-featured reveal">
+      <article class="blog-featured__main" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-featured__main-img">
+          <img
+            src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=1000&q=85&fit=crop"
+            alt="Master cobbler using traditional tools to hand-stitch leather welt"
+            itemprop="image"
+            loading="lazy"
+          />
+        </div>
+        <div class="blog-featured__main-body">
+          <div class="card__tag">Craft &amp; Technique</div>
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:600;margin-bottom:0.75rem;line-height:1.2;" itemprop="headline">
+            <a href="blog-details.html">The Goodyear Welt: Why the World's Finest Shoes Still Use a 140-Year-Old Method</a>
+          </h2>
+          <div style="display:flex;gap:1.25rem;color:var(--text-muted);font-size:0.78rem;margin-bottom:1rem;align-items:center;flex-wrap:wrap;">
+            <span itemprop="author">By Clara Ironsmith</span>
+            <span>·</span>
+            <time itemprop="datePublished" datetime="2024-11-15">15 November 2024</time>
+            <span>·</span>
+            <span>8 min read</span>
+          </div>
+          <p itemprop="description" style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+            In an era of fast fashion and disposable footwear, the Goodyear welt endures as the gold standard of shoe construction — resoleable, repairable and made to last a lifetime. Our master cobbler explains why this Victorian innovation remains unmatched...
+          </p>
+          <a href="blog-details.html" class="blog-card__link">Read Article →</a>
+        </div>
+      </article>
+
+      <div class="blog-featured__side">
+        <article class="blog-mini" itemscope itemtype="https://schema.org/Article">
+          <div class="blog-mini__img">
+            <img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=300&q=85&fit=crop" alt="Saphir polish products on cobbler workbench" loading="lazy"/>
+          </div>
+          <div class="blog-mini__body">
+            <div class="card__tag" style="font-size:0.65rem;padding:0.2rem 0.5rem;margin-bottom:0.35rem;">Leather Care</div>
+            <h3 class="blog-mini__title"><a href="blog-details.html">The 7-Step Mirror Polish Method: A Master's Guide</a></h3>
+            <div class="blog-mini__date">8 Nov 2024 · 6 min</div>
+          </div>
+        </article>
+        <article class="blog-mini">
+          <div class="blog-mini__img">
+            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=300&q=85&fit=crop" alt="Rain boots with waterproofing treatment" loading="lazy"/>
+          </div>
+          <div class="blog-mini__body">
+            <div class="card__tag" style="font-size:0.65rem;padding:0.2rem 0.5rem;margin-bottom:0.35rem;">Seasonal</div>
+            <h3 class="blog-mini__title"><a href="blog-details.html">Autumn Prep: Waterproof Your Shoes Before the Rains Come</a></h3>
+            <div class="blog-mini__date">1 Oct 2024 · 5 min</div>
+          </div>
+        </article>
+        <article class="blog-mini">
+          <div class="blog-mini__img">
+            <img src="https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=300&q=85&fit=crop" alt="Vintage leather boots before professional restoration" loading="lazy"/>
+          </div>
+          <div class="blog-mini__body">
+            <div class="card__tag" style="font-size:0.65rem;padding:0.2rem 0.5rem;margin-bottom:0.35rem;">Heritage</div>
+            <h3 class="blog-mini__title"><a href="blog-details.html">From Grandfather's Wardrobe: Restoring Pre-War British Brogues</a></h3>
+            <div class="blog-mini__date">22 Sep 2024 · 10 min</div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ── BLOG GRID ── -->
+    <div class="blog-grid">
+      <article class="blog-card reveal delay-1" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-card__image">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85&fit=crop" alt="Worn leather loafer showing colour restoration potential" loading="lazy"/>
+        </div>
+        <div class="blog-card__body">
+          <div class="card__tag">Restoration</div>
+          <div class="blog-card__meta">
+            <span itemprop="author">Clara Ironsmith</span>
+            <span><time datetime="2024-10-18">18 Oct 2024</time></span>
+            <span>7 min read</span>
+          </div>
+          <h2 class="blog-card__title" itemprop="headline"><a href="blog-details.html">How to Rescue Badly Scuffed Leather: A Complete Restoration Walkthrough</a></h2>
+          <p class="blog-card__excerpt">Deep scratches, bald patches and ingrained stains — our colour restoration specialist George Abbott walks through a complete intervention on a client's beloved suede loafers.</p>
+          <a href="blog-details.html" class="blog-card__link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal delay-2" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-card__image">
+          <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=85&fit=crop" alt="Leather conditioner being applied by hand" loading="lazy"/>
+        </div>
+        <div class="blog-card__body">
+          <div class="card__tag">Leather Care</div>
+          <div class="blog-card__meta">
+            <span>George Abbott</span>
+            <span><time datetime="2024-10-05">5 Oct 2024</time></span>
+            <span>5 min read</span>
+          </div>
+          <h2 class="blog-card__title"><a href="blog-details.html">The Essential Leather Conditioning Routine Every Shoe Owner Needs</a></h2>
+          <p class="blog-card__excerpt">Most leather shoes age prematurely due to neglect. Our leather specialist reveals the bi-monthly conditioning routine that extends the life of your shoes by decades.</p>
+          <a href="blog-details.html" class="blog-card__link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal delay-3" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-card__image">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=85&fit=crop" alt="Traditional cobbler tools and leather offcuts" loading="lazy"/>
+        </div>
+        <div class="blog-card__body">
+          <div class="card__tag">Heritage</div>
+          <div class="blog-card__meta">
+            <span>Clara Ironsmith</span>
+            <span><time datetime="2024-09-20">20 Sep 2024</time></span>
+            <span>9 min read</span>
+          </div>
+          <h2 class="blog-card__title"><a href="blog-details.html">Northampton's Shoemaking Legacy: Why Britain Still Sets the Global Standard</a></h2>
+          <p class="blog-card__excerpt">A journey through England's shoemaking capital — its surviving factories, master artisans, and why the world's best dress shoes still start on a British last.</p>
+          <a href="blog-details.html" class="blog-card__link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal delay-1" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-card__image">
+          <img src="https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=600&q=85&fit=crop" alt="Custom leather insoles being shaped on last" loading="lazy"/>
+        </div>
+        <div class="blog-card__body">
+          <div class="card__tag">Craft &amp; Technique</div>
+          <div class="blog-card__meta">
+            <span>Emily Shaw</span>
+            <span><time datetime="2024-09-08">8 Sep 2024</time></span>
+            <span>6 min read</span>
+          </div>
+          <h2 class="blog-card__title"><a href="blog-details.html">Bespoke Insoles: How a Custom Footbed Can Transform Any Shoe</a></h2>
+          <p class="blog-card__excerpt">Pain, fatigue and poor posture from ill-fitting shoes — our fitting specialist Emily explains how custom-crafted insoles address the root cause, not the symptom.</p>
+          <a href="blog-details.html" class="blog-card__link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal delay-2" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-card__image">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=85&fit=crop" alt="Narrow width shoe stretched with cobbler tools" loading="lazy"/>
+        </div>
+        <div class="blog-card__body">
+          <div class="card__tag">Fitting</div>
+          <div class="blog-card__meta">
+            <span>Tariq Hussain</span>
+            <span><time datetime="2024-08-25">25 Aug 2024</time></span>
+            <span>4 min read</span>
+          </div>
+          <h2 class="blog-card__title"><a href="blog-details.html">Bunion, Blister, Bliss: The Truth About Shoe Stretching</a></h2>
+          <p class="blog-card__excerpt">Can a cobbler really stretch a shoe to fit? Yes — and the results can be remarkable. Our sole master debunks the myths and explains the safe, precise science behind it.</p>
+          <a href="blog-details.html" class="blog-card__link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal delay-3" itemscope itemtype="https://schema.org/Article">
+        <div class="blog-card__image">
+          <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=600&q=85&fit=crop" alt="Cobbler workshop interior with tools hanging on the wall" loading="lazy"/>
+        </div>
+        <div class="blog-card__body">
+          <div class="card__tag">Heritage</div>
+          <div class="blog-card__meta">
+            <span>Clara Ironsmith</span>
+            <span><time datetime="2024-08-10">10 Aug 2024</time></span>
+            <span>7 min read</span>
+          </div>
+          <h2 class="blog-card__title"><a href="blog-details.html">Inside the Atelier: A Day in the Life at IronSmith Jermyn Street</a></h2>
+          <p class="blog-card__excerpt">From the first drop-offs at 9am to the final quality check before closing — an intimate look at a day inside London's most storied cobblery workshop.</p>
+          <a href="blog-details.html" class="blog-card__link">Read More →</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Pagination -->
+    <div style="display:flex;justify-content:center;gap:0.5rem;margin-top:3rem;" class="reveal">
+      <a href="#" class="btn btn-primary btn-sm" aria-current="page">1</a>
+      <a href="#" class="btn btn-ghost btn-sm">2</a>
+      <a href="#" class="btn btn-ghost btn-sm">3</a>
+      <a href="#" class="btn btn-ghost btn-sm">Next →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER ── -->
+<section class="section bg-sand" aria-labelledby="blog-newsletter">
+  <div class="container">
+    <div class="newsletter reveal">
+      <p class="overline" style="color:var(--brass);">Never Miss a Post</p>
+      <h2 id="blog-newsletter" class="newsletter__title">Subscribe to the <em>Journal</em></h2>
+      <p class="newsletter__desc">Monthly expert guides, seasonal care reminders and exclusive restoration stories. No spam — unsubscribe anytime.</p>
+      <form class="newsletter__form validated-form" novalidate>
+        <input type="email" class="newsletter__input" placeholder="your@email.com" data-required aria-label="Email address"/>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <span class="form-error"></span>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo"><div class="footer__brand-icon">IS</div><span class="footer__brand-name">IronSmith</span></div>
+        <p class="footer__brand-desc">Heritage cobblery since 1947. Three generations of London's finest shoe restoration masters.</p>
+        <div class="footer__social"><a href="#" aria-label="Instagram">📷</a><a href="#" aria-label="Facebook">👥</a><a href="#" aria-label="Twitter">✕</a></div>
+      </div>
+      <div class="footer__col"><h4>Services</h4><nav class="footer__links">
+        <a href="services.html#sole">Sole Replacement</a><a href="services.html#heel">Heel Repair</a>
+        <a href="services.html#leather">Leather Polishing</a><a href="services.html#waterproof">Waterproofing</a>
+      </nav></div>
+      <div class="footer__col"><h4>Journal</h4><nav class="footer__links">
+        <a href="blog.html">All Posts</a><a href="blog-details.html">Latest Article</a>
+      </nav></div>
+      <div class="footer__col"><h4>Contact</h4><address style="font-style:normal;">
+        <div class="footer__contact-item"><span>📍</span><div>14 Jermyn Street, London SW1Y 6LX</div></div>
+        <div class="footer__contact-item"><span>📞</span><div><a href="tel:+442071234567" style="color:inherit;">+44 207 123 4567</a></div></div>
+      </address></div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2024 IronSmith Cobblers Ltd. All rights reserved.</p>
+      <nav class="footer__bottom-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></nav>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>

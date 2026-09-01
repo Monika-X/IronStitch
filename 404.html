@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | IronSmith Cobblers</title>
+  <meta name="description" content="The page you're looking for couldn't be found. Return to IronSmith Cobblers homepage or explore our services." />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👞</text></svg>" />
+  <style>
+    body { background: linear-gradient(135deg, var(--espresso) 0%, var(--charcoal) 100%); }
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--brass);
+      border-radius: 50%;
+      opacity: 0.15;
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      from { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.2; }
+      90%  { opacity: 0.1; }
+      to   { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+    }
+    .error-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem clamp(1.5rem,4vw,3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .error-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .error-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--brass);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ivory);
+    }
+    .error-logo span {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ivory);
+    }
+    .error-nav-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .shoe-anim {
+      font-size: clamp(5rem, 10vw, 8rem);
+      display: block;
+      margin-bottom: 1rem;
+      animation: shoeWobble 3s ease-in-out infinite;
+    }
+    @keyframes shoeWobble {
+      0%, 100% { transform: rotate(-5deg) scale(1); }
+      50% { transform: rotate(5deg) scale(1.05); }
+    }
+    .quick-links {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .quick-link {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid rgba(176,141,87,0.3);
+      border-radius: var(--r-full);
+      color: rgba(216,199,174,0.7);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all var(--dur-fast);
+    }
+    .quick-link:hover {
+      background: rgba(176,141,87,0.15);
+      border-color: var(--brass);
+      color: var(--brass);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating particles -->
+<div class="particles" aria-hidden="true" id="particles"></div>
+
+<!-- Nav -->
+<header class="error-nav">
+  <a class="error-logo" href="index.html" aria-label="IronSmith Cobblers — Home">
+    <div class="error-logo-icon">IS</div>
+    <span>IronSmith</span>
+  </a>
+  <div class="error-nav-actions">
+    <button class="icon-btn" data-action="toggle-theme" style="color:rgba(216,199,174,0.7);" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    <button class="icon-btn" data-action="toggle-rtl" style="font-size:0.68rem;font-weight:700;color:rgba(216,199,174,0.7);">RTL</button>
+  </div>
+</header>
+
+<main>
+  <div class="error-page">
+    <div>
+      <span class="shoe-anim" aria-hidden="true">👞</span>
+      <div class="error-page__number" aria-label="404">404</div>
+      <h1 class="error-page__title">This Page Has Walked Off</h1>
+      <p class="error-page__desc">
+        The page you're looking for seems to have wandered away — much like a shoe that needs finding. Perhaps it was moved, renamed, or never quite made it here in the first place.
+      </p>
+
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+        <a href="index.html" class="btn btn-primary btn-lg">Return Home</a>
+        <a href="contact.html" class="btn btn-outline btn-lg" style="color:rgba(216,199,174,0.9);border-color:rgba(176,141,87,0.5);">Contact Us</a>
+      </div>
+
+      <p style="color:rgba(216,199,174,0.4);font-size:0.8rem;margin-bottom:1rem;">Or jump to one of these pages:</p>
+      <nav class="quick-links" aria-label="Quick links">
+        <a class="quick-link" href="index.html">Home</a>
+        <a class="quick-link" href="about.html">About</a>
+        <a class="quick-link" href="services.html">Services</a>
+        <a class="quick-link" href="blog.html">Journal</a>
+        <a class="quick-link" href="contact.html">Contact</a>
+        <a class="quick-link" href="sitemap.html">Sitemap</a>
+      </nav>
+
+      <!-- Cobbler Tips -->
+      <div style="margin-top:4rem;padding:1.75rem;background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.15);border-radius:var(--r-xl);max-width:480px;margin-inline:auto;">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);margin-bottom:0.75rem;">While You're Here</p>
+        <p style="font-family:var(--font-serif);font-size:1.05rem;font-style:italic;color:rgba(216,199,174,0.8);line-height:1.7;margin:0;">
+          "A shoe repaired is better than ten pairs bought. The best cobblers don't make things new — they make them right again."
+        </p>
+        <p style="font-size:0.75rem;color:rgba(216,199,174,0.4);margin-top:0.75rem;margin-bottom:0;">— Edmund Ironsmith, 1947</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+<script>
+  // Generate floating particles
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.width = p.style.height = (Math.random() * 4 + 2) + 'px';
+    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    container.appendChild(p);
+  }
+</script>
+</body>
+</html>

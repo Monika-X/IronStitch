@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shoe Repair Services — IronSmith Cobblers | Pricing Guide</title>
+  <meta name="description" content="Explore all IronSmith Cobblers services: sole replacement, heel repair, leather polishing, stitching, waterproofing, stretch fitting. Full pricing guide included." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👞</text></svg>" />
+  <style>
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding-block: 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-detail:last-child { border-bottom: none; }
+    .service-detail.reverse { direction: rtl; }
+    .service-detail.reverse > * { direction: ltr; }
+    .service-detail__img {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      height: 460px;
+    }
+    .service-detail__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur-slow);
+    }
+    .service-detail:hover .service-detail__img img { transform: scale(1.03); }
+    .price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      background: rgba(176,141,87,0.1);
+      border: 1px solid rgba(176,141,87,0.3);
+      border-radius: var(--r-full);
+      padding: 0.5rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .price-tag .from { font-size:0.72rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.1em; }
+    .price-tag .amount { font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--brass); }
+    .price-tag .unit { font-size:0.75rem;color:var(--text-muted); }
+    .material-badge {
+      display:inline-flex;align-items:center;gap:0.4rem;
+      padding:0.3rem 0.75rem;border-radius:var(--r-full);
+      background:rgba(43,33,29,0.06);color:var(--text-secondary);
+      font-size:0.72rem;font-weight:600;border:1px solid var(--border-dark);
+      margin:0.2rem;
+    }
+    @media (max-width:900px) {
+      .service-detail { grid-template-columns:1fr; gap:2rem; }
+      .service-detail.reverse { direction: ltr; }
+      .service-detail__img { height:320px; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="navbar scrolled" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="index.html">
+      <div class="navbar__logo-icon">IS</div>
+      <div class="navbar__logo-text">
+        <span class="navbar__logo-name">IronSmith</span>
+        <span class="navbar__logo-tagline">Cobblers &amp; Atelier</span>
+      </div>
+    </a>
+    <ul class="navbar__nav" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="blog.html">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <button class="icon-btn" data-action="toggle-rtl" style="font-size:0.68rem;font-weight:700;">RTL</button>
+      <a href="contact.html" class="navbar__cta">Book Repair</a>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+  <a href="blog.html">Journal</a><a href="contact.html">Contact</a>
+</div>
+<div class="mobile-menu-overlay"></div>
+
+<main id="main-content">
+
+<div class="page-hero">
+  <div class="container">
+    <p class="page-hero__eyebrow">Expert Cobblery</p>
+    <h1 class="page-hero__title">Our <em>Signature</em><br/>Services</h1>
+    <p class="page-hero__desc">Six specialist services, each executed with the precision and care that has defined IronSmith for over seven decades.</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">›</span><span aria-current="page">Services</span>
+    </nav>
+  </div>
+</div>
+
+<!-- Quick Service Nav -->
+<section style="background:var(--surface-2);padding:1.5rem 0;border-bottom:1px solid var(--border);" aria-label="Service navigation">
+  <div class="container">
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;">
+      <a href="#sole"       class="btn btn-ghost btn-sm">👞 Sole Replacement</a>
+      <a href="#heel"       class="btn btn-ghost btn-sm">🔨 Heel Repair</a>
+      <a href="#leather"    class="btn btn-ghost btn-sm">✨ Leather Polishing</a>
+      <a href="#stitching"  class="btn btn-ghost btn-sm">🪡 Stitching</a>
+      <a href="#waterproof" class="btn btn-ghost btn-sm">💧 Waterproofing</a>
+      <a href="#stretch"    class="btn btn-ghost btn-sm">📐 Stretch Fitting</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICE DETAILS ── -->
+<section class="section" aria-labelledby="services-detail-heading">
+  <div class="container">
+    <h2 id="services-detail-heading" class="visually-hidden">Our Services in Detail</h2>
+
+    <!-- 1 - Sole Replacement -->
+    <div class="service-detail" id="sole">
+      <div class="reveal-left">
+        <div class="service-detail__img">
+          <img src="https://images.unsplash.com/photo-1610398752800-146f269f37ff?w=800&q=85&fit=crop" alt="Master cobbler applying Goodyear welt sole to leather Oxford" loading="lazy"/>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <p class="overline">Service 01</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:0.75rem;">Sole <em>Replacement</em></h2>
+        <div class="price-tag">
+          <span class="from">from</span>
+          <span class="amount">£85</span>
+          <span class="unit">per pair</span>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+          Complete sole reconstruction respecting the original construction method — Goodyear welt, Blake stitch, Norwegian welt or cemented. We source soles from Rendenbach, Baker, Dainite, Vibram and Leather Master to match your shoe's character precisely.
+        </p>
+        <div style="margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--brass);margin-bottom:0.75rem;">Materials Used</div>
+          <div>
+            <span class="material-badge">Rendenbach Leather</span>
+            <span class="material-badge">Dainite Rubber</span>
+            <span class="material-badge">Vibram Commando</span>
+            <span class="material-badge">Baker Full Sole</span>
+            <span class="material-badge">Cork Filling</span>
+          </div>
+        </div>
+        <ul style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;">
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Construction-matched stitching in original thread colour</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Cork-filled waist for structural integrity</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Edge dressing and burnishing to match original finish</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> 3–5 day standard | 24h express available</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Book This Service</a>
+      </div>
+    </div>
+
+    <!-- 2 - Heel Repair -->
+    <div class="service-detail reverse" id="heel">
+      <div class="reveal-right">
+        <div class="service-detail__img">
+          <img src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=800&q=85&fit=crop" alt="Precision heel replacement on women's high heel shoe" loading="lazy"/>
+        </div>
+      </div>
+      <div class="reveal-left">
+        <p class="overline">Service 02</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:0.75rem;">Heel <em>Repair</em></h2>
+        <div class="price-tag">
+          <span class="from">from</span>
+          <span class="amount">£12</span>
+          <span class="unit">per heel</span>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+          From stiletto tip replacements to full heel rebuilds — we machine-match heel heights within 0.5mm to ensure perfect gait balance. All work carried out using professional heel nailing and adhesion techniques.
+        </p>
+        <div style="margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--brass);margin-bottom:0.75rem;">Services Included</div>
+          <div>
+            <span class="material-badge">Stiletto Tip Replacement</span>
+            <span class="material-badge">Rubber Top Piece</span>
+            <span class="material-badge">Full Heel Rebuild</span>
+            <span class="material-badge">Heel Height Adjustment</span>
+          </div>
+        </div>
+        <ul style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;">
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> All heel styles from kitten to 120mm stiletto</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Block, comma, stacked leather and wedge heels</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Same-day service available for tips</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Book This Service</a>
+      </div>
+    </div>
+
+    <!-- 3 - Leather Polishing -->
+    <div class="service-detail" id="leather">
+      <div class="reveal-left">
+        <div class="service-detail__img">
+          <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=800&q=85&fit=crop" alt="Artisan hand-polishing premium leather Oxford to mirror shine" loading="lazy"/>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <p class="overline">Service 03</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:0.75rem;">Leather <em>Polishing</em></h2>
+        <div class="price-tag">
+          <span class="from">from</span>
+          <span class="amount">£45</span>
+          <span class="unit">per pair</span>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+          Museum-quality conditioning and polishing using only Saphir Médaille d'Or products — the world's finest shoe care range. Our signature mirror-polish service is hand-applied in 7 stages using cotton boning and breath technique.
+        </p>
+        <div style="margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--brass);margin-bottom:0.75rem;">Products Used</div>
+          <div>
+            <span class="material-badge">Saphir Médaille d'Or</span>
+            <span class="material-badge">Pâte de Luxe Wax</span>
+            <span class="material-badge">Renovateur Cream</span>
+            <span class="material-badge">Collonil Nappa</span>
+          </div>
+        </div>
+        <ul style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;">
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Deep cleaning and conditioning first stage</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Colour nourishment and tone revival</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> 7-stage mirror polish or natural matte finish</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Book This Service</a>
+      </div>
+    </div>
+
+    <!-- 4 - Stitching -->
+    <div class="service-detail reverse" id="stitching">
+      <div class="reveal-right">
+        <div class="service-detail__img">
+          <img src="https://images.unsplash.com/photo-1556906781-9a412961a28c?w=800&q=85&fit=crop" alt="Master cobbler hand-stitching leather welt with thick waxed thread" loading="lazy"/>
+        </div>
+      </div>
+      <div class="reveal-left">
+        <p class="overline">Service 04</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:0.75rem;">Stitching <em>Repair</em></h2>
+        <div class="price-tag">
+          <span class="from">from</span>
+          <span class="amount">£35</span>
+          <span class="unit">per area</span>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+          Hand-sewn repairs using waxed linen and braided nylon threads, perfectly colour-matched to the original stitching. Whether it's the welt, the upper, the toe box or the heel tab, we restore structural integrity without a visible trace.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;">
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Welt, upper and counter stitching repairs</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Over 40 thread colours in stock</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Custom stitch count and density matching</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Book This Service</a>
+      </div>
+    </div>
+
+    <!-- 5 - Waterproofing -->
+    <div class="service-detail" id="waterproof">
+      <div class="reveal-left">
+        <div class="service-detail__img">
+          <img src="https://images.unsplash.com/photo-1608731267464-c0c889c2ff92?w=800&q=85&fit=crop" alt="Water beading off leather boot after professional waterproofing treatment" loading="lazy"/>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <p class="overline">Service 05</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:0.75rem;">Waterproofing <em>Treatment</em></h2>
+        <div class="price-tag">
+          <span class="from">from</span>
+          <span class="amount">£25</span>
+          <span class="unit">per pair</span>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+          Professional-grade barrier treatments that repel water, salt, mud and stains while remaining entirely invisible on all leather types including smooth, suede, nubuck and exotic skins. Updated annually for seasonal protection.
+        </p>
+        <div style="margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--brass);margin-bottom:0.75rem;">Products Used</div>
+          <div>
+            <span class="material-badge">Collonil Nano Protection</span>
+            <span class="material-badge">Carbon Pro</span>
+            <span class="material-badge">Wax Finish</span>
+          </div>
+        </div>
+        <ul style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;">
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Works on all leather, suede, nubuck and exotic skins</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Invisible finish — no whitening or darkening</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> 6–12 months protection per treatment</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Book This Service</a>
+      </div>
+    </div>
+
+    <!-- 6 - Stretch Fitting -->
+    <div class="service-detail reverse" id="stretch">
+      <div class="reveal-right">
+        <div class="service-detail__img">
+          <img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800&q=85&fit=crop" alt="Professional shoe stretching machine expanding leather upper with steam" loading="lazy"/>
+        </div>
+      </div>
+      <div class="reveal-left">
+        <p class="overline">Service 06</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:0.75rem;">Stretch <em>Fitting</em></h2>
+        <div class="price-tag">
+          <span class="from">from</span>
+          <span class="amount">£35</span>
+          <span class="unit">per pair</span>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+          Our podiatrist-trained specialist uses precision mechanical lasts and controlled steam to expand specific areas of the shoe without damaging the leather's structure. Ideal for bunion relief, wide toe boxes and tight heels.
+        </p>
+        <ul style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;">
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Targeted stretching — toe, ball, instep or heel</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Up to 3/4 size length expansion</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> Works on all leather and most synthetic uppers</li>
+          <li style="display:flex;gap:0.75rem;font-size:0.875rem;color:var(--text-secondary);"><span style="color:var(--brass);">✓</span> 24h overnight service included</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Book This Service</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PRICING TABLE ── -->
+<section class="section bg-sand" aria-labelledby="pricing-table-heading">
+  <div class="container">
+    <header class="section-header centered reveal">
+      <p class="overline">Transparent Costs</p>
+      <h2 id="pricing-table-heading" class="display-3">Full <em>Price</em> Guide</h2>
+      <span class="divider centered"></span>
+      <p class="lead">All prices include VAT and a 12-month workmanship guarantee.</p>
+    </header>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;" class="reveal">
+      <table style="width:100%;border-collapse:collapse;" aria-label="Service pricing table">
+        <thead>
+          <tr style="background:var(--espresso);">
+            <th style="padding:1.1rem 1.5rem;text-align:left;color:var(--brass);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;">Service</th>
+            <th style="padding:1.1rem 1.5rem;text-align:center;color:var(--brass);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;">Price</th>
+            <th style="padding:1.1rem 1.5rem;text-align:center;color:var(--brass);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;">Turnaround</th>
+            <th style="padding:1.1rem 1.5rem;text-align:center;color:var(--brass);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;">Guarantee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Stiletto Tip Replacement</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£12</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">Same day</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">6 months</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:var(--bg-alt);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Rubber Heel Top Piece</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£18</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">24 hours</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">12 months</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Full Heel Rebuild</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£55</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">2–3 days</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">12 months</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:var(--bg-alt);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Half Sole (Cemented)</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£45</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">24 hours</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">12 months</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Full Sole (Goodyear Welt)</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£110</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">3–5 days</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">12 months</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:var(--bg-alt);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Polish &amp; Condition</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£45</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">48 hours</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">3 months</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Mirror Toe Polish</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£65</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">48 hours</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">3 months</td>
+          </tr>
+          <tr style="background:var(--bg-alt);">
+            <td style="padding:1rem 1.5rem;font-weight:600;">Heritage Restoration (Full)</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--brass);font-weight:600;">£250+</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">10–14 days</td>
+            <td style="padding:1rem 1.5rem;text-align:center;color:var(--text-muted);font-size:0.875rem;">Lifetime</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">
+      All prices are estimates. Final quote provided after assessment. Complex repairs may differ.
+    </p>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section" aria-labelledby="services-faq">
+  <div class="container" style="max-width:820px;">
+    <header class="section-header centered reveal">
+      <p class="overline">Questions &amp; Answers</p>
+      <h2 id="services-faq" class="display-3">Service <em>FAQ</em></h2>
+      <span class="divider centered"></span>
+    </header>
+
+    <div class="faq-list faq-accordion">
+      <div class="faq-item">
+        <button class="faq-question">Can you repair luxury designer shoes (Louboutin, Manolo, Chanel)?<span class="faq-icon">▾</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes — we specialise in luxury designer footwear. We have sourced original-specification materials from designer brand suppliers and are intimately familiar with the construction methods used by Louboutin, Manolo Blahnik, Jimmy Choo, Chanel and others.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you offer an express or same-day service?<span class="faq-icon">▾</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We offer a same-day express service for heel tip replacements and sole tip fitting (if dropped off by 11am). For more complex work, a 24-hour express premium applies of 40% above standard price. Please call ahead to confirm availability.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What if I'm not happy with the repair?<span class="faq-icon">▾</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We've never had a client leave dissatisfied, but our 12-month workmanship guarantee means if anything fails due to our materials or technique, we redo it free of charge. Simply return the shoes with your receipt.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Can you colour match perfectly?<span class="faq-icon">▾</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We stock over 60 professional Saphir leather dye shades and can custom-blend any colour. We cannot guarantee a 100% exact match on aged or sun-faded leather, but we consistently achieve results our clients describe as invisible or better than original.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-espresso" aria-label="Call to action">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <p class="overline" style="color:var(--brass);">Ready?</p>
+      <h2 class="display-3" style="color:var(--ivory);margin-bottom:1rem;">Book Your <em>Repair</em> Today</h2>
+      <p style="color:rgba(216,199,174,0.7);margin-bottom:2.5rem;max-width:480px;margin-inline:auto;">Drop in or book ahead — we'll assess and quote your repair within 30 minutes of receiving your shoes.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo"><div class="footer__brand-icon">IS</div><span class="footer__brand-name">IronSmith</span></div>
+        <p class="footer__brand-desc">Heritage cobblery since 1947. London's most trusted shoe restoration atelier.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram">📷</a><a href="#" aria-label="Facebook">👥</a><a href="#" aria-label="Twitter">✕</a>
+        </div>
+      </div>
+      <div class="footer__col"><h4>Services</h4><nav class="footer__links">
+        <a href="#sole">Sole Replacement</a><a href="#heel">Heel Repair</a>
+        <a href="#leather">Leather Polishing</a><a href="#stitching">Stitching</a>
+        <a href="#waterproof">Waterproofing</a><a href="#stretch">Stretch Fitting</a>
+      </nav></div>
+      <div class="footer__col"><h4>Navigate</h4><nav class="footer__links">
+        <a href="index.html">Home</a><a href="about.html">About</a>
+        <a href="blog.html">Journal</a><a href="contact.html">Contact</a>
+      </nav></div>
+      <div class="footer__col"><h4>Contact</h4><address style="font-style:normal;">
+        <div class="footer__contact-item"><span>📍</span><div>14 Jermyn Street, London SW1Y 6LX</div></div>
+        <div class="footer__contact-item"><span>📞</span><div><a href="tel:+442071234567" style="color:inherit;">+44 207 123 4567</a></div></div>
+      </address></div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2024 IronSmith Cobblers Ltd. All rights reserved.</p>
+      <nav class="footer__bottom-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></nav>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>
