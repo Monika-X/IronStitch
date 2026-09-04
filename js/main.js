@@ -72,28 +72,80 @@ const ThemeManager = (() => {
 /* ── Page Transition ─────────────────────────────── */
 const PageTransition = (() => {
   let overlay;
+  let isTransitioning = false;
 
   function init() {
     overlay = document.createElement('div');
     overlay.className = 'page-transition';
+    overlay.setAttribute('aria-hidden','true');
     document.body.appendChild(overlay);
 
-    overlay.classList.add('leaving');
-    overlay.addEventListener('animationend', () => {
+    // Reveal on initial load — ensure overlay never stays visible after load/back
+    requestAnimationFrame(()=>{
+      overlay.classList.add('leaving');
+      overlay.addEventListener('animationend', () => {
+        overlay.className = 'page-transition';
+        overlay.style.transform = '';
+        isTransitioning = false;
+      }, { once: true });
+      // Fallback: force hide after 800ms if animationend never fires (e.g., reduced-motion)
+      setTimeout(()=>{
+        if(overlay.classList.contains('leaving')){
+          overlay.className = 'page-transition';
+          overlay.style.transform = '';
+          isTransitioning = false;
+        }
+      }, 850);
+    });
+
+    // Critical: when page is restored from bfcache (back/forward), overlay may be stuck at scaleY(1) from previous entering — force hide
+    window.addEventListener('pageshow', (e)=>{
+      // Always reset on pageshow, especially when persisted (bfcache)
       overlay.className = 'page-transition';
-    }, { once: true });
+      overlay.style.transform = 'scaleY(0)';
+      isTransitioning = false;
+      // Also unlock scroll in case mobile menu was open when navigating away
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      document.body.style.paddingRight = '';
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.overscrollBehavior = '';
+      document.documentElement.style.overscrollBehavior = '';
+    });
+
+    // Also reset on visibility (tab switch back)
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.visibilityState==='visible' && !isTransitioning){
+        overlay.className = 'page-transition';
+        overlay.style.transform = 'scaleY(0)';
+      }
+    });
 
     document.querySelectorAll('a[href]').forEach(a => {
       const href = a.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http') || a.target === '_blank') return;
 
       a.addEventListener('click', e => {
+        // Don't intercept if already transitioning or modifier keys
+        if(isTransitioning || e.ctrlKey || e.metaKey || e.shiftKey || e.button!==0) return;
         e.preventDefault();
         const dest = a.href;
+        // Prevent double-transition
+        if(isTransitioning) return;
+        isTransitioning = true;
+        overlay.className = 'page-transition';
+        // Force reflow so animation restarts
+        void overlay.offsetWidth;
         overlay.classList.add('entering');
-        overlay.addEventListener('animationend', () => {
-          window.location.href = dest;
-        }, { once: true });
+        let navigated = false;
+        const go = ()=>{ if(!navigated){ navigated=true; window.location.href = dest; } };
+        overlay.addEventListener('animationend', go, { once: true });
+        // Fallback navigate after 700ms if animationend fails
+        setTimeout(go, 700);
       });
     });
   }
