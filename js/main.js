@@ -669,11 +669,13 @@ const BlogFilter = (() => {
     if(initialized) return;
     initialized = true;
     cards = [...document.querySelectorAll('.blog-grid .blog-card')];
+    // also track all filterable (for search/category) including featured/minis
+    window._blogAllFilterable = [...document.querySelectorAll('.blog-card, .blog-mini, .blog-featured__main')];
     viewMoreBtn = document.getElementById('view-more-btn');
     pills = document.querySelectorAll('.category-pill');
     searchInput = document.getElementById('blog-search');
     searchClear = document.getElementById('blog-search-clear');
-    if(!cards.length) return;
+    if(!cards.length && !window._blogAllFilterable.length) return;
     // no-results
     noResults = document.getElementById('filter-no-results');
     if(!noResults){
@@ -730,26 +732,35 @@ const BlogFilter = (() => {
     return catMatch && searchMatch;
   }
   function apply(){
-    let matched = [];
-    cards.forEach(card=>{
+    const all = window._blogAllFilterable || cards;
+    let matchedAll = [], matchedGrid = [];
+    all.forEach(card=>{
       const isMatch = matches(card);
       card.dataset.matched = isMatch ? 'true' : 'false';
-      if(isMatch) matched.push(card);
+      if(isMatch){
+        matchedAll.push(card);
+        if(cards.includes(card)) matchedGrid.push(card);
+      }
     });
-    // show first visibleCount matched, hide rest matched, hide non-matched
-    cards.forEach(card=>{
+    // Apply display: non-grid (featured/minis) show all matched, grid shows first visibleCount matched
+    all.forEach(card=>{
       const isMatch = card.dataset.matched==='true';
       if(!isMatch){
         card.style.display='none';
       } else {
-        const idx = matched.indexOf(card);
-        card.style.display = idx < visibleCount ? '' : 'none';
-        if(idx < visibleCount) card.style.animation='fadeIn 0.35s ease';
+        if(cards.includes(card)){
+          const idx = matchedGrid.indexOf(card);
+          card.style.display = idx < visibleCount ? '' : 'none';
+          if(idx < visibleCount) card.style.animation='fadeIn 0.35s ease';
+        } else {
+          card.style.display = '';
+          card.style.animation='fadeIn 0.35s ease';
+        }
       }
     });
-    if(noResults) noResults.style.display = matched.length===0 ? 'block' : 'none';
+    if(noResults) noResults.style.display = matchedAll.length===0 ? 'block' : 'none';
     if(viewMoreBtn){
-      const remaining = matched.length - visibleCount;
+      const remaining = matchedGrid.length - visibleCount;
       viewMoreBtn.style.display = remaining > 0 ? 'inline-flex' : 'none';
       viewMoreBtn.textContent = remaining > 0 ? `View More (${remaining} remaining)` : 'View More';
     }
