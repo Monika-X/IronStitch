@@ -338,17 +338,21 @@ const BackToTop = (() => {
 const FormValidator = (() => {
   function init() {
     document.querySelectorAll('.validated-form').forEach(form => {
+      // Prevent native submit and handle via JS — only inputs reset, no page reload
+      form.setAttribute('novalidate', '');
       form.addEventListener('submit', e => {
         e.preventDefault();
+        e.stopPropagation();
         let valid = true;
 
         form.querySelectorAll('[data-required]').forEach(field => {
-          const err = field.parentElement.querySelector('.form-error');
-          if (!field.value.trim()) {
+          const err = field.closest('.form-group')?.querySelector('.form-error') || field.parentElement.querySelector('.form-error');
+          const val = (field.value || '').trim();
+          if (!val) {
             field.classList.add('error');
             if (err) { err.textContent = err.dataset.msg || 'This field is required.'; err.classList.add('visible'); }
             valid = false;
-          } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+          } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
             field.classList.add('error');
             if (err) { err.textContent = 'Please enter a valid email address.'; err.classList.add('visible'); }
             valid = false;
@@ -358,40 +362,114 @@ const FormValidator = (() => {
           }
         });
 
-        if (valid) {
-          const btn = form.querySelector('[type="submit"]');
-          const orig = btn?.textContent;
-          if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-          setTimeout(() => {
-            showToast('Message Sent!', "We'll get back to you within 24 hours.");
-            form.reset();
-            if (btn) { btn.textContent = orig; btn.disabled = false; }
-          }, 1500);
+        if (!valid) {
+          const firstErr = form.querySelector('.form-control.error, [data-required].error');
+          firstErr?.focus();
+          return;
         }
+
+        const btn = form.querySelector('[type="submit"]');
+        const origHTML = btn ? btn.innerHTML : '';
+        const origText = btn ? btn.textContent : '';
+        if (btn) { btn.innerHTML = 'Sending…'; btn.disabled = true; btn.setAttribute('aria-busy','true'); }
+
+        // Determine contextual success messaging
+        let title = 'Message Sent!';
+        let text  = "We'll get back to you within 24 hours.";
+        const isNewsletter = form.querySelector('.newsletter__input') || form.closest('.newsletter') || (form.querySelector('input[type="email"]') && form.querySelectorAll('input').length===1 && form.querySelectorAll('textarea, select').length===0);
+        const isNotify = btn && /Notify/i.test(btn.textContent) || form.querySelector('input[aria-label*="notification"]');
+        const isContact = form.id === 'contact-form' || form.querySelector('#c-name') || form.querySelector('#h2-name');
+
+        if (isNewsletter) {
+          title = 'Subscribed Successfully!';
+          text  = 'Welcome to the IronStitch family — check your inbox for confirmation.';
+        } else if (isNotify) {
+          title = "You're on the list!";
+          text  = "We'll notify you as soon as we're back. Thank you for your patience.";
+        } else if (isContact) {
+          title = 'Enquiry Sent!';
+          text  = "Thank you — we'll respond within 4 business hours.";
+        }
+
+        setTimeout(() => {
+          // Show global toast
+          showToast(title, text);
+          // Show inline success (only inside form, no page reload)
+          showInlineSuccess(form, title, text);
+          // Reset only inputs — no page reload
+          form.reset();
+          // Clear any lingering error states
+          form.querySelectorAll('.form-control.error').forEach(el=>el.classList.remove('error'));
+          form.querySelectorAll('.form-error.visible').forEach(el=>el.classList.remove('visible'));
+          if (btn) { btn.innerHTML = origHTML || origText; btn.disabled = false; btn.removeAttribute('aria-busy'); }
+          // Return focus to first input for accessibility after reset
+          const firstInput = form.querySelector('.form-control, input, textarea, select');
+          firstInput?.focus({ preventScroll: false });
+        }, 900);
       });
 
+      // Live clear on input/change
       form.querySelectorAll('[data-required]').forEach(field => {
-        field.addEventListener('input', () => {
-          const err = field.parentElement.querySelector('.form-error');
-          if (field.value.trim()) {
+        const ev = field.tagName === 'SELECT' ? 'change' : 'input';
+        field.addEventListener(ev, () => {
+          const err = field.closest('.form-group')?.querySelector('.form-error') || field.parentElement.querySelector('.form-error');
+          if ((field.value||'').trim()) {
             field.classList.remove('error');
             if (err) err.classList.remove('visible');
           }
         });
       });
+
+      // Ensure pressing Enter inside inputs does not trigger page reload elsewhere
+      form.addEventListener('keydown', e=>{
+        if(e.key==='Enter' && e.target.tagName==='INPUT' && e.target.type!=='email' && e.target.type!=='textarea'){
+          // allow default submit handling via our listener, but prevent native form navigation
+          // no extra action needed
+        }
+      });
     });
   }
 
-  function showToast(title, text) {
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerHTML = `<div class="toast__title">${title}</div><div class="toast__text">${text}</div>`;
-    document.body.appendChild(toast);
-    requestAnimationFrame(() => toast.classList.add('visible'));
-    setTimeout(() => { toast.classList.remove('visible'); setTimeout(() => toast.remove(), 400); }, 4000);
+  function showInlineSuccess(form, title, text){
+    // Remove existing inline success if any
+    form.querySelectorAll('.form-success').forEach(el=>el.remove());
+    const success = document.createElement('div');
+    success.className = 'form-success';
+    success.setAttribute('role','status');
+    success.setAttribute('aria-live','polite');
+    success.innerHTML = `
+      <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+        <span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--brass);color:var(--ivory);display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        <div>
+          <div style="font-weight:700;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.2rem;">${title}</div>
+          <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.5;">${text}</div>
+        </div>
+        <button type="button" aria-label="Dismiss" onclick="this.closest('.form-success').remove()" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.1rem;line-height:1;">×</button>
+      </div>`;
+    // Insert at top of form, but keep inputs intact — only visual message added, inputs are reset not replaced
+    form.prepend(success);
+    // Auto-dismiss after 6s (form stays, only banner removed)
+    setTimeout(()=>{ success.style.opacity='0'; success.style.transition='opacity 300ms'; setTimeout(()=>success.remove(),300); }, 6000);
+    // Smooth scroll to success if form is long
+    success.scrollIntoView({ behavior:'smooth', block:'nearest' });
   }
 
-  return { init };
+  function showToast(title, text) {
+    // Remove existing toasts to avoid stacking overflow
+    document.querySelectorAll('.toast').forEach(t=>t.remove());
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('role','status');
+    toast.setAttribute('aria-live','polite');
+    toast.innerHTML = `<div style="display:flex;gap:0.75rem;align-items:flex-start;"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--brass);color:var(--ivory);display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><div><div class="toast__title">${title}</div><div class="toast__text">${text}</div></div><button aria-label="Dismiss" onclick="this.closest('.toast').remove()" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;">×</button></div>`;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('visible'));
+    setTimeout(() => { toast.classList.remove('visible'); setTimeout(() => toast.remove(), 400); }, 5000);
+  }
+
+  return { init, showToast };
 })();
 
 /* ── Counter Animation ───────────────────────────── */

@@ -1615,6 +1615,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-error.visible { display: block; }
 
+.form-success {
+  background: rgba(176,141,87,0.08);
+  border: 1px solid rgba(176,141,87,0.22);
+  border-left: 3px solid var(--brass);
+  border-radius: var(--r-md);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.25rem;
+  animation: formSuccessIn 320ms var(--ease-out);
+}
+@keyframes formSuccessIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 textarea.form-control {
   resize: vertical;
   min-height: 130px;
