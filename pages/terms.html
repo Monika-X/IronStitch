@@ -267,11 +267,12 @@
       <div class="footer__col">
         <h4>STAY CONNECTED</h4>
         <p class="footer__newsletter-desc">Receive seasonal shoe care guides, restoration stories, and atelier insights before anyone else.</p>
-        <form class="footer__newsletter-form" onsubmit="event.preventDefault(); const val=this.querySelector('input').value; if(val){ alert('Thank you for subscribing to IronStitch Atelier!'); this.reset(); }">
+        <form class="footer__newsletter-form validated-form" novalidate>
           <div class="footer__newsletter-group">
-            <input type="email" class="footer__newsletter-input" placeholder="Your work email..." required aria-label="Your work email" />
+            <input type="email" class="footer__newsletter-input" placeholder="Your work email..." required aria-label="Your work email" data-required />
             <button type="submit" class="footer__newsletter-btn">JOIN</button>
           </div>
+          <span class="form-error" style="display:none; font-size:0.75rem; color:var(--burgundy); margin-top:0.5rem;"></span>
         </form>
       </div>
     </div>

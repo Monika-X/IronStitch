@@ -413,7 +413,7 @@ const FormValidator = (() => {
         // Determine contextual success messaging
         let title = 'Message Sent!';
         let text  = "We'll get back to you within 24 hours.";
-        const isNewsletter = form.querySelector('.newsletter__input') || form.closest('.newsletter') || (form.querySelector('input[type="email"]') && form.querySelectorAll('input').length===1 && form.querySelectorAll('textarea, select').length===0);
+        const isNewsletter = form.querySelector('.newsletter__input') || form.querySelector('.footer__newsletter-input') || form.closest('.newsletter') || form.closest('.footer__newsletter-form') || (form.querySelector('input[type="email"]') && form.querySelectorAll('input').length===1 && form.querySelectorAll('textarea, select').length===0);
         const isNotify = btn && /Notify/i.test(btn.textContent) || form.querySelector('input[aria-label*="notification"]');
         const isContact = form.id === 'contact-form' || form.querySelector('#c-name') || form.querySelector('#h2-name');
 
