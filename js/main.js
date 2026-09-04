@@ -659,6 +659,67 @@ const Tabs = (() => {
   return { init };
 })();
 
+/* ── Category Filter (Blog) ──────────────────────── */
+const CategoryFilter = (() => {
+  function init(){
+    const pills = document.querySelectorAll('.category-pill');
+    if(!pills.length) return;
+    const cards = document.querySelectorAll('.blog-card, .blog-mini, .blog-featured__main');
+    // Create no-results message if not exists
+    let noResults = document.getElementById('filter-no-results');
+    if(!noResults && cards.length){
+      const grid = document.querySelector('.blog-grid');
+      if(grid){
+        noResults = document.createElement('div');
+        noResults.id = 'filter-no-results';
+        noResults.style.cssText = 'display:none; text-align:center; padding:3rem 1rem; color:var(--text-muted); grid-column:1/-1;';
+        noResults.innerHTML = '<p style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-primary);margin-bottom:0.5rem;">No posts found</p><p style="font-size:0.9rem;">Try another category or view all posts.</p>';
+        grid.parentNode.insertBefore(noResults, grid.nextSibling);
+      }
+    }
+    pills.forEach(pill=>{
+      pill.addEventListener('click', ()=>{
+        pills.forEach(p=>p.classList.remove('active'));
+        pill.classList.add('active');
+        const filter = (pill.dataset.filter || pill.textContent).trim().toLowerCase();
+        let visibleCount = 0;
+        cards.forEach(card=>{
+          const tagEl = card.querySelector('.card__tag');
+          const tag = tagEl ? tagEl.textContent.trim().toLowerCase() : '';
+          // Normalize: remove & and extra spaces, handle seasonal tips vs seasonal
+          const norm = s=>s.replace(/&amp;/g,'&').replace('&','and').replace(/[^a-z0-9]/g,' ').replace(/\s+/g,' ').trim();
+          const nFilter = norm(filter);
+          const nTag = norm(tag);
+          const isAll = nFilter==='all' || nFilter==='all posts';
+          const match = isAll || nTag.includes(nFilter) || nFilter.includes(nTag) || (nFilter==='seasonal' && nTag.includes('seasonal')) || (nFilter==='seasonal tips' && nTag.includes('seasonal'));
+          // Handle featured side minis: they have different tags, treat same
+          if(match){
+            card.style.display='';
+            card.style.animation='fadeIn 0.35s ease';
+            visibleCount++;
+          } else {
+            card.style.display='none';
+          }
+        });
+        // Also handle blog-featured wrapper visibility: if all its children hidden, hide wrapper
+        const featured = document.querySelector('.blog-featured');
+        if(featured){
+          const featuredCards = featured.querySelectorAll('.blog-card, .blog-mini, .blog-featured__main');
+          const anyVisible = [...featuredCards].some(c=>c.style.display!=='none');
+          // Don't hide entire featured, just keep as is; but if you want to hide featured when no match, uncomment:
+          // featured.style.display = anyVisible ? '' : 'none';
+        }
+        if(noResults){
+          noResults.style.display = visibleCount===0 ? 'block' : 'none';
+        }
+        // Smooth scroll to grid for UX
+        // document.querySelector('.blog-grid')?.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  }
+  return { init };
+})();
+
 /* ── TypedText ───────────────────────────────────── */
 const TypedText = (() => {
   function init() {
@@ -748,6 +809,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Countdown.init();
   Marquee.init();
   Tabs.init();
+  CategoryFilter.init();
   TypedText.init();
   TestimonialSlider.init();
   initAnchorScroll();

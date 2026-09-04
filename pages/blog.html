@@ -213,13 +213,13 @@
 <!-- ── CATEGORY FILTER ── -->
 <section style="padding:2rem 0;border-bottom:1px solid var(--border);background:var(--surface-2);" aria-label="Category filter">
   <div class="container">
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;justify-content:center;">
-      <button class="category-pill active">All Posts</button>
-      <button class="category-pill">Leather Care</button>
-      <button class="category-pill">Restoration</button>
-      <button class="category-pill">Heritage</button>
-      <button class="category-pill">Seasonal Tips</button>
-      <button class="category-pill">Craft &amp; Technique</button>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;justify-content:center;" role="group" aria-label="Filter posts by category">
+      <button class="category-pill active" data-filter="all">All Posts</button>
+      <button class="category-pill" data-filter="leather care">Leather Care</button>
+      <button class="category-pill" data-filter="restoration">Restoration</button>
+      <button class="category-pill" data-filter="heritage">Heritage</button>
+      <button class="category-pill" data-filter="seasonal">Seasonal Tips</button>
+      <button class="category-pill" data-filter="craft & technique">Craft &amp; Technique</button>
     </div>
   </div>
 </section>
