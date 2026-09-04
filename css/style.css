@@ -2479,14 +2479,16 @@ select.form-control {
 }
 
 .team-card__image {
-  height: 260px;
+  height: 300px;
   overflow: hidden;
+  background: var(--bg-alt);
 }
 
 .team-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform var(--dur-slow);
 }
 
