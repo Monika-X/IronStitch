@@ -262,7 +262,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.transparent {
-  background: transparent;
+  background: linear-gradient(to bottom, rgba(14,10,9,0.72) 0%, rgba(14,10,9,0.38) 55%, rgba(14,10,9,0.0) 100%);
+  backdrop-filter: blur(8px) saturate(1.15);
+  -webkit-backdrop-filter: blur(8px) saturate(1.15);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 1px 24px rgba(0,0,0,0.18);
 }
 
 .navbar.scrolled {
@@ -330,6 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar.transparent .navbar__logo-name {
   color: var(--ivory);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.45);
 }
 
 .navbar__logo-tagline {
@@ -338,6 +343,10 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: var(--brass);
   margin-top: 2px;
+}
+.navbar.transparent .navbar__logo-tagline {
+  color: #D8C7AE;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.55);
 }
 
 .navbar__nav {
@@ -365,13 +374,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.transparent .navbar__nav > li > a {
-  color: rgba(248,244,236,0.9);
+  color: #F8F4EC;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.45);
+  background: rgba(255,255,255,0.0);
+  border: 1px solid transparent;
 }
 
 .navbar__nav > li > a:hover,
 .navbar__nav > li > a.active {
   color: var(--brass);
   background: rgba(176,141,87,0.08);
+}
+.navbar.transparent .navbar__nav > li > a:hover,
+.navbar.transparent .navbar__nav > li > a.active {
+  color: #EAD5B3;
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(176,141,87,0.28);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.45);
+}
+.navbar.transparent .navbar__nav > li > a:focus-visible,
+.navbar.transparent .icon-btn:focus-visible,
+.navbar.transparent .navbar__cta:focus-visible {
+  outline: 2px solid #EAD5B3;
+  outline-offset: 2px;
 }
 
 .navbar__nav > li > a .drop-icon {
@@ -445,7 +470,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.transparent .icon-btn {
-  color: var(--ivory);
+  color: #F8F4EC;
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 
 .icon-btn:hover {
@@ -492,7 +521,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.transparent .hamburger span {
-  background: var(--ivory);
+  background: #F8F4EC;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.45);
 }
 
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
