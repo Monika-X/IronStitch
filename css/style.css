@@ -540,6 +540,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-xl);
   z-index: 999;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   transition: right var(--dur-slow) var(--ease);
   padding: 6rem 2rem 2rem;
   display: flex;

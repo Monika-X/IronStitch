@@ -134,6 +134,11 @@ const Navbar = (() => {
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && menuOpen) closeMenu();
     });
+
+    // Close menu when any mobile link is tapped — keeps scroll lock in sync
+    document.addEventListener('click', e=>{
+      if(menuOpen && e.target.closest('.mobile-menu a')) closeMenu();
+    });
   }
 
   function handleScroll() {
@@ -145,6 +150,7 @@ const Navbar = (() => {
     }
   }
 
+  let scrollY = 0;
   function toggleMenu() { menuOpen ? closeMenu() : openMenu(); }
 
   function openMenu() {
@@ -152,15 +158,46 @@ const Navbar = (() => {
     hamburger?.classList.add('open');
     mobileMenu?.classList.add('open');
     overlay?.classList.add('open');
+    hamburger?.setAttribute('aria-expanded','true');
+    mobileMenu?.setAttribute('aria-hidden','false');
+    // Lock background scroll — preserve scroll position, allow menu internal scroll
+    scrollY = window.scrollY || document.documentElement.scrollTop;
+    const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarW > 0) document.body.style.paddingRight = scrollbarW + 'px';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
+    document.body.style.overscrollBehavior = 'none';
+    document.documentElement.style.overscrollBehavior = 'none';
   }
 
   function closeMenu() {
+    if (!menuOpen) return;
     menuOpen = false;
     hamburger?.classList.remove('open');
     mobileMenu?.classList.remove('open');
     overlay?.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded','false');
+    mobileMenu?.setAttribute('aria-hidden','true');
+    // Restore scroll
+    const top = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.paddingRight = '';
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
+    document.body.style.overscrollBehavior = '';
+    document.documentElement.style.overscrollBehavior = '';
+    // Restore scroll position from stored offset
+    const y = Math.abs(parseInt(top || '0', 10)) || scrollY;
+    window.scrollTo(0, y);
   }
 
   return { init };
