@@ -1584,6 +1584,43 @@ h1, h2, h3, h4, h5, h6 {
 
 .gallery-item:hover::after { opacity: 1; }
 
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(16,11,9,0.88) 0%, rgba(16,11,9,0.55) 45%, rgba(16,11,9,0.0) 100%);
+  padding: 2.2rem 1rem 1rem;
+  color: var(--ivory);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+  pointer-events: none;
+  text-align: left;
+  z-index: 1;
+}
+.gallery-caption h4 {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--ivory);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+.gallery-caption p {
+  font-size: 0.75rem;
+  color: rgba(248,244,236,0.85);
+  line-height: 1.5;
+  margin: 0;
+}
+.gallery-item:hover .gallery-caption,
+.gallery-item:focus .gallery-caption,
+.gallery-item:focus-within .gallery-caption,
+.gallery-item:active .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .gallery-item img {
   width: 100%;
   height: 280px;
