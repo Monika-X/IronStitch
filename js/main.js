@@ -480,8 +480,8 @@ const FormValidator = (() => {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
         </span>
         <div>
-          <div style="font-weight:700;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.2rem;">${title}</div>
-          <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.5;">${text}</div>
+          <div style="font-weight:700;font-size:0.95rem;color:var(--espresso);margin-bottom:0.2rem;">${title}</div>
+          <div style="font-size:0.85rem;color:var(--text-primary);font-weight:500;line-height:1.5;">${text}</div>
         </div>
         <button type="button" aria-label="Dismiss" onclick="this.closest('.form-success').remove()" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.1rem;line-height:1;">×</button>
       </div>`;

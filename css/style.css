@@ -1679,13 +1679,24 @@ h1, h2, h3, h4, h5, h6 {
 .form-error.visible { display: block; }
 
 .form-success {
-  background: rgba(176,141,87,0.08);
+  background: #FFFFFF;
   border: 1px solid rgba(176,141,87,0.22);
-  border-left: 3px solid var(--brass);
+  border-left: 4px solid var(--brass);
   border-radius: var(--r-md);
   padding: 1rem 1.1rem;
   margin-bottom: 1.25rem;
   animation: formSuccessIn 320ms var(--ease-out);
+  box-shadow: 0 4px 16px rgba(43,33,29,0.08);
+}
+[data-theme="dark"] .form-success {
+  background: var(--surface);
+  border-color: rgba(176,141,87,0.28);
+}
+.newsletter .form-success,
+.bg-espresso .form-success {
+  background: #FFFFFF;
+  border-left-color: var(--brass);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 @keyframes formSuccessIn {
   from { opacity: 0; transform: translateY(-6px); }
@@ -2559,15 +2570,16 @@ select.form-control {
 
 .toast__title {
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-bottom: 0.35rem;
-  color: var(--text-primary);
+  color: var(--espresso);
 }
 
 .toast__text {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
   line-height: 1.5;
+  font-weight: 500;
 }
 
 .toast__actions {
