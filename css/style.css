@@ -1782,6 +1782,17 @@ select.form-control {
   align-items: center;
   gap: 0.85rem;
   margin-bottom: 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.footer__brand-logo:hover {
+  opacity: 0.92;
+}
+.footer__brand-logo:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
 }
 
 .footer__brand-icon {
