@@ -296,11 +296,23 @@
         <!-- Share -->
         <div style="padding:1.5rem 0;border-top:1px solid var(--border);">
           <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem;">Share this article</div>
-          <div class="share-btns">
-            <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fironstitch.com&text=Check%20out%20IronStitch%20Cobblers" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg> Twitter</a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fironstitch.com" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on LinkedIn">in LinkedIn</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fironstitch.com" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on Facebook">f Facebook</a>
-            <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Copied';" aria-label="Copy link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy Link</button>
+                    <div class="share-btns">
+            <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fironstitch.com&text=Check%20out%20IronStitch%20Cobblers" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X</span>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fironstitch.com" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fironstitch.com" target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <button type="button" class="share-btn share-btn--copy" onclick="copyArticleLink(this)" aria-label="Copy article link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <span>Copy Link</span>
+            </button>
           </div>
         </div>
       </article>
@@ -329,28 +341,40 @@
         </div>
 
         <!-- Related Posts -->
-        <div class="sidebar-widget">
+        <div class="sidebar-widget" data-related-articles>
           <h4>Related Articles</h4>
-          <div style="display:flex;flex-direction:column;gap:1rem;">
-            <a href="blog-details.html" style="display:flex;gap:0.75rem;text-decoration:none;">
-              <img src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=100&q=80&fit=crop" alt="Shoe polish" style="width:60px;height:60px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;" />
+          <div class="related-articles-list" style="display:flex;flex-direction:column;gap:1rem;">
+            <a href="blog-details-history-broguing.html" class="related-article-link" style="display:flex;gap:0.75rem;text-decoration:none;align-items:center;padding:0.4rem 0;border-bottom:1px solid rgba(176,141,87,0.12);transition:all 0.2s ease;">
+              <img src="https://i.pinimg.com/1200x/d8/99/59/d8995918b04ec007509427a65980980f.jpg" alt="The History of Broguing: From Irish Bogs to Savile Row Boardrooms" style="width:60px;height:60px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.08);" />
               <div>
-                <div style="font-size:0.85rem;font-weight:600;color:var(--text-primary);line-height:1.35;margin-bottom:0.25rem;">The 7-Step Mirror Polish Method</div>
-                <div style="font-size:0.72rem;color:var(--text-muted);">8 Nov 2024</div>
+                <div style="font-size:0.85rem;font-weight:600;color:var(--text-primary);line-height:1.35;margin-bottom:0.25rem;">The History of Broguing: From Irish Bogs to Savile Row Boardrooms</div>
+                <div style="font-size:0.72rem;color:var(--text-muted);display:flex;gap:0.35rem;align-items:center;">
+                  <span style="color:var(--brass);font-weight:600;">Heritage</span>
+                  <span>·</span>
+                  <span>16 Sep 2024</span>
+                </div>
               </div>
             </a>
-            <a href="blog-details.html" style="display:flex;gap:0.75rem;text-decoration:none;">
-              <img src="https://images.unsplash.com/photo-1463100099107-aa0980c362e6?w=100&q=80&fit=crop" alt="Leather conditioning" style="width:60px;height:60px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;" />
+            <a href="blog-details-inside-atelier.html" class="related-article-link" style="display:flex;gap:0.75rem;text-decoration:none;align-items:center;padding:0.4rem 0;border-bottom:1px solid rgba(176,141,87,0.12);transition:all 0.2s ease;">
+              <img src="https://i.pinimg.com/1200x/71/55/ea/7155ea5d3ec0cf302ca4093e09152fe5.jpg" alt="Inside the Atelier: A Day in the Life at IronStitch Jermyn Street" style="width:60px;height:60px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.08);" />
               <div>
-                <div style="font-size:0.85rem;font-weight:600;color:var(--text-primary);line-height:1.35;margin-bottom:0.25rem;">Essential Leather Conditioning Routine</div>
-                <div style="font-size:0.72rem;color:var(--text-muted);">5 Oct 2024</div>
+                <div style="font-size:0.85rem;font-weight:600;color:var(--text-primary);line-height:1.35;margin-bottom:0.25rem;">Inside the Atelier: A Day in the Life at IronStitch Jermyn Street</div>
+                <div style="font-size:0.72rem;color:var(--text-muted);display:flex;gap:0.35rem;align-items:center;">
+                  <span style="color:var(--brass);font-weight:600;">Heritage</span>
+                  <span>·</span>
+                  <span>10 Aug 2024</span>
+                </div>
               </div>
             </a>
-            <a href="blog-details.html" style="display:flex;gap:0.75rem;text-decoration:none;">
-              <img src="https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?w=100&q=80&fit=crop" alt="Vintage boots" style="width:60px;height:60px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;" />
+            <a href="blog-details-northampton-legacy.html" class="related-article-link" style="display:flex;gap:0.75rem;text-decoration:none;align-items:center;padding:0.4rem 0;border-bottom:1px solid rgba(176,141,87,0.12);transition:all 0.2s ease;">
+              <img src="https://i.pinimg.com/736x/aa/b4/75/aab475db26ab00366b2db424552cc1b6.jpg" alt="Northampton's Shoemaking Legacy: Why Britain Sets the Global Standard" style="width:60px;height:60px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.08);" />
               <div>
-                <div style="font-size:0.85rem;font-weight:600;color:var(--text-primary);line-height:1.35;margin-bottom:0.25rem;">Restoring Pre-War British Brogues</div>
-                <div style="font-size:0.72rem;color:var(--text-muted);">22 Sep 2024</div>
+                <div style="font-size:0.85rem;font-weight:600;color:var(--text-primary);line-height:1.35;margin-bottom:0.25rem;">Northampton's Shoemaking Legacy: Why Britain Sets the Global Standard</div>
+                <div style="font-size:0.72rem;color:var(--text-muted);display:flex;gap:0.35rem;align-items:center;">
+                  <span style="color:var(--brass);font-weight:600;">Heritage</span>
+                  <span>·</span>
+                  <span>30 Aug 2024</span>
+                </div>
               </div>
             </a>
           </div>
@@ -379,40 +403,40 @@
       <h2 id="more-posts" style="font-family:var(--font-serif);font-size:clamp(1.5rem,2.5vw,2.2rem);">More from the <em>Journal</em></h2>
     </header>
     <div class="blog-grid">
-      <article class="blog-card reveal delay-1">
+      <article class="blog-card reveal revealed delay-1" style="opacity: 1; transform: none;">
         <div class="blog-card__image">
-          <img src="https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=600&q=85&fit=crop" alt="Waterproof boot in autumn rain" loading="lazy"/>
+          <img src="https://i.pinimg.com/1200x/a2/82/3a/a2823acda6c559a6bda17f3dc37ccdda.jpg" alt="The Goodyear Welt: Why the World's Finest Shoes Still Use a 140-Year-Old Method" loading="lazy"/>
         </div>
         <div class="blog-card__body">
-          <div class="card__tag">Seasonal Tips</div>
-          <div class="blog-card__meta"><span>George Abbott</span><span>1 Oct 2024</span><span>5 min</span></div>
-          <h3 class="blog-card__title"><a href="blog-details.html">Autumn Prep: Waterproof Your Shoes Before the Rains Come</a></h3>
-          <p class="blog-card__excerpt">Protect your leather footwear before the first autumn downpour with our expert step-by-step waterproofing guide.</p>
+          <div class="card__tag">Craft & Technique</div>
+          <div class="blog-card__meta"><span>Clara Ironsmith</span><span>15 Nov 2024</span><span>8 min</span></div>
+          <h3 class="blog-card__title"><a href="blog-details.html">The Goodyear Welt: Why the World's Finest Shoes Still Use a 140-Year-Old Method</a></h3>
+          <p class="blog-card__excerpt">In an era of fast fashion, the Goodyear welt endures — resoleable, repairable and made to last a lifetime. Our master cobbler explains why this Victorian innovation remains unmatched.</p>
           <a href="blog-details.html" class="blog-card__link">Read More <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
-      <article class="blog-card reveal delay-2">
+      <article class="blog-card reveal revealed delay-2" style="opacity: 1; transform: none;">
         <div class="blog-card__image">
-          <img src="https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?w=600&q=85&fit=crop" alt="Scuffed burgundy leather shoes" loading="lazy"/>
+          <img src="https://i.pinimg.com/1200x/c0/6c/cd/c06ccdd7a959e5d55da242dd20e98f74.jpg" alt="How to Rescue Badly Scuffed Leather: A Complete Restoration Walkthrough" loading="lazy"/>
         </div>
         <div class="blog-card__body">
           <div class="card__tag">Restoration</div>
           <div class="blog-card__meta"><span>George Abbott</span><span>18 Oct 2024</span><span>7 min</span></div>
-          <h3 class="blog-card__title"><a href="blog-details.html">How to Rescue Badly Scuffed Leather: A Complete Walkthrough</a></h3>
+          <h3 class="blog-card__title"><a href="blog-details-scuffed-leather.html">How to Rescue Badly Scuffed Leather: A Complete Restoration Walkthrough</a></h3>
           <p class="blog-card__excerpt">Our colour restoration specialist walks through a complete deep-scuff intervention on a beloved suede loafer.</p>
-          <a href="blog-details.html" class="blog-card__link">Read More <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+          <a href="blog-details-scuffed-leather.html" class="blog-card__link">Read More <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
-      <article class="blog-card reveal delay-3">
+      <article class="blog-card reveal revealed delay-3" style="opacity: 1; transform: none;">
         <div class="blog-card__image">
-          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=85&fit=crop" alt="IronStitch workshop interior at dusk" loading="lazy"/>
+          <img src="https://i.pinimg.com/1200x/71/55/ea/7155ea5d3ec0cf302ca4093e09152fe5.jpg" alt="Inside the Atelier: A Day in the Life at IronStitch Jermyn Street" loading="lazy"/>
         </div>
         <div class="blog-card__body">
           <div class="card__tag">Heritage</div>
           <div class="blog-card__meta"><span>Clara Ironsmith</span><span>10 Aug 2024</span><span>7 min</span></div>
-          <h3 class="blog-card__title"><a href="blog-details.html">Inside the Atelier: A Day in the Life at IronStitch</a></h3>
-          <p class="blog-card__excerpt">An intimate behind-the-scenes look at a full working day inside London's most storied cobblery workshop.</p>
-          <a href="blog-details.html" class="blog-card__link">Read More <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+          <h3 class="blog-card__title"><a href="blog-details-inside-atelier.html">Inside the Atelier: A Day in the Life at IronStitch Jermyn Street</a></h3>
+          <p class="blog-card__excerpt">Step behind our Jermyn Street atelier doors to witness how three generations of cobbling heritage preserve London's finest bespoke shoe craft.</p>
+          <a href="blog-details-inside-atelier.html" class="blog-card__link">Read More <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
     </div>
