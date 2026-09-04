@@ -1689,14 +1689,33 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 16px rgba(43,33,29,0.08);
 }
 [data-theme="dark"] .form-success {
-  background: var(--surface);
-  border-color: rgba(176,141,87,0.28);
+  background: #FFFFFF;
+  border-color: rgba(176,141,87,0.22);
 }
 .newsletter .form-success,
 .bg-espresso .form-success {
   background: #FFFFFF;
   border-left-color: var(--brass);
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+[data-theme="dark"] .newsletter .form-success,
+[data-theme="dark"] .bg-espresso .form-success {
+  background: #FFFFFF;
+}
+/* Ensure dark theme success text stays dark on white card */
+.form-success [style*="color:var(--text-primary)"],
+.form-success [style*="color:var(--espresso)"] {
+  color: #2B211D !important;
+}
+[data-theme="dark"] .toast {
+  background: #FFFFFF;
+  border-color: rgba(176,141,87,0.22);
+}
+[data-theme="dark"] .toast__title {
+  color: #2B211D;
+}
+[data-theme="dark"] .toast__text {
+  color: #5A4035;
 }
 @keyframes formSuccessIn {
   from { opacity: 0; transform: translateY(-6px); }
