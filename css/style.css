@@ -2195,6 +2195,15 @@ select.form-control {
 .bg-sand .display-3 em { color: var(--burgundy); }
 .bg-sand .lead { color: var(--espresso); font-weight: 400; opacity: 1; }
 .bg-sand .divider { background: linear-gradient(to right, var(--espresso), var(--brass)); opacity: 0.9; }
+/* Timeline inside bg-sand — force dark text on light sand for both themes (sand stays light in dark) */
+.bg-sand .timeline-item__year,
+[data-theme="dark"] .bg-sand .timeline-item__year { color: #8A6C3E; font-weight: 800; }
+.bg-sand .timeline-item__title,
+[data-theme="dark"] .bg-sand .timeline-item__title { color: #2B211D; }
+.bg-sand .timeline-item__text,
+[data-theme="dark"] .bg-sand .timeline-item__text { color: #5A4035; }
+.bg-sand .timeline::before,
+[data-theme="dark"] .bg-sand .timeline::before { background: linear-gradient(to bottom, #8A6C3E, #D8C7AE); }
 
 .divider {
   display: block;
