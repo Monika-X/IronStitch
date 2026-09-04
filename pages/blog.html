@@ -8,54 +8,74 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <style>
+    /* ── Premium Journal Redesign ── */
     .blog-featured {
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 1.75rem;
-      margin-bottom: 3rem;
+      grid-template-columns: 1.65fr 0.95fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      align-items: start;
     }
     .blog-featured__main {
       background: var(--surface);
       border: 1px solid var(--border);
+      border-left: 4px solid var(--brass);
       border-radius: var(--r-lg);
       overflow: hidden;
       transition: all var(--dur-base);
+      box-shadow: 0 8px 32px rgba(43,33,29,0.06);
     }
-    .blog-featured__main:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .blog-featured__main:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-left-color: var(--brass-dark); }
     .blog-featured__main-img {
-      height: 380px;
+      height: 420px;
       overflow: hidden;
+      position: relative;
+    }
+    .blog-featured__main-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(43,33,29,0.18) 0%, transparent 55%);
+      pointer-events: none;
     }
     .blog-featured__main-img img {
       width:100%;height:100%;object-fit:cover;
       transition: transform var(--dur-slow);
     }
-    .blog-featured__main:hover .blog-featured__main-img img { transform: scale(1.04); }
-    .blog-featured__main-body { padding: 2rem; }
+    .blog-featured__main:hover .blog-featured__main-img img { transform: scale(1.05); }
+    .blog-featured__main-body { padding: 2.25rem 2rem 1.75rem; }
+    .blog-featured__main-body .card__tag { margin-bottom: 1rem; }
     .blog-featured__side {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.15rem;
+      position: sticky;
+      top: calc(var(--nav-h) + 1.5rem);
     }
     .blog-mini {
       background: var(--surface);
       border: 1px solid var(--border);
+      border-left: 3px solid transparent;
       border-radius: var(--r-lg);
       overflow: hidden;
       display: grid;
-      grid-template-columns: 110px 1fr;
+      grid-template-columns: 132px 1fr;
       transition: all var(--dur-base);
     }
-    .blog-mini:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
-    .blog-mini__img { height: 100%; min-height: 90px; overflow: hidden; }
-    .blog-mini__img img { width:100%;height:100%;object-fit:cover; }
-    .blog-mini__body { padding: 1rem; }
-    .blog-mini__title { font-family:var(--font-serif);font-size:0.95rem;font-weight:600;line-height:1.35;margin-bottom:0.35rem;color:var(--text-primary); }
+    .blog-mini:hover { box-shadow: var(--shadow-md); transform: translateX(4px); border-left-color: var(--brass); }
+    .blog-mini__img { height: 100%; min-height: 108px; overflow: hidden; background: var(--bg-alt); }
+    .blog-mini__img img { width:100%;height:100%;object-fit:cover; transition: transform var(--dur-slow); }
+    .blog-mini:hover .blog-mini__img img { transform: scale(1.06); }
+    .blog-mini__body { padding: 1.1rem 1rem; display:flex; flex-direction:column; justify-content:center; }
+    .blog-mini__title { font-family:var(--font-serif);font-size:0.98rem;font-weight:600;line-height:1.35;margin-bottom:0.4rem;color:var(--text-primary); }
     .blog-mini:hover .blog-mini__title { color: var(--brass); }
-    .blog-mini__date { font-size:0.72rem;color:var(--text-muted); }
+    .blog-mini__date { font-size:0.72rem;color:var(--text-muted); display:flex; align-items:center; gap:0.35rem; }
+    .blog-mini__date::before { content:'◷'; font-size:0.65rem; opacity:0.7; }
     .category-pill {
-      display: inline-block;
-      padding: 0.35rem 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1.1rem;
       border-radius: var(--r-full);
       font-size: 0.72rem;
       font-weight: 700;
@@ -64,18 +84,50 @@
       cursor: pointer;
       border: 1px solid var(--border);
       color: var(--text-muted);
-      background: transparent;
+      background: var(--surface);
       transition: all var(--dur-fast);
+      box-shadow: 0 1px 4px rgba(43,33,29,0.04);
     }
+    .category-pill::before { content:'◆'; font-size:0.5rem; opacity:0; transition: opacity var(--dur-fast); }
+    .category-pill.active::before { opacity:1; }
     .category-pill:hover,
     .category-pill.active {
       background: var(--brass);
       border-color: var(--brass);
       color: var(--ivory);
+      box-shadow: 0 4px 12px rgba(176,141,87,0.22);
+      transform: translateY(-1px);
+    }
+    /* Grid cards premium */
+    .blog-grid { gap: 2rem; }
+    .blog-card { border-top: 3px solid transparent; }
+    .blog-card:hover { border-top-color: var(--brass); transform: translateY(-6px); }
+    .blog-card__image { position:relative; }
+    .blog-card__image::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to top, rgba(43,33,29,0.12), transparent 60%);
+      opacity:0;
+      transition: opacity var(--dur-base);
+    }
+    .blog-card:hover .blog-card__image::after { opacity:1; }
+    .blog-card__body { padding: 1.75rem 1.5rem 1.5rem; }
+    .blog-card__meta { font-size:0.72rem; letter-spacing:0.02em; }
+    .blog-card__meta span:first-child { font-weight:600; color:var(--brass); }
+    @media (max-width:1100px) {
+      .blog-featured { grid-template-columns: 1fr; }
+      .blog-featured__side { position: static; }
     }
     @media (max-width:900px) {
-      .blog-featured { grid-template-columns: 1fr; }
+      .blog-featured__main-img { height: 320px; }
+      .blog-mini { grid-template-columns: 120px 1fr; }
+    }
+    @media (max-width:640px) {
+      .blog-featured { gap: 1.5rem; margin-bottom: 2.5rem; }
       .blog-featured__main-img { height: 260px; }
+      .blog-mini { grid-template-columns: 1fr; }
+      .blog-mini__img { min-height: 180px; }
     }
   </style>
 </head>
