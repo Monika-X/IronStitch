@@ -351,64 +351,67 @@
   <div class="container">
     <h2 id="featured-posts-heading" class="visually-hidden">Featured Posts</h2>
 
-    <div class="blog-featured reveal">
-      <article class="blog-featured__main" itemscope itemtype="https://schema.org/Article">
-        <div class="blog-featured__main-img">
+    <div class="blog-featured reveal" style="display:grid; grid-template-columns: 1.15fr 1fr; gap:2rem; align-items:stretch;">
+      <!-- Main Feature — Dark Editorial -->
+      <article class="blog-featured__main" itemscope itemtype="https://schema.org/Article" style="background:var(--espresso); border:none; border-radius:var(--r-lg); overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.22);">
+        <div class="blog-featured__main-img" style="height:340px; position:relative;">
           <img
             src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=1000&q=85&fit=crop"
             alt="Master cobbler using traditional tools to hand-stitch leather welt"
             itemprop="image"
             loading="lazy"
+            style="height:100%;"
           />
+          <div style="position:absolute; top:1.25rem; left:1.25rem; background:var(--brass); color:var(--ivory); padding:0.35rem 0.85rem; border-radius:var(--r-full); font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;">Craft &amp; Technique · Featured</div>
         </div>
-        <div class="blog-featured__main-body">
-          <div class="card__tag">Craft &amp; Technique</div>
-          <h2 style="font-family:var(--font-serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:600;margin-bottom:0.75rem;line-height:1.2;" itemprop="headline">
-            <a href="blog-details.html">The Goodyear Welt: Why the World's Finest Shoes Still Use a 140-Year-Old Method</a>
+        <div class="blog-featured__main-body" style="padding:1.75rem 1.75rem 1.5rem; background:var(--espresso);">
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.45rem,2.4vw,1.95rem);font-weight:600;margin-bottom:0.75rem;line-height:1.25; color:var(--ivory);" itemprop="headline">
+            <a href="blog-details.html" style="color:var(--ivory); text-decoration:none;">The Goodyear Welt: Why the World's Finest Shoes Still Use a 140-Year-Old Method</a>
           </h2>
-          <div style="display:flex;gap:1.25rem;color:var(--text-muted);font-size:0.78rem;margin-bottom:1rem;align-items:center;flex-wrap:wrap;">
-            <span itemprop="author">By Clara Ironsmith</span>
+          <div style="display:flex;gap:0.75rem;color:rgba(216,199,174,0.7);font-size:0.76rem;margin-bottom:1rem;align-items:center;flex-wrap:wrap;">
+            <span style="display:flex;align-items:center;gap:0.5rem;"><img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&q=80&fit=crop&crop=face" alt="Clara Ironsmith" style="width:24px;height:24px;border-radius:50%;object-fit:cover;border:1px solid var(--brass);" /><span itemprop="author" style="color:var(--brass); font-weight:600;">Clara Ironsmith</span></span>
             <span>·</span>
-            <time itemprop="datePublished" datetime="2024-11-15">15 November 2024</time>
+            <time itemprop="datePublished" datetime="2024-11-15">15 Nov 2024</time>
             <span>·</span>
-            <span>8 min read</span>
+            <span>8 min</span>
           </div>
-          <p itemprop="description" style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
-            In an era of fast fashion and disposable footwear, the Goodyear welt endures as the gold standard of shoe construction — resoleable, repairable and made to last a lifetime. Our master cobbler explains why this Victorian innovation remains unmatched...
+          <p itemprop="description" style="color:rgba(216,199,174,0.8);font-size:0.92rem;line-height:1.7;margin-bottom:1.25rem;">
+            In an era of fast fashion, the Goodyear welt endures — resoleable, repairable and made to last a lifetime. Our master cobbler explains why this Victorian innovation remains unmatched.
           </p>
-          <a href="blog-details.html" class="blog-card__link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+          <a href="blog-details.html" style="display:inline-flex;align-items:center;gap:0.5rem; color:var(--brass); font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1px solid rgba(176,141,87,0.35); padding:0.6rem 1.1rem; border-radius:var(--r-full); transition:all var(--dur-fast);">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
         </div>
       </article>
 
-      <div class="blog-featured__side">
-        <article class="blog-mini" itemscope itemtype="https://schema.org/Article">
-          <div class="blog-mini__img">
-            <img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=300&q=85&fit=crop" alt="Saphir polish products on cobbler workbench" loading="lazy"/>
+      <!-- Side Stack — Light Minimal -->
+      <div class="blog-featured__side" style="display:flex; flex-direction:column; gap:1rem;">
+        <article class="blog-mini" itemscope itemtype="https://schema.org/Article" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; display:grid; grid-template-columns:112px 1fr; box-shadow:0 4px 16px rgba(43,33,29,0.04);">
+          <div class="blog-mini__img" style="height:100%; min-height:96px;">
+            <img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=300&q=85&fit=crop" alt="Saphir polish products on cobbler workbench" loading="lazy" style="height:100%;"/>
           </div>
-          <div class="blog-mini__body">
-            <div class="card__tag" style="font-size:0.65rem;padding:0.2rem 0.5rem;margin-bottom:0.35rem;">Leather Care</div>
-            <h3 class="blog-mini__title"><a href="blog-details-mirror-polish.html">The 7-Step Mirror Polish Method: A Master's Guide</a></h3>
-            <div class="blog-mini__date">8 Nov 2024 · 6 min</div>
-          </div>
-        </article>
-        <article class="blog-mini">
-          <div class="blog-mini__img">
-            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=300&q=85&fit=crop" alt="Rain boots with waterproofing treatment" loading="lazy"/>
-          </div>
-          <div class="blog-mini__body">
-            <div class="card__tag" style="font-size:0.65rem;padding:0.2rem 0.5rem;margin-bottom:0.35rem;">Seasonal</div>
-            <h3 class="blog-mini__title"><a href="blog-details-autumn-prep.html">Autumn Prep: Waterproof Your Shoes Before the Rains Come</a></h3>
-            <div class="blog-mini__date">1 Oct 2024 · 5 min</div>
+          <div class="blog-mini__body" style="padding:0.9rem 0.85rem;">
+            <div style="display:inline-flex; align-items:center; gap:0.35rem; background:rgba(176,141,87,0.10); color:var(--brass); border:1px solid rgba(176,141,87,0.18); padding:0.18rem 0.5rem; border-radius:var(--r-full); font-size:0.62rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem;">Leather Care</div>
+            <h3 class="blog-mini__title" style="font-size:0.92rem; margin-bottom:0.25rem;"><a href="blog-details-mirror-polish.html" style="color:var(--text-primary);">The 7-Step Mirror Polish Method: A Master's Guide</a></h3>
+            <div class="blog-mini__date" style="font-size:0.70rem;">8 Nov 2024 · 6 min</div>
           </div>
         </article>
-        <article class="blog-mini">
-          <div class="blog-mini__img">
-            <img src="https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=300&q=85&fit=crop" alt="Vintage leather boots before professional restoration" loading="lazy"/>
+        <article class="blog-mini" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; display:grid; grid-template-columns:112px 1fr; box-shadow:0 4px 16px rgba(43,33,29,0.04);">
+          <div class="blog-mini__img" style="height:100%; min-height:96px;">
+            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=300&q=85&fit=crop" alt="Rain boots with waterproofing treatment" loading="lazy" style="height:100%;"/>
           </div>
-          <div class="blog-mini__body">
-            <div class="card__tag" style="font-size:0.65rem;padding:0.2rem 0.5rem;margin-bottom:0.35rem;">Heritage</div>
-            <h3 class="blog-mini__title"><a href="blog-details-prewar-brogues.html">From Grandfather's Wardrobe: Restoring Pre-War British Brogues</a></h3>
-            <div class="blog-mini__date">22 Sep 2024 · 10 min</div>
+          <div class="blog-mini__body" style="padding:0.9rem 0.85rem;">
+            <div style="display:inline-flex; align-items:center; gap:0.35rem; background:rgba(110,48,56,0.08); color:var(--burgundy); border:1px solid rgba(110,48,56,0.14); padding:0.18rem 0.5rem; border-radius:var(--r-full); font-size:0.62rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem;">Seasonal</div>
+            <h3 class="blog-mini__title" style="font-size:0.92rem; margin-bottom:0.25rem;"><a href="blog-details-autumn-prep.html" style="color:var(--text-primary);">Autumn Prep: Waterproof Your Shoes Before the Rains Come</a></h3>
+            <div class="blog-mini__date" style="font-size:0.70rem;">1 Oct 2024 · 5 min</div>
+          </div>
+        </article>
+        <article class="blog-mini" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; display:grid; grid-template-columns:112px 1fr; box-shadow:0 4px 16px rgba(43,33,29,0.04);">
+          <div class="blog-mini__img" style="height:100%; min-height:96px;">
+            <img src="https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=300&q=85&fit=crop" alt="Vintage leather boots before professional restoration" loading="lazy" style="height:100%;"/>
+          </div>
+          <div class="blog-mini__body" style="padding:0.9rem 0.85rem;">
+            <div style="display:inline-flex; align-items:center; gap:0.35rem; background:rgba(43,33,29,0.06); color:var(--espresso); border:1px solid rgba(43,33,29,0.10); padding:0.18rem 0.5rem; border-radius:var(--r-full); font-size:0.62rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem;">Heritage</div>
+            <h3 class="blog-mini__title" style="font-size:0.92rem; margin-bottom:0.25rem;"><a href="blog-details-prewar-brogues.html" style="color:var(--text-primary);">From Grandfather's Wardrobe: Restoring Pre-War British Brogues</a></h3>
+            <div class="blog-mini__date" style="font-size:0.70rem;">22 Sep 2024 · 10 min</div>
           </div>
         </article>
       </div>
