@@ -121,9 +121,12 @@ const Navbar = (() => {
     overlay?.addEventListener('click', closeMenu);
 
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const cleanCurrent = currentPath.split('#')[0].split('?')[0];
     document.querySelectorAll('.navbar__nav a, .mobile-menu a').forEach(a => {
       const href = a.getAttribute('href');
-      if (href && (href === currentPath || href.includes(currentPath))) {
+      if (!href) return;
+      const targetFile = href.split('#')[0].split('?')[0].split('/').pop();
+      if (targetFile && targetFile === cleanCurrent) {
         a.classList.add('active');
       }
     });
@@ -360,7 +363,7 @@ const FormValidator = (() => {
           const orig = btn?.textContent;
           if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
           setTimeout(() => {
-            showToast('✓ Message Sent!', "We'll get back to you within 24 hours.");
+            showToast('Message Sent!', "We'll get back to you within 24 hours.");
             form.reset();
             if (btn) { btn.textContent = orig; btn.disabled = false; }
           }, 1500);
@@ -416,9 +419,9 @@ const CounterAnimation = (() => {
     function step(now) {
       const p = Math.min((now - start) / duration, 1);
       const v = (1 - Math.pow(1 - p, 3)) * target;
-      el.textContent = prefix + (Number.isInteger(target) ? Math.round(v) : v.toFixed(1)) + suffix;
+      if(suffix==='star'){ el.innerHTML = prefix + (Number.isInteger(target) ? Math.round(v) : v.toFixed(1)) + '<span style="display:inline-flex;vertical-align:middle;margin-left:2px;color:var(--brass);"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>'; } else { if(suffix==='star'){ el.innerHTML = prefix + (Number.isInteger(target) ? Math.round(v) : v.toFixed(1)) + '<span style="display:inline-flex;vertical-align:middle;margin-left:2px;color:var(--brass);"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>'; } else { el.textContent = prefix + (Number.isInteger(target) ? Math.round(v) : v.toFixed(1)) + suffix; } }
       if (p < 1) requestAnimationFrame(step);
-      else el.textContent = prefix + target + suffix;
+      else { if(suffix==='star'){ el.innerHTML = prefix + target + '<span style="display:inline-flex;vertical-align:middle;margin-left:2px;color:var(--brass);"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>'; } else { el.textContent = prefix + target + suffix; } }
     }
 
     requestAnimationFrame(step);

@@ -2663,3 +2663,51 @@ select.form-control {
   .navbar, .footer, .back-to-top, .hero__scroll { display: none; }
   body { font-size: 12pt; color: #000; }
 }
+
+/* ── Emoji → Icons replacement ── */
+.feature-card__icon,
+.value-card__icon,
+.info-card__icon,
+.map-placeholder .map-icon,
+.service-card__arrow,
+.footer__contact-item,
+.footer__social a,
+.news-item span,
+.tool-center,
+.tool-satellite,
+.sitemap-section h3,
+.sitemap-grid span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-card__icon svg,
+.value-card__icon svg {
+  width: 26px;
+  height: 26px;
+  color: currentColor;
+}
+.info-card__icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--brass);
+}
+.footer__contact-item svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--brass);
+  margin-top: 2px;
+}
+.footer__social a svg {
+  width: 16px;
+  height: 16px;
+}
+.feature-card__icon { color: var(--brass); }
+.value-card__icon { color: var(--brass); }
+.sitemap-section h3 { gap: 0.6rem; }
+.sitemap-section h3 svg { width: 18px; height: 18px; flex-shrink:0; color: var(--brass); }
+.news-item svg { flex-shrink:0; }
+.tool-center svg { width: 40px; height: 40px; color: var(--brass); }
+.tool-satellite svg { width: 18px; height: 18px; color: var(--brass); }
+.map-placeholder .map-icon svg { width: 36px; height: 36px; color: var(--brass); }
