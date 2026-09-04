@@ -720,6 +720,55 @@ const CategoryFilter = (() => {
   return { init };
 })();
 
+/* ── Search Filter (Blog) ────────────────────────── */
+const SearchFilter = (() => {
+  function init(){
+    const input = document.getElementById('blog-search');
+    const clearBtn = document.getElementById('blog-search-clear');
+    if(!input) return;
+    const cards = document.querySelectorAll('.blog-card, .blog-mini, .blog-featured__main');
+    let noResults = document.getElementById('filter-no-results');
+    if(!noResults && cards.length){
+      const grid = document.querySelector('.blog-grid');
+      if(grid){
+        noResults = document.createElement('div');
+        noResults.id = 'filter-no-results';
+        noResults.style.cssText = 'display:none; text-align:center; padding:3rem 1rem; color:var(--text-muted); grid-column:1/-1;';
+        noResults.innerHTML = '<p style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-primary);margin-bottom:0.5rem;">No posts found</p><p style="font-size:0.9rem;">Try another search or view all posts.</p>';
+        grid.parentNode.insertBefore(noResults, grid.nextSibling);
+        // If CategoryFilter already created one, this will be second but we check id
+      } else {
+        // fallback for featured only
+        noResults = document.getElementById('filter-no-results');
+      }
+    }
+    // Reuse existing noResults if CategoryFilter created it
+    if(!noResults) noResults = document.getElementById('filter-no-results');
+    function normalize(s){ return s.toLowerCase().replace(/&amp;/g,'&').replace(/[^a-z0-9]/g,' ').replace(/\s+/g,' ').trim(); }
+    function filter(q){
+      const nq = normalize(q);
+      let visibleCount = 0;
+      cards.forEach(card=>{
+        const text = card.textContent ? normalize(card.textContent) : '';
+        const tagEl = card.querySelector('.card__tag');
+        const tag = tagEl ? normalize(tagEl.textContent) : '';
+        // Match if query empty or text/tag contains query
+        const match = !nq || text.includes(nq) || tag.includes(nq);
+        card.style.display = match ? '' : 'none';
+        if(match) visibleCount++;
+      });
+      if(noResults) noResults.style.display = visibleCount===0 ? 'block' : 'none';
+      if(clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+    }
+    input.addEventListener('input', ()=> filter(input.value));
+    input.addEventListener('keydown', e=>{ if(e.key==='Escape'){ input.value=''; filter(''); input.blur(); } });
+    if(clearBtn){
+      clearBtn.addEventListener('click', ()=>{ input.value=''; filter(''); input.focus(); });
+    }
+  }
+  return { init };
+})();
+
 /* ── TypedText ───────────────────────────────────── */
 const TypedText = (() => {
   function init() {
@@ -810,6 +859,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Marquee.init();
   Tabs.init();
   CategoryFilter.init();
+  SearchFilter.init();
   TypedText.init();
   TestimonialSlider.init();
   initAnchorScroll();

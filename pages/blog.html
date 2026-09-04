@@ -210,17 +210,17 @@
   </div>
 </div>
 
-<!-- ── CATEGORY FILTER ── -->
-<section style="padding:2rem 0;border-bottom:1px solid var(--border);background:var(--surface-2);" aria-label="Category filter">
-  <div class="container">
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;justify-content:center;" role="group" aria-label="Filter posts by category">
-      <button class="category-pill active" data-filter="all">All Posts</button>
-      <button class="category-pill" data-filter="leather care">Leather Care</button>
-      <button class="category-pill" data-filter="restoration">Restoration</button>
-      <button class="category-pill" data-filter="heritage">Heritage</button>
-      <button class="category-pill" data-filter="seasonal">Seasonal Tips</button>
-      <button class="category-pill" data-filter="craft & technique">Craft &amp; Technique</button>
+<!-- ── SEARCH ── -->
+<section style="padding:2rem 0;border-bottom:1px solid var(--border);background:var(--surface-2);" aria-label="Search articles">
+  <div class="container" style="max-width:640px;">
+    <div style="position:relative;">
+      <input type="search" id="blog-search" class="form-control" placeholder="Search articles, topics, authors..." aria-label="Search articles" style="padding-left:2.75rem; padding-right:2.75rem;" autocomplete="off" />
+      <span style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none; display:flex;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-3.5-3.5"/></svg>
+      </span>
+      <button id="blog-search-clear" type="button" aria-label="Clear search" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);cursor:pointer;display:none;font-size:1.25rem;line-height:1;">×</button>
     </div>
+    <p style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem;">Try “Goodyear”, “leather”, “Clara” or “Heritage”</p>
   </div>
 </section>
 
