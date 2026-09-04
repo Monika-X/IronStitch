@@ -1570,7 +1570,7 @@ h1, h2, h3, h4, h5, h6 {
   content: '⊕';
   position: absolute;
   inset: 0;
-  background: rgba(43,33,29,0.6);
+  background: rgba(16,11,9,0.68);
   color: var(--ivory);
   display: flex;
   align-items: center;
@@ -1578,6 +1578,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
   opacity: 0;
   transition: opacity var(--dur-base);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
 }
 
 .gallery-item:hover::after { opacity: 1; }
@@ -2119,6 +2121,13 @@ select.form-control {
 .bg-sand      { background: var(--sand-light); }
 .bg-surface   { background: var(--surface); }
 .bg-ivory     { background: var(--ivory); }
+
+/* ── Sand background contrast fix (Recent Restorations etc.) ── */
+.bg-sand .overline { color: var(--espresso); font-weight: 800; letter-spacing: 0.22em; }
+.bg-sand .display-3 { color: var(--espresso); }
+.bg-sand .display-3 em { color: var(--burgundy); }
+.bg-sand .lead { color: var(--text-primary); }
+.bg-sand .divider { background: linear-gradient(to right, var(--espresso), var(--brass)); opacity: 0.9; }
 
 .divider {
   display: block;
