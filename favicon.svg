@@ -1,0 +1,33 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favBrass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAD5B3"/>
+      <stop offset="45%" stop-color="#B08D57"/>
+      <stop offset="100%" stop-color="#7B5B2E"/>
+    </linearGradient>
+    <linearGradient id="favDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D221D"/>
+      <stop offset="100%" stop-color="#140F0D"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Badge -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#favDark)" stroke="url(#favBrass)" stroke-width="2"/>
+  
+  <!-- Hand-Stitch Perimeter Line -->
+  <rect x="6.5" y="6.5" width="51" height="51" rx="10" fill="none" stroke="#D8C7AE" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.5"/>
+  
+  <!-- Curved Cobbler Needle with Waxed Thread Arc -->
+  <path d="M12 48 C 17 38, 28 32, 51 15" fill="none" stroke="url(#favBrass)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M51 15 C 55 12, 57 16, 54 19 C 48 25, 42 28, 38 34" fill="none" stroke="#EAD5B3" stroke-width="1.2" stroke-dasharray="2 1.5" stroke-linecap="round"/>
+  <circle cx="50.8" cy="15.2" r="0.8" fill="#140F0D"/>
+
+  <!-- Stylized Luxury Monogram "I S" in Brass -->
+  <g fill="url(#favBrass)">
+    <!-- Letter I -->
+    <path d="M20 20 L27.5 20 L27.5 22.5 L25 22.5 L25 38.5 L27.5 38.5 L27.5 41 L20 41 L20 38.5 L22.5 38.5 L22.5 22.5 L20 22.5 Z"/>
+    <!-- Letter S Interlocked -->
+    <path d="M31.5 38.5 C 32.8 40.5, 35.5 42, 39 42 C 43.5 42, 46 39.5, 46 36.5 C 46 33.5, 43.8 32.2, 39.5 31 C 35.8 29.8, 33.5 28.5, 33.5 25.5 C 33.5 22.2, 36.5 20, 40 20 C 42.8 20, 45 21.2, 46.2 22.8 L44.2 24.5 C 43.2 23.2, 41.6 22.2, 39.8 22.2 C 37.5 22.2, 35.8 23.5, 35.8 25.5 C 35.8 27.2, 37.2 28.2, 40.8 29.5 C 45 31, 48.5 32.5, 48.5 36.5 C 48.5 41.2, 44.5 44.2, 39 44.2 C 34.8 44.2, 31.5 42.2, 29.8 39.8 Z"/>
+  </g>
+  <circle cx="12" cy="48" r="1.5" fill="#EAD5B3"/>
+</svg>

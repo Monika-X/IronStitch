@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About IronSmith Cobblers — Three Generations of Heritage Craftsmanship</title>
-  <meta name="description" content="Discover the IronSmith story — founded in 1947 by Edmund Ironsmith, now stewarded by three generations of London's finest cobblers. Learn about our craftsmen, philosophy and heritage." />
+  <title>About IronStitch Cobblers — Three Generations of Heritage Craftsmanship</title>
+  <meta name="description" content="Discover the IronStitch story — founded in 1947 by Edmund Ironsmith, now stewarded by three generations of London's finest cobblers. Learn about our craftsmen, philosophy and heritage." />
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23B08D57'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='serif' font-size='16' font-weight='700'>IS</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <style>
     .values-grid {
       display: grid;
@@ -47,31 +47,64 @@
 
 <nav class="navbar scrolled" role="navigation" aria-label="Main navigation">
   <div class="navbar__inner">
-    <a class="navbar__logo" href="../index.html">
-      <div class="navbar__logo-icon">IS</div>
+    <a class="navbar__logo" href="../index.html" aria-label="IronStitch Cobblers â€” Home">
+      <div class="navbar__logo-icon">
+        <svg viewBox="0 0 44 44" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="IronStitch Logo Emblem">
+  <defs>
+    <linearGradient id="isBrassLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAD5B3"/>
+      <stop offset="45%" stop-color="#B08D57"/>
+      <stop offset="100%" stop-color="#7B5B2E"/>
+    </linearGradient>
+    <linearGradient id="isDarkLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D221D"/>
+      <stop offset="100%" stop-color="#140F0D"/>
+    </linearGradient>
+  </defs>
+  <rect width="44" height="44" rx="10" fill="url(#isDarkLogo)" stroke="url(#isBrassLogo)" stroke-width="1.5"/>
+  <rect x="3.5" y="3.5" width="37" height="37" rx="7.5" fill="none" stroke="#D8C7AE" stroke-width="0.8" stroke-dasharray="2.5 1.8" opacity="0.45"/>
+  <path d="M9 34 C 13 26, 21 22, 36 10" stroke="url(#isBrassLogo)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M36 10 C 39 8, 40 11, 38 13 C 34 17, 30 19, 27 23" stroke="#EAD5B3" stroke-width="0.9" stroke-dasharray="1.8 1.4" stroke-linecap="round"/>
+  <circle cx="35.8" cy="10.2" r="0.6" fill="#140F0D"/>
+  <circle cx="9" cy="34" r="1.2" fill="#EAD5B3"/>
+  <g fill="url(#isBrassLogo)">
+    <path d="M14 14 h5.5 v1.8 h-1.8 v11.4 h1.8 V29 H14 v-1.8 h1.8 V15.8 H14 V14 z"/>
+    <path d="M22 26.8 c.9 1.4 2.7 2.4 5.1 2.4 3.2 0 5-1.7 5-3.8 0-2.1-1.6-3-4.6-3.9 -2.7-.8-4.4-1.7-4.4-3.8 0-2.4 2.1-3.9 4.7-3.9 2 0 3.5.8 4.4 1.8 l-1.3 1.4 c-.7-.8-1.9-1.3-3.1-1.3 -1.6 0-2.6.9-2.6 2 0 1.2 1 1.9 3.4 2.7 3 1 5.6 2.1 5.6 5.1 0 3.3-2.7 5.7-6.9 5.7 -3 0-5.2-1.3-6.3-3.1 l1.7-1.3 z"/>
+  </g>
+</svg>
+      </div>
       <div class="navbar__logo-text">
-        <span class="navbar__logo-name">IronSmith</span>
-        <span class="navbar__logo-tagline">Cobblers &amp; Atelier</span>
+        <span class="navbar__logo-name">IronStitch</span>
+        <span class="navbar__logo-tagline">Bespoke Cobblers &amp; Atelier</span>
       </div>
     </a>
-    <ul class="navbar__nav" role="list">
+        <ul class="navbar__nav" role="list">
       <li><a href="../index.html">Home</a></li>
+      <li><a href="home2.html">Home 2</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="blog.html">Journal</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="navbar__actions">
-      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-      <button class="icon-btn" data-action="toggle-rtl" style="font-size:0.68rem;font-weight:700;">RTL</button>
-      <a href="contact.html" class="navbar__cta">Book Repair</a>
-      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <div class="navbar__actions">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="icon-btn" data-action="toggle-rtl" aria-label="Toggle RTL" title="Toggle RTL/LTR" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;">RTL</button>
+      <a href="contact.html" class="navbar__cta">Book Now</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobile-menu">
-  <a href="../index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
-  <a href="blog.html">Journal</a><a href="contact.html">Contact</a>
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+  <a href="../index.html">Home</a>
+  <a href="home2.html">Home 2</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
 </div>
 <div class="mobile-menu-overlay"></div>
 
@@ -82,7 +115,7 @@
   <div class="container">
     <p class="page-hero__eyebrow">About Us</p>
     <h1 class="page-hero__title">Three Generations<br/>of <em>Sacred</em> Craft</h1>
-    <p class="page-hero__desc">Founded in 1947 on Jermyn Street, IronSmith Cobblers has been London's most trusted shoe restoration atelier for over seven decades.</p>
+    <p class="page-hero__desc">Founded in 1947 on Jermyn Street, IronStitch Cobblers has been London's most trusted shoe restoration atelier for over seven decades.</p>
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../index.html">Home</a>
       <span class="sep">›</span>
@@ -115,7 +148,7 @@
         <span class="divider"></span>
         <p class="lead" style="margin-bottom:1.25rem;">In the post-war austerity of 1947, Edmund Ironsmith — a returning soldier with a craftsman's eye — opened a tiny workshop on Jermyn Street. His principle was simple: no shoe that could be saved should be discarded.</p>
         <p style="color:var(--text-secondary);margin-bottom:1.25rem;font-size:0.95rem;line-height:1.8;">Within a decade, Edmund's reputation had spread through St James's gentlemen's clubs, Mayfair drawing rooms and the corridors of Westminster. He counted among his clients several members of the House of Lords and not a few actors from the West End stage.</p>
-        <p style="color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem;line-height:1.8;">His son Robert, and now his granddaughter Clara — IronSmith's current Master Cobbler — have preserved every principle Edmund established, while embracing the finest modern materials and techniques.</p>
+        <p style="color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem;line-height:1.8;">His son Robert, and now his granddaughter Clara — IronStitch's current Master Cobbler — have preserved every principle Edmund established, while embracing the finest modern materials and techniques.</p>
         <div class="badge-strip">
           <span class="badge badge-brass"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg> Royal Warrant Holder</span>
           <span class="badge badge-brass"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg> FSB Award Winner</span>
@@ -134,10 +167,10 @@
         <p class="overline reveal">Our Journey</p>
         <h2 id="heritage-heading" class="display-3 reveal" style="margin-bottom:1rem;">Seven Decades of <em>Excellence</em></h2>
         <span class="divider reveal"></span>
-        <p class="reveal" style="color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem;line-height:1.8;">Every year has added new skills, new clients, and new chapters to the IronSmith story.</p>
+        <p class="reveal" style="color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem;line-height:1.8;">Every year has added new skills, new clients, and new chapters to the IronStitch story.</p>
         <img
           src="https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=600&q=85&fit=crop"
-          alt="Vintage cobbler tools from the IronSmith archive"
+          alt="Vintage cobbler tools from the IronStitch archive"
           style="border-radius:var(--r-lg);width:100%;max-height:280px;object-fit:cover;"
           class="reveal"
         />
@@ -151,7 +184,7 @@
         <div class="timeline-item">
           <div class="timeline-item__year">1962</div>
           <h3 class="timeline-item__title">Royal Warrant</h3>
-          <p class="timeline-item__text">IronSmith granted a Royal Warrant for services to the Royal Household — a distinction renewed every five years thereafter.</p>
+          <p class="timeline-item__text">IronStitch granted a Royal Warrant for services to the Royal Household — a distinction renewed every five years thereafter.</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-item__year">1981</div>
@@ -171,7 +204,7 @@
         <div class="timeline-item">
           <div class="timeline-item__year">2024</div>
           <h3 class="timeline-item__title">18,500 Restorations</h3>
-          <p class="timeline-item__text">IronSmith celebrates a landmark — 18,500 pairs of shoes breathed new life, with zero compromises on quality in 77 years.</p>
+          <p class="timeline-item__text">IronStitch celebrates a landmark — 18,500 pairs of shoes breathed new life, with zero compromises on quality in 77 years.</p>
         </div>
       </div>
     </div>
@@ -295,7 +328,7 @@
       </div>
       <div class="testimonial-card reveal delay-2">
         <div class="stars"><span style="display:inline-flex;gap:2px;color:var(--brass);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></div>
-        <p class="testimonial-card__quote">As a stylist, I send all my high-profile clients here. The attention to detail is unmatched in London. I've tried everywhere — IronSmith is simply in a different league.</p>
+        <p class="testimonial-card__quote">As a stylist, I send all my high-profile clients here. The attention to detail is unmatched in London. I've tried everywhere — IronStitch is simply in a different league.</p>
         <div class="testimonial-card__author">
           <div class="testimonial-card__avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80&fit=crop&crop=face" alt="Victoria Aldous" /></div>
           <div><div class="testimonial-card__name">Victoria Aldous</div><div class="testimonial-card__role">Celebrity Stylist</div></div>
@@ -311,7 +344,7 @@
       </div>
       <div class="testimonial-card reveal delay-4">
         <div class="stars"><span style="display:inline-flex;gap:2px;color:var(--brass);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></div>
-        <p class="testimonial-card__quote">My wedding shoes were damaged two days before the ceremony. IronSmith performed a miracle overnight and delivered them back in a beautiful box the following morning. Forever grateful.</p>
+        <p class="testimonial-card__quote">My wedding shoes were damaged two days before the ceremony. IronStitch performed a miracle overnight and delivered them back in a beautiful box the following morning. Forever grateful.</p>
         <div class="testimonial-card__author">
           <div class="testimonial-card__avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80&fit=crop&crop=face" alt="Priya Sharma" /></div>
           <div><div class="testimonial-card__name">Priya Sharma</div><div class="testimonial-card__role">Marketing Director</div></div>
@@ -377,49 +410,83 @@
     <div class="footer__grid">
       <div>
         <div class="footer__brand-logo">
-          <div class="footer__brand-icon">IS</div>
-          <span class="footer__brand-name">IronSmith</span>
+          <div class="footer__brand-icon">
+            <svg viewBox="0 0 44 44" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="IronStitch Logo Emblem">
+  <defs>
+    <linearGradient id="isBrassLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAD5B3"/>
+      <stop offset="45%" stop-color="#B08D57"/>
+      <stop offset="100%" stop-color="#7B5B2E"/>
+    </linearGradient>
+    <linearGradient id="isDarkLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D221D"/>
+      <stop offset="100%" stop-color="#140F0D"/>
+    </linearGradient>
+  </defs>
+  <rect width="44" height="44" rx="10" fill="url(#isDarkLogo)" stroke="url(#isBrassLogo)" stroke-width="1.5"/>
+  <rect x="3.5" y="3.5" width="37" height="37" rx="7.5" fill="none" stroke="#D8C7AE" stroke-width="0.8" stroke-dasharray="2.5 1.8" opacity="0.45"/>
+  <path d="M9 34 C 13 26, 21 22, 36 10" stroke="url(#isBrassLogo)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M36 10 C 39 8, 40 11, 38 13 C 34 17, 30 19, 27 23" stroke="#EAD5B3" stroke-width="0.9" stroke-dasharray="1.8 1.4" stroke-linecap="round"/>
+  <circle cx="35.8" cy="10.2" r="0.6" fill="#140F0D"/>
+  <circle cx="9" cy="34" r="1.2" fill="#EAD5B3"/>
+  <g fill="url(#isBrassLogo)">
+    <path d="M14 14 h5.5 v1.8 h-1.8 v11.4 h1.8 V29 H14 v-1.8 h1.8 V15.8 H14 V14 z"/>
+    <path d="M22 26.8 c.9 1.4 2.7 2.4 5.1 2.4 3.2 0 5-1.7 5-3.8 0-2.1-1.6-3-4.6-3.9 -2.7-.8-4.4-1.7-4.4-3.8 0-2.4 2.1-3.9 4.7-3.9 2 0 3.5.8 4.4 1.8 l-1.3 1.4 c-.7-.8-1.9-1.3-3.1-1.3 -1.6 0-2.6.9-2.6 2 0 1.2 1 1.9 3.4 2.7 3 1 5.6 2.1 5.6 5.1 0 3.3-2.7 5.7-6.9 5.7 -3 0-5.2-1.3-6.3-3.1 l1.7-1.3 z"/>
+  </g>
+</svg>
+          </div>
+          <div class="footer__brand-text">
+            <span class="footer__brand-name">IronStitch</span>
+            <span class="footer__brand-tagline">Bespoke Cobblers &amp; Atelier</span>
+          </div>
         </div>
-        <p class="footer__brand-desc">Heritage cobblery since 1947. Three generations of London's finest shoe restoration masters.</p>
+        <p class="footer__brand-desc">London's premier heritage cobbler atelier, serving discerning clientele with master artisan craftsmanship, bespoke restoration, and exceptional shoe care.</p>
         <div class="footer__social">
-          <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></a><a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></a>
-          <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></a><a href="#" aria-label="Pinterest"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Twitter / X"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
         </div>
       </div>
       <div class="footer__col">
-        <h4>Services</h4>
-        <nav class="footer__links">
+        <h4>SERVICES</h4>
+        <nav class="footer__links" aria-label="Services links">
           <a href="services.html#sole">Sole Replacement</a>
           <a href="services.html#heel">Heel Repair</a>
           <a href="services.html#leather">Leather Polishing</a>
           <a href="services.html#stitching">Stitching Repair</a>
           <a href="services.html#waterproof">Waterproofing</a>
+          <a href="services.html#stretch">Stretch Fitting</a>
         </nav>
       </div>
       <div class="footer__col">
-        <h4>Navigate</h4>
-        <nav class="footer__links">
+        <h4>COMPANY</h4>
+        <nav class="footer__links" aria-label="Company links">
           <a href="../index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="blog.html">Journal</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
           <a href="contact.html">Contact</a>
-          <a href="sitemap.html">Sitemap</a>
         </nav>
       </div>
       <div class="footer__col">
-        <h4>Contact</h4>
-        <address style="font-style:normal;">
-          <div class="footer__contact-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></span><div>14 Jermyn Street, London SW1Y 6LX</div></div>
-          <div class="footer__contact-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div>Mon–Fri 9–6 | Sat 10–4</div></div>
-          <div class="footer__contact-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1.2.4 2.4.9 3.5a2 2 0 0 1-.6 2.1L8 10.5a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.6c1.1.5 2.3.8 3.5.9A2 2 0 0 1 22 16.9z"/></svg></span><div><a href="tel:+442071234567" style="color:inherit;">+44 207 123 4567</a></div></div>
-        </address>
+        <h4>STAY CONNECTED</h4>
+        <p class="footer__newsletter-desc">Receive seasonal shoe care guides, restoration stories, and atelier insights before anyone else.</p>
+        <form class="footer__newsletter-form" onsubmit="event.preventDefault(); const val=this.querySelector('input').value; if(val){ alert('Thank you for subscribing to IronStitch Atelier!'); this.reset(); }">
+          <div class="footer__newsletter-group">
+            <input type="email" class="footer__newsletter-input" placeholder="Your work email..." required aria-label="Your work email" />
+            <button type="submit" class="footer__newsletter-btn">JOIN</button>
+          </div>
+        </form>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2024 IronSmith Cobblers Ltd. All rights reserved.</p>
-      <nav class="footer__bottom-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+      <p class="footer__copyright">© 2024 IronStitch Cobblers Ltd. All rights reserved. London atelier established 1947.</p>
+      <nav class="footer__bottom-links" aria-label="Legal links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
         <a href="sitemap.html">Sitemap</a>
       </nav>
     </div>
