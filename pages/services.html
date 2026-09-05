@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -55,10 +55,38 @@
       font-size:0.72rem;font-weight:600;border:1px solid var(--border-dark);
       margin:0.2rem;
     }
+    @media (max-width:1024px) {
+      .service-detail { gap: 2.5rem; padding-block: 4rem; }
+      .service-detail__img { height: 380px; }
+    }
     @media (max-width:900px) {
       .service-detail { grid-template-columns:1fr; gap:2rem; }
       .service-detail.reverse { direction: ltr; }
       .service-detail__img { height:320px; }
+    }
+    @media (max-width:760px) {
+      .service-detail { padding-block: 3rem; }
+      .service-detail__img { height: 280px; }
+    }
+    @media (max-width:480px) {
+      .service-detail { padding-block: 2.25rem; }
+      .service-detail__img { height: 240px; }
+      .price-tag { padding: 0.45rem 1rem; }
+      .price-tag .amount { font-size: 1.45rem; }
+    }
+    @media (max-width:360px) {
+      .service-detail { padding-block: 2rem; }
+      .service-detail__img { height: 210px; }
+      .price-tag { padding: 0.4rem 0.85rem; }
+      .price-tag .amount { font-size: 1.35rem; }
+      .material-badge { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+    }
+    @media (max-width:320px) {
+      .service-detail { padding-block: 1.75rem; }
+      .service-detail__img { height: 190px; outline: none; }
+      .price-tag { padding: 0.35rem 0.75rem; }
+      .price-tag .amount { font-size: 1.25rem; }
+      .material-badge { font-size: 0.6rem; padding: 0.2rem 0.5rem; margin: 0.1rem; }
     }
   </style>
 </head>
@@ -125,12 +153,13 @@
   <a href="services.html">Services</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:0.75rem;justify-content:center;text-align:center;width:100%;box-sizing:border-box;">Book Now</a>
 </div>
 <div class="mobile-menu-overlay"></div>
 
 <main id="main-content">
 
-<div class="page-hero">
+<div class="page-hero" style="background: linear-gradient(to bottom, rgba(43,33,29,0.92) 0%, rgba(43,33,29,0.76) 55%, rgba(43,33,29,0.88) 100%), url('https://i.pinimg.com/736x/b6/91/d3/b691d3ef53e740f340848455a03871f9.jpg') center/cover no-repeat;">
   <div class="container">
     <p class="page-hero__eyebrow">Expert Cobblery</p>
     <h1 class="page-hero__title">Our <em>Signature</em><br/>Services</h1>
@@ -373,7 +402,7 @@
       <p class="lead">All prices include VAT and a 12-month workmanship guarantee.</p>
     </header>
 
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;" class="reveal">
+    <div class="reveal table-responsive" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;" aria-label="Service pricing table">
         <thead>
           <tr style="background:var(--espresso);">

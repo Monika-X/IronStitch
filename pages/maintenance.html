@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maintenance — IronStitch Cobblers | Back Soon</title>
-  <meta name="description" content="IronStitch Cobblers is currently undergoing scheduled maintenance. We'll be back shortly. Please check back soon or contact us directly." />
+  <meta name="description" content="IronStitch Cobblers is currently undergoing scheduled maintenance. We'll be back shortly." />
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <style>
     body {
-      background: linear-gradient(135deg, var(--espresso) 0%, var(--charcoal) 100%);
+      background: linear-gradient(135deg, #1A1410 0%, #2B211D 55%, #1E1512 100%);
       min-height: 100svh;
       display: flex;
       flex-direction: column;
@@ -20,165 +20,163 @@
       top: 0;
       left: 0;
       right: 0;
-      padding: 1.5rem clamp(1.5rem,4vw,3rem);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem);
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 10;
+      background: rgba(26,20,16,0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(176,141,87,0.12);
     }
-    .error-logo {
+    .error-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .error-logo-icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .error-logo-name { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--ivory); line-height: 1; }
+    .error-logo-tagline { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass); font-weight: 600; display: block; margin-top: 2px; }
+    .error-nav-actions { display: flex; gap: 0.4rem; }
+    .maintenance-bg { position: fixed; inset: 0; pointer-events: none; overflow: hidden; opacity: 0.5; }
+    .bg-orb { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(176,141,87,0.07) 0%, transparent 70%); }
+    .maintenance-wrap {
+      flex: 1;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
+      padding: calc(var(--nav-h) + 2rem) 0 2rem;
+      min-height: 100svh;
     }
-    .error-logo-icon {
-      width: 40px;
-      height: 40px;
-      display: flex;
+    .maintenance-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(2.5rem,6vw,5rem);
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
     }
-    .error-logo-name {
+    .maintenance-vector {
+      width: 100%;
+      max-width: 480px;
+      margin-left: auto;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35));
+    }
+    .maintenance-vector svg { width: 100%; height: auto; display: block; border-radius: 24px; }
+    .countdown-minimal {
+      display: flex;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .countdown-minimal > div { text-align: center; min-width: 64px; }
+    .countdown-minimal .num {
       font-family: var(--font-serif);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--ivory);
-      line-height: 1;
-    }
-    .error-logo-tagline {
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-size: 2.2rem;
+      font-weight: 300;
       color: var(--brass);
-      font-weight: 600;
-      display: block;
-      margin-top: 2px;
+      line-height: 1;
+      letter-spacing: -0.02em;
     }
-    .error-nav-actions {
+    .countdown-minimal .lbl {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(216,199,174,0.45);
+      margin-top: 0.35rem;
+    }
+    .countdown-minimal .sep {
+      color: rgba(176,141,87,0.25);
+      font-size: 1.8rem;
+      font-weight: 200;
+      line-height: 1;
+      padding-top: 0.3rem;
+    }
+    .notify-minimal {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      max-width: 380px;
+      margin-top: 1.25rem;
     }
-    .maintenance-bg {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .bg-orb {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(176,141,87,0.08) 0%, transparent 70%);
-    }
-    .progress-bar-outer {
-      width: 280px;
-      height: 4px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 1.5rem auto;
-    }
-    .progress-bar-inner {
-      height: 100%;
-      background: linear-gradient(to right, var(--brass), var(--brass-light));
-      border-radius: 4px;
-      animation: progressAnim 4s ease-in-out infinite;
-    }
-    @keyframes progressAnim {
-      0%   { width: 0%; }
-      50%  { width: 75%; }
-      100% { width: 100%; }
-    }
-    .tool-animation {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 2rem;
-    }
-    .tool-orbit {
-      position: absolute;
-      inset: 0;
-      animation: orbit 8s linear infinite;
-    }
-    .tool-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3rem;
-    }
-    .tool-satellite {
-      position: absolute;
-      font-size: 1.2rem;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%) translateY(-40px);
-    }
-    @keyframes orbit {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    .news-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.875rem 0;
-      border-bottom: 1px solid rgba(176,141,87,0.1);
-      text-align: left;
-    }
-    .news-item:last-child { border-bottom: none; }
-    .social-links {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    .social-link {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--r-sm);
-      border: 1px solid rgba(176,141,87,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(216,199,174,0.6);
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all var(--dur-fast);
-    }
-    .social-link:hover {
-      background: var(--brass);
-      border-color: var(--brass);
+    .notify-minimal input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(176,141,87,0.22);
+      border-radius: var(--r-full);
+      padding: 0.75rem 1.1rem;
       color: var(--ivory);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--dur-fast);
+    }
+    .notify-minimal input::placeholder { color: rgba(216,199,174,0.45); }
+    .notify-minimal input:focus { border-color: var(--brass); }
+    .contact-minimal {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-minimal a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: rgba(216,199,174,0.65);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(176,141,87,0.2);
+      padding-bottom: 0.15rem;
+      transition: color var(--dur-fast), border-color var(--dur-fast);
+    }
+    .contact-minimal a:hover { color: var(--brass); border-color: var(--brass); }
+    @media (max-width:900px) {
+      .maintenance-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .maintenance-vector { max-width: 400px; margin: 0 auto; order: -1; }
+      .maintenance-left { text-align: center; }
+      .maintenance-left p[style*="text-align"] { text-align: center !important; }
+      .countdown-minimal { justify-content: center; }
+      .notify-minimal { margin-inline: auto; justify-content: center; }
+      .contact-minimal { justify-content: center; }
+    }
+    @media (max-width:480px) {
+      .maintenance-wrap { padding: calc(var(--nav-h) + 1.5rem) 1rem 1.5rem; }
+      .countdown-minimal { gap: 0.75rem; }
+      .countdown-minimal > div { min-width: 52px; }
+      .countdown-minimal .num { font-size: 1.8rem; }
+      .countdown-minimal .sep { font-size: 1.4rem; }
+      .notify-minimal { flex-direction: column; }
+      .notify-minimal input, .notify-minimal button { width: 100%; border-radius: var(--r-md); }
+      .maintenance-vector { max-width: 300px; }
+    }
+    @media (max-width:320px) {
+      .countdown-minimal { gap: 0.5rem; }
+      .countdown-minimal > div { min-width: 44px; }
+      .countdown-minimal .num { font-size: 1.5rem; }
+      .maintenance-vector { max-width: 260px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Header — brand with logo + name/tagline, theme + RTL toggles only -->
 <header class="error-nav">
   <a class="error-logo" href="../index.html" aria-label="IronStitch Cobblers — Home">
     <div class="error-logo-icon">
       <svg viewBox="0 0 44 44" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="IronStitch Logo Emblem">
   <defs>
-    <linearGradient id="isBrassLogoMaint" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="isBrassLogoMaint2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#EAD5B3"/>
       <stop offset="45%" stop-color="#B08D57"/>
       <stop offset="100%" stop-color="#7B5B2E"/>
     </linearGradient>
-    <linearGradient id="isDarkLogoMaint" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="isDarkLogoMaint2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2D221D"/>
       <stop offset="100%" stop-color="#140F0D"/>
     </linearGradient>
   </defs>
-  <rect width="44" height="44" rx="10" fill="url(#isDarkLogoMaint)" stroke="url(#isBrassLogoMaint)" stroke-width="1.5"/>
+  <rect width="44" height="44" rx="10" fill="url(#isDarkLogoMaint2)" stroke="url(#isBrassLogoMaint2)" stroke-width="1.5"/>
   <rect x="3.5" y="3.5" width="37" height="37" rx="7.5" fill="none" stroke="#D8C7AE" stroke-width="0.8" stroke-dasharray="2.5 1.8" opacity="0.45"/>
-  <path d="M9 34 C 13 26, 21 22, 36 10" stroke="url(#isBrassLogoMaint)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M9 34 C 13 26, 21 22, 36 10" stroke="url(#isBrassLogoMaint2)" stroke-width="1.6" stroke-linecap="round"/>
   <path d="M36 10 C 39 8, 40 11, 38 13 C 34 17, 30 19, 27 23" stroke="#EAD5B3" stroke-width="0.9" stroke-dasharray="1.8 1.4" stroke-linecap="round"/>
   <circle cx="35.8" cy="10.2" r="0.6" fill="#140F0D"/>
   <circle cx="9" cy="34" r="1.2" fill="#EAD5B3"/>
-  <g fill="url(#isBrassLogoMaint)">
+  <g fill="url(#isBrassLogoMaint2)">
     <path d="M14 14 h5.5 v1.8 h-1.8 v11.4 h1.8 V29 H14 v-1.8 h1.8 V15.8 H14 V14 z"/>
     <path d="M22 26.8 c.9 1.4 2.7 2.4 5.1 2.4 3.2 0 5-1.7 5-3.8 0-2.1-1.6-3-4.6-3.9 -2.7-.8-4.4-1.7-4.4-3.8 0-2.4 2.1-3.9 4.7-3.9 2 0 3.5.8 4.4 1.8 l-1.3 1.4 c-.7-.8-1.9-1.3-3.1-1.3 -1.6 0-2.6.9-2.6 2 0 1.2 1 1.9 3.4 2.7 3 1 5.6 2.1 5.6 5.1 0 3.3-2.7 5.7-6.9 5.7 -3 0-5.2-1.3-6.3-3.1 l1.7-1.3 z"/>
   </g>
@@ -195,123 +193,86 @@
   </div>
 </header>
 
-<!-- Background orbs -->
 <div class="maintenance-bg" aria-hidden="true">
-  <div class="bg-orb" style="width:600px;height:600px;top:-200px;right:-200px;"></div>
-  <div class="bg-orb" style="width:400px;height:400px;bottom:-150px;left:-100px;"></div>
+  <div class="bg-orb" style="width:500px;height:500px;top:-120px;right:-120px;"></div>
+  <div class="bg-orb" style="width:320px;height:320px;bottom:-80px;left:-60px;"></div>
 </div>
 
-<main style="flex:1;display:flex;align-items:center;justify-content:center;padding:2rem; padding-top:6rem;">
-  <div class="maintenance-inner" style="max-width:600px;width:100%;text-align:center;">
-
-    <!-- Animated Tool -->
-    <div class="tool-animation">
-      <div class="tool-center" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3l4 4-7.5 7.5a2.2 2.2 0 0 1-3 0l-.4-.4a2.2 2.2 0 0 1 0-3l7.5-7.5z"/><path d="M3 21l4-4"/><path d="M17 4l4 4-2 2"/></svg></div>
-      <div class="tool-orbit" aria-hidden="true">
-        <span class="tool-satellite"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 9 15a1.65 1.65 0 0 0-1-1.51V13a1.65 1.65 0 0 0 1-1.51 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 13 6.09V6a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 11a1.65 1.65 0 0 0 1 1.51V13a1.65 1.65 0 0 0-1 1.51z"/></svg></span>
-      </div>
-    </div>
-
-    <p style="color:var(--brass);font-size:0.75rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1rem;">Scheduled Maintenance</p>
-
-    <h1 style="font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);color:var(--ivory);font-weight:300;margin-bottom:1rem;line-height:1.2;">
-      We're Polishing<br/>the <em style="color:var(--brass);">Workshop</em>
-    </h1>
-
-    <p style="color:rgba(216,199,174,0.7);font-size:1rem;line-height:1.8;margin-bottom:2rem;max-width:480px;margin-inline:auto;">
-      IronStitch Cobblers is undergoing scheduled improvements to serve you even better. We'll be back in full swing very shortly. In the meantime, you can still reach us directly.
-    </p>
-
-    <!-- Progress Bar -->
-    <div class="progress-bar-outer" aria-label="Maintenance progress">
-      <div class="progress-bar-inner" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <p style="color:rgba(216,199,174,0.4);font-size:0.75rem;margin-bottom:2rem;">Almost ready — estimated completion shortly</p>
-
-    <!-- Countdown -->
-    <div class="countdown" data-countdown="2026-09-02T06:00:00Z" aria-label="Time until site returns">
-      <div class="countdown-unit" data-days>
-        <span class="countdown-unit__value">00</span>
-        <span class="countdown-unit__label">Days</span>
-      </div>
-      <div class="countdown-unit" data-hours>
-        <span class="countdown-unit__value">00</span>
-        <span class="countdown-unit__label">Hours</span>
-      </div>
-      <div class="countdown-unit" data-mins>
-        <span class="countdown-unit__value">00</span>
-        <span class="countdown-unit__label">Mins</span>
-      </div>
-      <div class="countdown-unit" data-secs>
-        <span class="countdown-unit__value">00</span>
-        <span class="countdown-unit__label">Secs</span>
-      </div>
-    </div>
-
-    <!-- Notify me -->
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.2);border-radius:var(--r-xl);padding:2rem;margin-bottom:2rem;">
-      <p style="color:rgba(216,199,174,0.8);font-size:0.9rem;margin-bottom:1rem;font-weight:600;">Notify me when you're back:</p>
-      <form class="validated-form" style="display:flex;gap:0.75rem;max-width:420px;margin-inline:auto;" novalidate>
-        <input type="email" class="newsletter__input" placeholder="your@email.com" data-required style="flex:1;" aria-label="Email address for notification"/>
-        <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Notify Me</button>
-        <span class="form-error" style="display:none;"></span>
-      </form>
-    </div>
-
-    <!-- Direct Contact -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-      <a href="tel:+442071234567" style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.15);border-radius:var(--r-lg);color:rgba(216,199,174,0.7);text-decoration:none;transition:all 0.15s;font-size:0.85rem;" onmouseover="this.style.borderColor='var(--brass)'" onmouseout="this.style.borderColor='rgba(176,141,87,0.15)'">
-        <span style="font-size:1.3rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1.2.4 2.4.9 3.5a2 2 0 0 1-.6 2.1L8 10.5a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.6c1.1.5 2.3.8 3.5.9A2 2 0 0 1 22 16.9z"/></svg></span>
-        <div style="text-align:left;">
-          <div style="font-size:0.7rem;color:var(--brass);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.1rem;">Call Us</div>
-          <div>+44 207 123 4567</div>
+<main class="maintenance-wrap">
+  <div class="container">
+    <div class="maintenance-grid">
+      <!-- Left: Content — minimal premium -->
+      <div class="maintenance-left">
+        <p style="color:var(--brass);font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem;">
+          <span style="width:28px;height:1px;background:var(--brass);display:inline-block;"></span>
+          Scheduled Maintenance
+        </p>
+        <h1 style="font-family:var(--font-serif);font-size:clamp(2.2rem,4.5vw,3.25rem);color:var(--ivory);font-weight:300;line-height:1.08;margin-bottom:1rem;">
+          We're Polishing<br/>the <em style="color:var(--brass);font-style:italic;">Workshop</em>
+        </h1>
+        <p style="color:rgba(216,199,174,0.68);font-size:0.95rem;line-height:1.75;margin-bottom:1.75rem;max-width:440px;">
+          A brief pause for a finer finish. We're tuning the atelier for faster booking, sharper craft and quieter luxury. Back in a moment.
+        </p>
+        <!-- Minimal countdown -->
+        <div class="countdown-minimal" data-countdown="2027-03-15T00:00:00Z" aria-label="Time until site returns">
+          <div data-days><span class="num">00</span><span class="lbl">Days</span></div>
+          <span class="sep">:</span>
+          <div data-hours><span class="num">00</span><span class="lbl">Hours</span></div>
+          <span class="sep">:</span>
+          <div data-mins><span class="num">00</span><span class="lbl">Mins</span></div>
+          <span class="sep">:</span>
+          <div data-secs><span class="num">00</span><span class="lbl">Secs</span></div>
         </div>
-      </a>
-      <a href="mailto:hello@ironsmithcobblers.com" style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.15);border-radius:var(--r-lg);color:rgba(216,199,174,0.7);text-decoration:none;transition:all 0.15s;font-size:0.85rem;" onmouseover="this.style.borderColor='var(--brass)'" onmouseout="this.style.borderColor='rgba(176,141,87,0.15)'">
-        <span style="font-size:1.3rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></span>
-        <div style="text-align:left;">
-          <div style="font-size:0.7rem;color:var(--brass);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.1rem;">Email Us</div>
-          <div>hello@ironsmith...</div>
+        <p style="color:rgba(216,199,174,0.35);font-size:0.72rem;letter-spacing:0.08em;margin-bottom:1.5rem;">Estimated return — shortly after midnight</p>
+        <!-- Notify minimal -->
+        <form class="validated-form notify-minimal" novalidate>
+          <input type="email" placeholder="your@email.com" data-required aria-label="Email for notification"/>
+          <button type="submit" class="btn btn-primary" style="border-radius:var(--r-full);padding:0.75rem 1.4rem;white-space:nowrap;">Notify Me</button>
+          <span class="form-error" style="display:none;"></span>
+        </form>
+        <!-- Contact minimal -->
+        <div class="contact-minimal">
+          <a href="tel:+442071234567">Call +44 207 123 4567</a>
+          <a href="mailto:hello@ironstitch.com">hello@ironstitch.com</a>
+          <a href="../index.html">← Back to Home</a>
         </div>
-      </a>
-    </div>
-
-    <!-- What's new -->
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(176,141,87,0.12);border-radius:var(--r-xl);padding:1.75rem;margin-bottom:2rem;text-align:left;">
-      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);margin-bottom:1rem;">What We're Improving</p>
-      <div class="news-item">
-        <span style="color:var(--brass);font-size:1rem;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-        <div>
-          <div style="color:var(--ivory);font-size:0.875rem;font-weight:600;margin-bottom:0.15rem;">Faster booking system</div>
-          <div style="color:rgba(216,199,174,0.5);font-size:0.78rem;">New real-time repair tracking and instant quoting</div>
-        </div>
+        <p style="color:rgba(216,199,174,0.18);font-size:0.68rem;margin-top:1.75rem;letter-spacing:0.06em;">© 2024 IronStitch • 14 Jermyn Street • Est. 1947</p>
       </div>
-      <div class="news-item">
-        <span style="color:var(--brass);font-size:1rem;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        <div>
-          <div style="color:var(--ivory);font-size:0.875rem;font-weight:600;margin-bottom:0.15rem;">Enhanced security</div>
-          <div style="color:rgba(216,199,174,0.5);font-size:0.78rem;">Upgraded SSL and payment processing infrastructure</div>
-        </div>
-      </div>
-      <div class="news-item">
-        <span style="color:var(--brass);font-size:1rem;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
-        <div>
-          <div style="color:var(--ivory);font-size:0.875rem;font-weight:600;margin-bottom:0.15rem;">Mobile experience</div>
-          <div style="color:rgba(216,199,174,0.5);font-size:0.78rem;">Touch-optimised layouts and faster load times on all devices</div>
+      <!-- Right: Vector — kept as requested, clean floating -->
+      <div class="maintenance-right">
+        <div class="maintenance-vector">
+          <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Workshop Tuning Vector">
+            <defs>
+              <linearGradient id="vBrass2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#EAD5B3"/>
+                <stop offset="45%" stop-color="#B08D57"/>
+                <stop offset="100%" stop-color="#7B5B2E"/>
+              </linearGradient>
+              <linearGradient id="vDark2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2B211D"/>
+                <stop offset="100%" stop-color="#140F0D"/>
+              </linearGradient>
+            </defs>
+            <rect width="520" height="420" rx="26" fill="#F8F4EC"/>
+            <ellipse cx="260" cy="165" rx="135" ry="105" fill="rgba(176,141,87,0.07)"/>
+            <g transform="translate(260,165)" style="animation: vSpin2 16s linear infinite; transform-origin: 0 0;">
+              <circle r="82" fill="none" stroke="url(#vBrass2)" stroke-width="12" stroke-dasharray="18 10" opacity="0.9"/>
+              <circle r="56" fill="url(#vDark2)" stroke="url(#vBrass2)" stroke-width="2.2"/>
+              <circle r="14" fill="#F8F4EC" stroke="url(#vBrass2)" stroke-width="1.6"/>
+            </g>
+            <style>@keyframes vSpin2 { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }</style>
+            <g transform="translate(260,165)">
+              <path d="M -40 16 L 40 16 L 34 -8 L 8 -17 L -22 -11 Z" fill="white" stroke="#2B211D" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M -22 -11 L -22 16" stroke="#B08D57" stroke-width="1.3" stroke-dasharray="3 3" opacity="0.6"/>
+              <circle cx="0" cy="1" r="2.8" fill="#B08D57"/>
+            </g>
+            <text x="260" y="295" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="600" fill="#2B211D">Workshop Tuning</text>
+            <text x="260" y="318" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9.5" font-weight="700" fill="#8A7060" letter-spacing="0.18em">BACK SOON — CRAFT CONTINUES</text>
+            <text x="260" y="340" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8.5" fill="#B08D57" letter-spacing="0.14em" font-weight="600">EST. 1947 • JERMYN STREET</text>
+          </svg>
         </div>
       </div>
     </div>
-
-    <!-- Social -->
-    <p style="color:rgba(216,199,174,0.4);font-size:0.78rem;margin-bottom:0.75rem;">Follow us for updates:</p>
-    <div class="social-links">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></a>
-      <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></a>
-      <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Pinterest"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></a>
-    </div>
-
-    <p style="color:rgba(216,199,174,0.2);font-size:0.72rem;margin-top:2rem;">© 2024 IronStitch Cobblers Ltd. 14 Jermyn Street, London SW1Y 6LX</p>
   </div>
 </main>
 

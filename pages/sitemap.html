@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -71,11 +71,12 @@
   <a href="services.html">Services</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:0.75rem;justify-content:center;text-align:center;width:100%;box-sizing:border-box;">Book Now</a>
 </div>
 <div class="mobile-menu-overlay"></div>
 
 <main id="main-content">
-<div class="page-hero">
+<div class="page-hero" style="background: linear-gradient(to bottom, rgba(43,33,29,0.92) 0%, rgba(43,33,29,0.78) 55%, rgba(43,33,29,0.90) 100%), url('https://i.pinimg.com/1200x/34/8c/e0/348ce00729430f5927c0306a40a1d18e.jpg') center/cover no-repeat;">
   <div class="container">
     <p class="page-hero__eyebrow">Navigation</p>
     <h1 class="page-hero__title">Site <em>Map</em></h1>
@@ -91,18 +92,18 @@
     <h2 id="sitemap-heading" class="visually-hidden">Complete Site Map</h2>
 
     <!-- Visual Sitemap -->
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:3rem;margin-bottom:4rem;" class="reveal">
+    <div class="visual-sitemap-card reveal">
       <div style="text-align:center;margin-bottom:3rem;">
-        <div style="display:inline-flex;align-items:center;gap:0.75rem;background:var(--espresso);color:var(--ivory);padding:1rem 2rem;border-radius:var(--r-lg);">
+        <div style="display:inline-flex;align-items:center;gap:0.75rem;background:var(--espresso);color:var(--ivory);padding:0.75rem 1.5rem;border-radius:var(--r-lg);max-width:100%;flex-wrap:wrap;justify-content:center;">
           <div style="width:36px;height:36px;background:var(--brass);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:1.1rem;flex-shrink:0;">IS</div>
-          <span style="font-family:var(--font-serif);font-size:1.1rem;font-weight:600;">ironsmithcobblers.com</span>
+          <span style="font-family:var(--font-serif);font-size:1.05rem;font-weight:600;word-break:break-all;">ironsmithcobblers.com</span>
         </div>
 
         <!-- Tree connector -->
         <div style="width:2px;height:40px;background:var(--brass);margin:0 auto;opacity:0.4;"></div>
 
         <!-- Main nodes -->
-        <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;position:relative;padding-top:1.5rem;border-top:2px solid rgba(176,141,87,0.2);">
+        <div class="sitemap-tree-nodes">
           <div style="text-align:center;">
             <div style="background:var(--brass);color:var(--ivory);padding:0.5rem 1.25rem;border-radius:var(--r-sm);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Home Pages</div>
             <div style="display:flex;flex-direction:column;gap:0.35rem;">

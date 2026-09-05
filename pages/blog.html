@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -185,6 +185,39 @@
       .newsletter__input { width:100%; }
       .newsletter .btn { width:100%; justify-content:center; }
     }
+    /* ── 425px — phablet overflow fix ── */
+    @media (max-width:425px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      .container { padding-inline: 1rem; max-width: 100%; min-width: 0; overflow-x: hidden; }
+      .section, .blog-featured, .blog-grid, .blog-mini, .blog-card, .blog-featured__main { max-width: 100%; min-width: 0; overflow-x: hidden; box-sizing: border-box; }
+      section[aria-label="Search articles"] { padding: 1.25rem 0 !important; }
+      section[aria-label="Search articles"] .container { padding-inline: 0.875rem; max-width: 100% !important; }
+      #blog-search { font-size: 0.88rem; padding-left: 2.4rem !important; padding-right: 2rem !important; }
+      .blog-featured { gap: 1rem !important; margin-bottom: 1.75rem !important; grid-template-columns: 1fr !important; }
+      .blog-featured__main { display: flex !important; flex-direction: column !important; }
+      .blog-featured__main-img { height: 200px !important; max-height: 200px !important; }
+      .blog-featured__main-img div[style*="position:absolute"] { font-size: 0.60rem !important; padding: 0.28rem 0.6rem !important; top: 0.75rem !important; left: 0.75rem !important; }
+      .blog-featured__main-body { padding: 1.15rem 0.9rem 0.9rem !important; }
+      .blog-featured__main-body h2 { font-size: 1.22rem !important; line-height: 1.28 !important; }
+      .blog-featured__main-body p { font-size: 0.85rem !important; line-height: 1.6 !important; }
+      /* Fix duplicate label + footer overflow */
+      .blog-featured__main-body div[style*="display:flex;align-items:center;justify-content:space-between"] { flex-direction: column !important; align-items: flex-start !important; gap: 0.75rem !important; }
+      .blog-featured__main-body div[style*="display:flex;align-items:center;justify-content:space-between"] > div:first-child { flex-wrap: wrap !important; white-space: normal !important; }
+      .blog-featured__main-body div[style*="display:flex;align-items:center;justify-content:space-between"] span[style*="white-space:nowrap"] { white-space: normal !important; }
+      .blog-mini { height: auto !important; min-height: auto !important; grid-template-columns: 1fr !important; }
+      .blog-mini__img { height: 150px !important; min-height: 150px !important; }
+      .blog-mini__body { padding: 0.85rem 0.8rem !important; }
+      .blog-grid { gap: 1rem !important; grid-template-columns: 1fr !important; }
+      .blog-card__image { height: 180px !important; }
+      .blog-card__body { padding: 1rem 0.85rem 0.85rem !important; }
+      .blog-card__title { font-size: 1rem !important; line-height: 1.3; }
+      .blog-card__excerpt { font-size: 0.82rem !important; }
+      div[role="group"] { padding: 0.75rem 0.65rem !important; gap: 0.35rem !important; margin: 1.1rem auto 1.25rem !important; justify-content: flex-start !important; }
+      .category-pill { padding: 0.32rem 0.65rem !important; font-size: 0.60rem !important; letter-spacing: 0.06em !important; }
+      .newsletter { padding: 1.5rem 0.9rem !important; }
+      .page-hero__title { font-size: 1.65rem !important; line-height: 1.15; }
+      .page-hero__desc { font-size: 0.88rem !important; }
+    }
     @media (max-width:480px) {
       section[aria-label="Search articles"] { padding:1.5rem 0 !important; }
       section[aria-label="Search articles"] .container { padding-inline:1rem; }
@@ -217,6 +250,27 @@
       .newsletter { padding:1.5rem 1rem; }
       .page-hero { padding-top: calc(var(--nav-h) + 2rem); padding-bottom:2.25rem; }
     }
+    @media (max-width:375px) {
+      html, body { overflow-x: hidden; }
+      .container { padding-inline: 0.85rem; }
+      .blog-featured { gap: 0.9rem !important; }
+      .blog-featured__main { border-left-width: 3px !important; }
+      .blog-featured__main-img { height: 190px !important; max-height: 190px !important; }
+      .blog-featured__main-img div[style*="position:absolute"] { display: none !important; }
+      .blog-featured__main-body { padding: 1rem 0.85rem 0.85rem !important; }
+      .blog-featured__main-body h2 { font-size: 1.12rem !important; line-height: 1.28 !important; }
+      .blog-featured__main-body p { font-size: 0.82rem !important; }
+      .blog-mini__img { height: 140px !important; min-height: 140px !important; }
+      .blog-card__image { height: 170px !important; }
+      .blog-card__body { padding: 0.9rem 0.8rem 0.8rem !important; }
+      .blog-card__title { font-size: 0.98rem !important; }
+      .blog-card__excerpt { font-size: 0.80rem !important; }
+      .category-pill { padding: 0.30rem 0.6rem !important; font-size: 0.58rem !important; }
+      div[role="group"] { padding: 0.65rem 0.55rem !important; gap: 0.32rem !important; }
+      #blog-search { font-size: 0.82rem !important; padding-left: 2.2rem !important; }
+      .newsletter { padding: 1.3rem 0.8rem !important; }
+      .newsletter__title { font-size: 1.2rem !important; }
+    }
     @media (max-width:360px) {
       .container { padding-inline: 0.75rem; }
       .blog-featured__main-body { padding: 1.25rem 1rem; }
@@ -229,12 +283,12 @@
       .newsletter__input { font-size:0.85rem; padding:0.75rem 1rem; }
     }
     @media (max-width:320px) {
-      html, body { overflow-x:hidden; }
-      .container { padding-inline: 1rem; }
-      .section { padding-block: 2.5rem; }
-      .blog-featured { gap: 1rem; margin-bottom: 2rem; grid-template-columns:1fr; }
-      .blog-featured__main { border-left-width:3px; }
-      .blog-featured__main-img { height: 200px; max-height:200px; }
+      html, body { overflow-x:hidden; max-width: 100vw; }
+      .container { padding-inline: 0.85rem; max-width: 100%; overflow-x: hidden; }
+      .section { padding-block: 2.25rem; overflow-x: hidden; }
+      .blog-featured { gap: 0.85rem !important; margin-bottom: 1.5rem !important; grid-template-columns:1fr !important; max-width: 100%; }
+      .blog-featured__main { border-left-width:3px; max-width: 100%; overflow: hidden; }
+      .blog-featured__main-img { height: 180px !important; max-height:180px !important; }
       .blog-mini { grid-template-columns:1fr; }
       .blog-mini__img { height:160px; min-height:160px; }
       .blog-grid { grid-template-columns:1fr; gap:1rem; }
@@ -321,12 +375,13 @@
   <a href="services.html">Services</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:0.75rem;justify-content:center;text-align:center;width:100%;box-sizing:border-box;">Book Now</a>
 </div>
 <div class="mobile-menu-overlay"></div>
 
 <main id="main-content">
 
-<div class="page-hero">
+<div class="page-hero" style="background: linear-gradient(to bottom, rgba(43,33,29,0.92) 0%, rgba(43,33,29,0.78) 55%, rgba(43,33,29,0.90) 100%), url('https://i.pinimg.com/1200x/4d/a3/5a/4da35a4684dc67db17f76894c6d5fb0d.jpg') center/cover no-repeat;">
   <div class="container">
     <p class="page-hero__eyebrow">The Cobbler's Journal</p>
     <h1 class="page-hero__title">Insights from the <em>Workshop</em></h1>

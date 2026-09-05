@@ -9,134 +9,125 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <style>
-    body { background: linear-gradient(135deg, var(--espresso) 0%, var(--charcoal) 100%); }
-    .particles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
+    body { background: linear-gradient(135deg, rgba(43,33,29,0.90) 0%, rgba(36,35,33,0.94) 100%), url('https://i.pinimg.com/1200x/cc/4a/e2/cc4ae28bb2264d86bcd2e72e6e34e20d.jpg') center/cover no-repeat fixed; min-height: 100vh; }
+    [data-theme="dark"] body { background: linear-gradient(135deg, rgba(20,15,13,0.94) 0%, rgba(26,18,16,0.92) 100%), url('https://i.pinimg.com/1200x/cc/4a/e2/cc4ae28bb2264d86bcd2e72e6e34e20d.jpg') center/cover no-repeat fixed !important; }
+    .particles { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+    .particle { position: absolute; width: 3px; height: 3px; background: var(--brass); border-radius: 50%; opacity: 0.14; animation: float linear infinite; }
+    @keyframes float { from { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10%  { opacity: 0.18; } 90%  { opacity: 0.08; } to { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+    .error-nav { position: fixed; top: 0; left: 0; right: 0; padding: 1.1rem clamp(1.25rem,4vw,3rem); display: flex; align-items: center; justify-content: space-between; z-index: 10; background: rgba(26,20,16,0.68); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(176,141,87,0.10); }
+    .error-logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .error-logo-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .error-logo-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--ivory); line-height: 1; }
+    .error-logo-tagline { font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass); font-weight: 600; display: block; margin-top: 2px; }
+    .error-nav-actions { display: flex; gap: 0.4rem; }
+    .error-wrap { min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: calc(4.5rem + 2vh) 1.25rem 3rem; box-sizing: border-box; }
+    .error-card {
+      width: 100%;
+      max-width: 640px;
+      text-align: center;
+      background: rgba(26,20,16,0.62);
+      border: 1px solid rgba(176,141,87,0.18);
+      border-radius: 24px;
+      padding: clamp(2rem,5vw,2.75rem);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     }
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--brass);
-      border-radius: 50%;
-      opacity: 0.15;
-      animation: float linear infinite;
-    }
-    @keyframes float {
-      from { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10%  { opacity: 0.2; }
-      90%  { opacity: 0.1; }
-      to   { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
-    }
-    .error-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 1.5rem clamp(1.5rem,4vw,3rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 10;
-    }
-    .error-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-    .error-logo-icon {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .error-logo-name {
+    .error-number {
       font-family: var(--font-serif);
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: clamp(4.5rem,12vw,7.5rem);
+      font-weight: 700;
+      line-height: 0.9;
+      color: transparent;
+      -webkit-text-stroke: 1.6px rgba(176,141,87,0.85);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+    }
+    .error-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem,3.2vw,2.15rem);
       color: var(--ivory);
-      line-height: 1;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
     }
-    .error-logo-tagline {
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--brass);
-      font-weight: 600;
-      display: block;
-      margin-top: 2px;
+    .error-title em { color: var(--brass); font-style: italic; }
+    .error-desc {
+      color: rgba(216,199,174,0.70);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 460px;
+      margin: 0 auto 1.5rem;
     }
-    .error-nav-actions {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .shoe-anim {
-      font-size: clamp(5rem, 10vw, 8rem);
-      display: block;
-      margin-bottom: 1rem;
-      animation: shoeWobble 3s ease-in-out infinite;
-    }
-    @keyframes shoeWobble {
-      0%, 100% { transform: rotate(-5deg) scale(1); }
-      50% { transform: rotate(5deg) scale(1.05); }
-    }
-    .quick-links {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
+    .error-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.75rem; }
+    .error-actions .btn { min-width: 140px; justify-content: center; }
+    .quick-links { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
     .quick-link {
-      padding: 0.5rem 1.25rem;
-      border: 1px solid rgba(176,141,87,0.3);
+      padding: 0.42rem 0.95rem;
+      border: 1px solid rgba(176,141,87,0.22);
       border-radius: var(--r-full);
-      color: rgba(216,199,174,0.7);
-      font-size: 0.8rem;
+      color: rgba(216,199,174,0.68);
+      font-size: 0.74rem;
       text-decoration: none;
       transition: all var(--dur-fast);
+      background: rgba(255,255,255,0.03);
     }
-    .quick-link:hover {
-      background: rgba(176,141,87,0.15);
-      border-color: var(--brass);
-      color: var(--brass);
+    .quick-link:hover { background: rgba(176,141,87,0.14); border-color: var(--brass); color: var(--brass); }
+    .quote-mini {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(176,141,87,0.12);
+      text-align: center;
+    }
+    .ornament-dot {
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--brass));
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 0.5rem;
+      opacity: 0.6;
+    }
+    @media (max-width:480px) {
+      .error-card { padding: 1.5rem 1.1rem; border-radius: 18px; }
+      .error-number { font-size: 4rem; -webkit-text-stroke: 1.3px rgba(176,141,87,0.8); }
+      .error-title { font-size: 1.35rem; }
+      .error-desc { font-size: 0.85rem; }
+      .quick-link { padding: 0.38rem 0.8rem; font-size: 0.70rem; }
+    }
+    @media (max-width:320px) {
+      .error-card { padding: 1.25rem 0.85rem; }
+      .error-number { font-size: 3.4rem; }
+      .error-actions .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-<!-- Floating particles -->
 <div class="particles" aria-hidden="true" id="particles"></div>
 
-<!-- Nav — brand with logo + name/tagline, theme + RTL toggles only -->
 <header class="error-nav">
   <a class="error-logo" href="../index.html" aria-label="IronStitch Cobblers — Home">
     <div class="error-logo-icon">
       <svg viewBox="0 0 44 44" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="IronStitch Logo Emblem">
   <defs>
-    <linearGradient id="isBrassLogo404" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="isBrassLogo404b" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#EAD5B3"/>
       <stop offset="45%" stop-color="#B08D57"/>
       <stop offset="100%" stop-color="#7B5B2E"/>
     </linearGradient>
-    <linearGradient id="isDarkLogo404" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="isDarkLogo404b" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2D221D"/>
       <stop offset="100%" stop-color="#140F0D"/>
     </linearGradient>
   </defs>
-  <rect width="44" height="44" rx="10" fill="url(#isDarkLogo404)" stroke="url(#isBrassLogo404)" stroke-width="1.5"/>
+  <rect width="44" height="44" rx="10" fill="url(#isDarkLogo404b)" stroke="url(#isBrassLogo404b)" stroke-width="1.5"/>
   <rect x="3.5" y="3.5" width="37" height="37" rx="7.5" fill="none" stroke="#D8C7AE" stroke-width="0.8" stroke-dasharray="2.5 1.8" opacity="0.45"/>
-  <path d="M9 34 C 13 26, 21 22, 36 10" stroke="url(#isBrassLogo404)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M9 34 C 13 26, 21 22, 36 10" stroke="url(#isBrassLogo404b)" stroke-width="1.6" stroke-linecap="round"/>
   <path d="M36 10 C 39 8, 40 11, 38 13 C 34 17, 30 19, 27 23" stroke="#EAD5B3" stroke-width="0.9" stroke-dasharray="1.8 1.4" stroke-linecap="round"/>
   <circle cx="35.8" cy="10.2" r="0.6" fill="#140F0D"/>
   <circle cx="9" cy="34" r="1.2" fill="#EAD5B3"/>
-  <g fill="url(#isBrassLogo404)">
+  <g fill="url(#isBrassLogo404b)">
     <path d="M14 14 h5.5 v1.8 h-1.8 v11.4 h1.8 V29 H14 v-1.8 h1.8 V15.8 H14 V14 z"/>
     <path d="M22 26.8 c.9 1.4 2.7 2.4 5.1 2.4 3.2 0 5-1.7 5-3.8 0-2.1-1.6-3-4.6-3.9 -2.7-.8-4.4-1.7-4.4-3.8 0-2.4 2.1-3.9 4.7-3.9 2 0 3.5.8 4.4 1.8 l-1.3 1.4 c-.7-.8-1.9-1.3-3.1-1.3 -1.6 0-2.6.9-2.6 2 0 1.2 1 1.9 3.4 2.7 3 1 5.6 2.1 5.6 5.1 0 3.3-2.7 5.7-6.9 5.7 -3 0-5.2-1.3-6.3-3.1 l1.7-1.3 z"/>
   </g>
@@ -153,54 +144,50 @@
   </div>
 </header>
 
-<main>
-  <div class="error-page">
-    <div>
-      <span class="shoe-anim" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16l-1-5.5a2 2 0 0 0-1.4-1.7L14 9H7a2 2 0 0 0-2 2l-1 7z"/><path d="M7 9V7a2 2 0 0 1 2-2h5"/><circle cx="9" cy="15" r="1" fill="currentColor" stroke="none"/><path d="M13.5 8.5l2.5-1.2"/></svg></span>
-      <div class="error-page__number" aria-label="404">404</div>
-      <h1 class="error-page__title">This Page Has Walked Off</h1>
-      <p class="error-page__desc">
-        The page you're looking for seems to have wandered away — much like a shoe that needs finding. Perhaps it was moved, renamed, or never quite made it here in the first place.
+<main class="error-wrap">
+  <div class="error-card">
+    <div style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--brass);font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.6rem;">
+      <span style="width:18px;height:1px;background:var(--brass);opacity:0.6;"></span>
+      Error 404
+      <span style="width:18px;height:1px;background:var(--brass);opacity:0.6;"></span>
+    </div>
+    <div class="error-number" aria-label="404">404</div>
+    <h1 class="error-title">This Page Has <em>Walked Off</em></h1>
+    <p class="error-desc">
+      The page you're looking for seems to have wandered away — much like a shoe that needs finding. Perhaps it was moved, renamed, or never quite made it here.
+    </p>
+    <div class="error-actions">
+      <a href="../index.html" class="btn btn-primary">Return Home</a>
+      <a href="contact.html" class="btn btn-outline" style="color:var(--ivory);border-color:rgba(176,141,87,0.45);">Contact Us</a>
+    </div>
+    <p style="color:rgba(216,199,174,0.40);font-size:0.72rem;letter-spacing:0.08em;margin-bottom:0.6rem;">Or jump to</p>
+    <nav class="quick-links" aria-label="Quick links">
+      <a class="quick-link" href="../index.html">Home</a>
+      <a class="quick-link" href="about.html">About</a>
+      <a class="quick-link" href="services.html">Services</a>
+      <a class="quick-link" href="blog.html">Journal</a>
+      <a class="quick-link" href="contact.html">Contact</a>
+      <a class="quick-link" href="sitemap.html">Sitemap</a>
+    </nav>
+    <div class="quote-mini">
+      <p style="font-family:var(--font-serif);font-size:0.95rem;font-style:italic;color:rgba(216,199,174,0.78);line-height:1.6;margin:0;">
+        "A shoe repaired is better than ten pairs bought."
       </p>
-
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
-        <a href="../index.html" class="btn btn-primary btn-lg">Return Home</a>
-        <a href="contact.html" class="btn btn-outline btn-lg" style="color:rgba(216,199,174,0.9);border-color:rgba(176,141,87,0.5);">Contact Us</a>
-      </div>
-
-      <p style="color:rgba(216,199,174,0.4);font-size:0.8rem;margin-bottom:1rem;">Or jump to one of these pages:</p>
-      <nav class="quick-links" aria-label="Quick links">
-        <a class="quick-link" href="../index.html">Home</a>
-        <a class="quick-link" href="about.html">About</a>
-        <a class="quick-link" href="services.html">Services</a>
-        <a class="quick-link" href="blog.html">Journal</a>
-        <a class="quick-link" href="contact.html">Contact</a>
-        <a class="quick-link" href="sitemap.html">Sitemap</a>
-      </nav>
-
-      <!-- Cobbler Tips -->
-      <div style="margin-top:4rem;padding:1.75rem;background:rgba(255,255,255,0.04);border:1px solid rgba(176,141,87,0.15);border-radius:var(--r-xl);max-width:480px;margin-inline:auto;">
-        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);margin-bottom:0.75rem;">While You're Here</p>
-        <p style="font-family:var(--font-serif);font-size:1.05rem;font-style:italic;color:rgba(216,199,174,0.8);line-height:1.7;margin:0;">
-          "A shoe repaired is better than ten pairs bought. The best cobblers don't make things new — they make them right again."
-        </p>
-        <p style="font-size:0.75rem;color:rgba(216,199,174,0.4);margin-top:0.75rem;margin-bottom:0;">— Edmund Ironsmith, 1947</p>
-      </div>
+      <p style="font-size:0.70rem;color:rgba(216,199,174,0.35);margin-top:0.4rem;">— Edmund Ironsmith, 1947 <span class="ornament-dot"></span> Est. 1947</p>
     </div>
   </div>
 </main>
 
 <script src="../js/main.js"></script>
 <script>
-  // Generate floating particles
   const container = document.getElementById('particles');
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 18; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
     p.style.left = Math.random() * 100 + '%';
-    p.style.width = p.style.height = (Math.random() * 4 + 2) + 'px';
-    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.width = p.style.height = (Math.random() * 3 + 1.5) + 'px';
+    p.style.animationDuration = (Math.random() * 14 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
     container.appendChild(p);
   }
 </script>
