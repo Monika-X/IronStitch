@@ -3303,13 +3303,16 @@ section.bg-sand[aria-labelledby="more-posts"] {
   .navbar__inner,
   .error-nav { padding-inline: 0.875rem; }
   .navbar__logo-tagline,
-  .error-logo-tagline { display: none; }
+  .error-logo-tagline { display: block; font-size: 0.46rem; letter-spacing: 0.14em; white-space: nowrap; }
   .navbar__logo-name,
   .error-logo-name { font-size: 1.05rem; }
   .navbar__logo-icon,
   .error-logo-icon { width: 32px; height: 32px; }
   .icon-btn { width: 32px; height: 32px; }
-  .hamburger { width: 24px; gap: 4px; }
+  .hamburger { width: 32px; height: 32px; padding: 7px 6px; gap: 4px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .mobile-menu { width: min(340px, 92vw); padding: 5rem 1.5rem 1.5rem; }
   .navbar.transparent { background: rgba(14,10,9,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 }
 @media (max-width: 360px) {
@@ -3318,7 +3321,14 @@ section.bg-sand[aria-labelledby="more-posts"] {
   .navbar__logo { gap: 0.5rem; }
   .navbar__logo-name,
   .error-logo-name { font-size: 0.98rem; }
+  .navbar__logo-tagline,
+  .error-logo-tagline { font-size: 0.42rem; letter-spacing: 0.12em; }
   .icon-btn { width: 30px; height: 30px; }
+  .hamburger { width: 30px; height: 30px; padding: 6px 5px; gap: 4px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .mobile-menu { width: 92vw; padding: 5rem 1.25rem 1.25rem; }
+  .mobile-menu a { padding: 0.75rem 0.85rem; font-size: 0.95rem; }
   .error-nav-actions { gap: 0.35rem; }
 }
 @media (max-width: 320px) {
@@ -3328,8 +3338,15 @@ section.bg-sand[aria-labelledby="more-posts"] {
   .error-logo-icon { width: 30px; height: 30px; }
   .navbar__logo-name,
   .error-logo-name { font-size: 0.92rem; letter-spacing: -0.01em; }
+  .navbar__logo-tagline,
+  .error-logo-tagline { font-size: 0.38rem; letter-spacing: 0.10em; }
   .icon-btn { width: 28px; height: 28px; }
-  .hamburger { width: 22px; }
+  .hamburger { width: 28px; height: 28px; padding: 5px 4px; gap: 3px; }
+  .hamburger span { height: 1.8px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+  .mobile-menu { width: 94vw; padding: 4.5rem 1rem 1rem; }
+  .mobile-menu a { padding: 0.7rem 0.75rem; font-size: 0.92rem; }
   html { overflow-x: hidden; }
   body { overflow-x: hidden; }
   .container { padding-inline: 1rem; }
