@@ -2440,6 +2440,46 @@ section.bg-sand[aria-labelledby="more-posts"] {
 .bg-sand .timeline::before,
 [data-theme="dark"] .bg-sand .timeline::before { background: linear-gradient(to bottom, #8A6C3E, #D8C7AE); }
 
+/* ── Concierge Service (Can't Come to Us?) — fix contrast in dark theme ──
+   bg-sand stays light (#E8DBC8) in both themes, so force dark text colors */
+.bg-sand[aria-labelledby="concierge-heading"] .overline,
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] .overline {
+  color: #8A6C3E !important;
+}
+.bg-sand[aria-labelledby="concierge-heading"] .display-3,
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] .display-3 {
+  color: #2B211D !important;
+}
+.bg-sand[aria-labelledby="concierge-heading"] .display-3 em,
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] .display-3 em {
+  color: #6E3038 !important;
+}
+.bg-sand[aria-labelledby="concierge-heading"] .lead,
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] .lead {
+  color: #382820 !important;
+  opacity: 1 !important;
+}
+/* Step titles & fee box titles use var(--text-primary) inline — override to dark */
+.bg-sand[aria-labelledby="concierge-heading"] [style*="color:var(--text-primary)"],
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] [style*="color:var(--text-primary)"] {
+  color: #2B211D !important;
+}
+/* Step titles without inline color (inherit) — force dark espresso */
+.bg-sand[aria-labelledby="concierge-heading"] div[style*="font-weight:600;margin-bottom:0.2rem"],
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] div[style*="font-weight:600;margin-bottom:0.2rem"] {
+  color: #2B211D !important;
+}
+/* Step descriptions & fee subtitle use var(--text-muted) inline — override to legible dark */
+.bg-sand[aria-labelledby="concierge-heading"] [style*="color:var(--text-muted)"],
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] [style*="color:var(--text-muted)"] {
+  color: #5A4035 !important;
+}
+/* Fee box background/border needs stronger definition in dark theme */
+[data-theme="dark"] .bg-sand[aria-labelledby="concierge-heading"] div[style*="background:rgba(176,141,87,0.1)"] {
+  background: rgba(176,141,87,0.14) !important;
+  border-color: rgba(176,141,87,0.38) !important;
+}
+
 .divider {
   display: block;
   width: 50px;
@@ -2525,6 +2565,59 @@ section.bg-sand[aria-labelledby="more-posts"] {
   background: rgba(43,33,29,0.08);
   color: var(--espresso);
   border: 1px solid rgba(43,33,29,0.15);
+}
+
+/* ── Badge — Dark Theme Contrast Fix (Tags widget) ── */
+[data-theme="dark"] .badge-brass {
+  background: rgba(176,141,87,0.20);
+  color: #EAD5B3;
+  border-color: rgba(176,141,87,0.45);
+}
+
+[data-theme="dark"] .badge-dark {
+  background: rgba(216,199,174,0.12);
+  color: #E8DBC8;
+  border-color: rgba(216,199,174,0.22);
+}
+
+[data-theme="dark"] .badge-brass:hover {
+  background: rgba(176,141,87,0.28);
+  border-color: rgba(176,141,87,0.55);
+}
+
+[data-theme="dark"] .badge-dark:hover {
+  background: rgba(216,199,174,0.18);
+  border-color: rgba(216,199,174,0.32);
+}
+
+/* ── Sidebar Tags Widget — layout & a11y fix ── */
+.sidebar-widget:has(h4) h4 + div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sidebar-widget .badge {
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: default;
+  transition: all var(--dur-fast);
+}
+
+.sidebar-widget .badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+[data-theme="dark"] .sidebar-widget {
+  background: #251B16;
+  border-color: rgba(176,141,87,0.18);
+}
+
+[data-theme="dark"] .sidebar-widget h4 {
+  color: #EAD5B3;
+  border-bottom-color: rgba(176,141,87,0.18);
 }
 
 /* ── Blog Cards ── */
@@ -2697,6 +2790,21 @@ section.bg-sand[aria-labelledby="more-posts"] {
 
 [data-theme="dark"] .blog-card__link svg {
   stroke: #D4B074;
+}
+
+[data-theme="dark"] .blog-card:hover .blog-card__link {
+  color: #FFF2DC;
+}
+
+[data-theme="dark"] .blog-card:hover .blog-card__link svg {
+  stroke: #FFF2DC;
+}
+
+[data-theme="dark"] .blog-card__link:focus-visible {
+  color: #FFF2DC;
+  outline: 2px solid #D4B074;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* ── Map Container ── */

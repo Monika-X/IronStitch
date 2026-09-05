@@ -74,18 +74,22 @@
       border-radius: var(--r-lg);
       overflow: hidden;
       display: grid;
-      grid-template-columns: 132px 1fr;
+      grid-template-columns: 132px 1fr !important;
       transition: all var(--dur-base);
       min-width: 0;
+      /* equal heights — fix uneven */
+      height: 124px !important;
+      min-height: 124px !important;
+      align-items: stretch;
     }
     .blog-mini:hover { box-shadow: var(--shadow-md); transform: translateX(4px); border-left-color: var(--brass); }
-    .blog-mini__img { height: 100%; min-height: 108px; overflow: hidden; background: var(--bg-alt); min-width:0; }
+    .blog-mini__img { height: 100% !important; min-height: 100% !important; overflow: hidden; background: var(--bg-alt); min-width:0; }
     .blog-mini__img img { width:100%;height:100%;object-fit:cover; display:block; transition: transform var(--dur-slow); }
     .blog-mini:hover .blog-mini__img img { transform: scale(1.06); }
-    .blog-mini__body { padding: 1.1rem 1rem; display:flex; flex-direction:column; justify-content:center; min-width:0; }
-    .blog-mini__title { font-family:var(--font-serif);font-size:0.98rem;font-weight:600;line-height:1.35;margin-bottom:0.4rem;color:var(--text-primary); overflow-wrap:break-word; }
+    .blog-mini__body { padding: 0.85rem 0.9rem; display:flex; flex-direction:column; justify-content:center; min-width:0; gap:0.2rem; }
+    .blog-mini__title { font-family:var(--font-serif);font-size:0.92rem;font-weight:600;line-height:1.32;margin-bottom:0.2rem;color:var(--text-primary); overflow-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:2.64em; }
     .blog-mini__title a { display:inline; overflow-wrap:break-word; }
-    .blog-mini__date { font-size:0.72rem;color:var(--text-muted); display:flex; align-items:center; gap:0.35rem; flex-wrap:wrap; }
+    .blog-mini__date { font-size:0.70rem;color:var(--text-muted); display:flex; align-items:center; gap:0.35rem; flex-wrap:wrap; }
     .blog-mini__date::before { content:'◷'; font-size:0.65rem; opacity:0.7; }
     .category-pill {
       display: inline-flex;
@@ -165,8 +169,9 @@
     @media (max-width:640px) {
       .blog-featured { gap: 1.5rem; margin-bottom: 2.5rem; grid-template-columns:1fr; }
       .blog-featured__main-img { height: 260px; max-height:260px; }
-      .blog-mini { grid-template-columns: 1fr; }
+      .blog-mini { grid-template-columns: 1fr !important; height:auto !important; min-height:auto !important; }
       .blog-mini__img { min-height: 180px; height:180px; }
+      .blog-mini__title { -webkit-line-clamp: unset; min-height:auto; }
       .blog-grid { grid-template-columns:1fr; gap:1.5rem; }
       /* pills wrap full width, no overflow */
       div[role="group"] { justify-content:flex-start !important; gap:0.45rem !important; margin:1.5rem 0 0.5rem !important; }
@@ -364,21 +369,28 @@
           />
           <div style="position:absolute; top:1rem; left:1rem; background:rgba(20,15,13,0.88); color:#F1DEC0; border:1px solid var(--brass); padding:0.32rem 0.75rem; border-radius:var(--r-full); font-size:0.68rem; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; backdrop-filter:blur(4px);">Craft &amp; Technique · Featured</div>
         </div>
-        <div class="blog-featured__main-body" style="padding:1.25rem 1.25rem 1.15rem; background:var(--espresso);">
-          <h2 style="font-family:var(--font-serif);font-size:clamp(1.15rem,2vw,1.45rem);font-weight:600;margin-bottom:0.5rem;line-height:1.3; color:var(--ivory);" itemprop="headline">
+        <div class="blog-featured__main-body" style="padding:1.4rem 1.4rem 1.2rem; background:var(--espresso); display:flex; flex-direction:column; gap:0;">
+          <div style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.64rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--brass);margin-bottom:0.7rem;">
+            <span style="width:6px;height:6px;background:var(--brass);border-radius:50%;display:inline-block;flex-shrink:0;"></span>
+            Featured · Craft & Technique
+          </div>
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.2rem,2vw,1.5rem);font-weight:600;margin-bottom:0.65rem;line-height:1.28; color:var(--ivory);" itemprop="headline">
             <a href="blog-details.html" style="color:var(--ivory); text-decoration:none;">The Goodyear Welt: Why the World's Finest Shoes Still Use a 140-Year-Old Method</a>
           </h2>
-          <div style="display:flex;gap:0.6rem;color:rgba(216,199,174,0.7);font-size:0.70rem;margin-bottom:0.75rem;align-items:center;flex-wrap:wrap;">
-            <span style="display:flex;align-items:center;gap:0.4rem;"><img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&q=80&fit=crop&crop=face" alt="Clara Ironsmith" style="width:20px;height:20px;border-radius:50%;object-fit:cover;border:1px solid var(--brass);" /><span itemprop="author" style="color:var(--brass); font-weight:600;">Clara Ironsmith</span></span>
-            <span>·</span>
-            <time itemprop="datePublished" datetime="2024-11-15">15 Nov 2024</time>
-            <span>·</span>
-            <span>8 min</span>
-          </div>
-          <p itemprop="description" style="color:rgba(216,199,174,0.78);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;">
+          <p itemprop="description" style="color:rgba(216,199,174,0.78);font-size:0.86rem;line-height:1.65;margin-bottom:1.1rem;">
             In an era of fast fashion, the Goodyear welt endures — resoleable, repairable and made to last a lifetime. Our master cobbler explains why this Victorian innovation remains unmatched.
           </p>
-          <a href="blog-details.html" style="display:inline-flex;align-items:center;gap:0.4rem; color:var(--brass); font-size:0.76rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1px solid rgba(176,141,87,0.35); padding:0.45rem 0.85rem; border-radius:var(--r-full); transition:all var(--dur-fast);">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:auto;padding-top:0.9rem;border-top:1px solid rgba(216,199,174,0.12);flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:0.55rem;font-size:0.72rem;color:rgba(216,199,174,0.68);">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80&fit=crop&crop=face" alt="Clara Ironsmith" style="width:22px;height:22px;border-radius:50%;object-fit:cover;border:1px solid var(--brass);flex-shrink:0;" />
+              <span itemprop="author" style="color:var(--ivory);font-weight:600;white-space:nowrap;">Clara Ironsmith</span>
+              <span style="opacity:0.45;">·</span>
+              <time itemprop="datePublished" datetime="2024-11-15" style="white-space:nowrap;">15 Nov 2024</time>
+              <span style="opacity:0.45;">·</span>
+              <span style="white-space:nowrap;">8 min</span>
+            </div>
+            <a href="blog-details.html" style="display:inline-flex;align-items:center;gap:0.4rem; color:var(--espresso); background:var(--brass); font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:0.45rem 0.9rem; border-radius:var(--r-full); transition:all var(--dur-fast); flex-shrink:0;">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+          </div>
         </div>
       </article>
 

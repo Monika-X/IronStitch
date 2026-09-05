@@ -496,10 +496,12 @@ const FormValidator = (() => {
         }
 
         setTimeout(() => {
-          // Show global toast
-          showToast(title, text);
-          // Show inline success (only inside form, no page reload)
-          showInlineSuccess(form, title, text);
+          // Show only ONE success to avoid duplicate (toast for newsletters, inline for main forms)
+          if (isNewsletter || isNotify) {
+            showToast(title, text);
+          } else {
+            showInlineSuccess(form, title, text);
+          }
           // Reset only inputs — no page reload
           form.reset();
           // Clear any lingering error states
