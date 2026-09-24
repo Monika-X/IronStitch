@@ -2777,6 +2777,7 @@ section.bg-sand[aria-labelledby="more-posts"] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
+  align-items: stretch;
 }
 
 .blog-card {
@@ -2786,6 +2787,9 @@ section.bg-sand[aria-labelledby="more-posts"] {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(43, 33, 29, 0.07);
   transition: all var(--dur-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .blog-card:hover {
@@ -2798,6 +2802,7 @@ section.bg-sand[aria-labelledby="more-posts"] {
   height: 230px;
   overflow: hidden;
   background: var(--bg-alt);
+  flex-shrink: 0;
 }
 
 .blog-card__image img {
@@ -2809,7 +2814,7 @@ section.bg-sand[aria-labelledby="more-posts"] {
 
 .blog-card:hover .blog-card__image img { transform: scale(1.06); }
 
-.blog-card__body { padding: 1.65rem 1.75rem 1.75rem; }
+.blog-card__body { padding: 1.65rem 1.75rem 1.75rem; display: flex; flex-direction: column; flex: 1; }
 
 .blog-card .card__tag {
   display: inline-block;
@@ -2871,6 +2876,7 @@ section.bg-sand[aria-labelledby="more-posts"] {
   line-height: 1.65;
   margin-bottom: 1.25rem;
   font-weight: 400;
+  flex: 1;
 }
 
 .blog-card__link {
@@ -2884,6 +2890,8 @@ section.bg-sand[aria-labelledby="more-posts"] {
   gap: 0.45rem;
   text-decoration: none;
   transition: all var(--dur-fast);
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .blog-card__link svg {
@@ -3446,10 +3454,18 @@ section.bg-sand[aria-labelledby="more-posts"] {
 }
 
 @media (max-width: 1024px) {
-  .container { padding-inline: clamp(1.25rem, 3vw, 2.5rem); }
-  .navbar__nav { gap: 0.25rem; }
-  .navbar__nav a { padding: 0.45rem 0.65rem; font-size: 0.85rem; }
-  .navbar__cta { padding: 0.5rem 1.1rem; font-size: 0.82rem; }
+  .container { padding-inline: clamp(1rem, 2.5vw, 2rem); }
+  .navbar__inner { gap: 0.6rem; padding-inline: clamp(1rem, 2vw, 1.5rem); }
+  .navbar__logo { gap: 0.5rem; }
+  .navbar__logo-icon { width: 38px; height: 38px; }
+  .navbar__logo-name { font-size: 1.2rem; }
+  .navbar__logo-tagline { font-size: 0.56rem; letter-spacing: 0.16em; }
+  .navbar__nav { gap: 0.15rem; }
+  .navbar__nav > li > a { padding: 0.4rem 0.6rem; font-size: 0.82rem; letter-spacing: 0.03em; }
+  .navbar__actions { gap: 0.35rem; flex-shrink: 0; }
+  .icon-btn { width: 34px; height: 34px; font-size: 0.9rem; }
+  .navbar__login { padding: 0.45rem 0.85rem; font-size: 0.78rem; gap: 0.35rem; }
+  .navbar__cta { padding: 0.45rem 0.9rem; font-size: 0.78rem; }
   .split-layout { gap: 2.5rem; }
   .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
   .article-layout .sidebar-sticky { position: static; }
